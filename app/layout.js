@@ -1,4 +1,4 @@
-import './globals.css';
+import '../public/css/style.css';
 
 export const metadata = {
   title: 'Sarıyer Kent Konseyi',
