@@ -109,7 +109,7 @@ export default function Home() {
           <div className="slider">
             {slides.map((slide, index) => (
               <div className={`slide ${index === currentSlide ? 'active' : ''}`} key={index}>
-                <img className="hero-bg" src={slide.bg} alt={slide.alt} loading={index === 0 ? "eager" : "lazy"} fetchPriority={index === 0 ? "high" : undefined}/>
+                <img className="hero-bg" src={encodeURI(slide.bg)} alt={slide.alt} loading={index === 0 ? "eager" : "lazy"} fetchPriority={index === 0 ? "high" : undefined}/>
                 <div className="hero-overlay"/>
                 <div className="container hero-inner">
                   <div className="hero-content">
@@ -179,18 +179,18 @@ export default function Home() {
 
         <section className="section" style={{paddingTop:0}}>
           <div className="container">
-            <div className="idea-banner"><img src="https://placehold.co/1400x600/jpg?text=Söz+Sende+Sarıyer" alt="" loading="lazy"/><div className="idea-overlay"/><div className="idea-content"><p className="eyebrow light">SÖZ SENDE SARIYER</p><h2>Sarıyer için<br/>bir fikrin mi var?</h2><p>Fikrini, önerini ve projeni bizimle paylaş.</p><a className="btn btn-light" href="#katil">Fikrini Paylaş →</a></div></div>
+            <div className="idea-banner"><img src={`https://placehold.co/1400x600/jpg?text=${encodeURIComponent('Söz Sende Sarıyer')}`} alt="" loading="lazy"/><div className="idea-overlay"/><div className="idea-content"><p className="eyebrow light">SÖZ SENDE SARIYER</p><h2>Sarıyer için<br/>bir fikrin mi var?</h2><p>Fikrini, önerini ve projeni bizimle paylaş.</p><a className="btn btn-light" href="#katil">Fikrini Paylaş →</a></div></div>
           </div>
         </section>
 
         <section className="section" style={{paddingTop:0}} id="haberler">
           <div className="container">
             <div className="content-grid">
-              <article className="content-panel"><div className="panel-head"><h2>HABERLER</h2><a href="#">Tüm Haberler →</a></div><img className="featured-img" src="https://placehold.co/900x560/jpg?text=Haber" alt="" loading="lazy"/><span className="tag">DUYURU</span><h3>Sarıyer Kent Konseyi Genel Kurulu Gerçekleştirildi</h3><small>12 Mayıs 2024</small><p>Genel kurulumuz geniş katılımla tamamlandı. Yeni dönem çalışma programımız belirlendi.</p><a className="read-more" href="#">Devamını Oku →</a></article>
-              <article className="content-panel" id="etkinlikler"><div className="panel-head"><h2>ETKİNLİKLER</h2><a href="#">Tüm Etkinlikler →</a></div><div className="event-feature"><img src="https://placehold.co/900x420/jpg?text=Sürdürülebilir+Yaşam" alt="" loading="lazy"/><div className="event-text"><h3>Sarıyer’de Sürdürülebilir Yaşam Paneli</h3><p>14:00 - 17:00 · Sarıyer Kültür Merkezi</p><a className="btn btn-light" href="#" style={{padding:"0.5rem",fontSize:"0.7rem"}}>Detaylar →</a></div></div><div className="event-row"><b>01</b><span><strong>Çocuk Atölyesi: Doğa ile Sanat</strong><small>11:00 - 13:00 · Sarıyer Belediyesi Ek Hizmet Binası</small></span></div><div className="event-row"><b>08</b><span><strong>Kent Söyleşileri: Katılımcı Demokrasi</strong><small>14:00 - 16:00 · Sarıyer Kültür Merkezi</small></span></div></article>
+              <article className="content-panel"><div className="panel-head"><h2>HABERLER</h2><a href="#">Tüm Haberler →</a></div><img className="featured-img" src={`https://placehold.co/900x560/jpg?text=${encodeURIComponent('Haber')}`} alt="" loading="lazy"/><span className="tag">DUYURU</span><h3>Sarıyer Kent Konseyi Genel Kurulu Gerçekleştirildi</h3><small>12 Mayıs 2024</small><p>Genel kurulumuz geniş katılımla tamamlandı. Yeni dönem çalışma programımız belirlendi.</p><a className="read-more" href="#">Devamını Oku →</a></article>
+              <article className="content-panel" id="etkinlikler"><div className="panel-head"><h2>ETKİNLİKLER</h2><a href="#">Tüm Etkinlikler →</a></div><div className="event-feature"><img src={`https://placehold.co/900x420/jpg?text=${encodeURIComponent('Sürdürülebilir Yaşam')}`} alt="" loading="lazy"/><div className="event-text"><h3>Sarıyer’de Sürdürülebilir Yaşam Paneli</h3><p>14:00 - 17:00 · Sarıyer Kültür Merkezi</p><a className="btn btn-light" href="#" style={{padding:"0.5rem",fontSize:"0.7rem"}}>Detaylar →</a></div></div><div className="event-row"><b>01</b><span><strong>Çocuk Atölyesi: Doğa ile Sanat</strong><small>11:00 - 13:00 · Sarıyer Belediyesi Ek Hizmet Binası</small></span></div><div className="event-row"><b>08</b><span><strong>Kent Söyleşileri: Katılımcı Demokrasi</strong><small>14:00 - 16:00 · Sarıyer Kültür Merkezi</small></span></div></article>
               <article className="content-panel" id="raporlar"><div className="panel-head"><h2>RAPORLAR &amp; YAYINLAR</h2><a href="#">Tüm Yayınlar →</a></div>{["Sarıyer Kent Konseyi Faaliyet Raporu 2023","Çalışma Grupları Raporu 2024","Sarıyer Kent Vizyonu — Ortak Gelecek"].map(x=><a className="report-row" href="#" key={x}><span className="pdf-icon">PDF</span><span><strong>{x}</strong><small>PDF · 4.2 MB</small></span></a>)}</article>
             </div>
-            <div className="gallery-strip"><div className="panel-head"><h2>SARIYER'DEN KARELER</h2><a href="#">Tüm Galeri →</a></div><div className="gallery-grid">{Array.from({length:6},(_,i)=><img key={i} src={`https://placehold.co/500x500/jpg?text=Sarıyer+${i+1}`} alt="" loading="lazy"/>)}</div></div>
+            <div className="gallery-strip"><div className="panel-head"><h2>SARIYER'DEN KARELER</h2><a href="#">Tüm Galeri →</a></div><div className="gallery-grid">{Array.from({length:6},(_,i)=><img key={i} src={`https://placehold.co/500x500/jpg?text=${encodeURIComponent(`Sarıyer ${i+1}`)}`} alt="" loading="lazy"/>)}</div></div>
           </div>
         </section>
 
