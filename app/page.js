@@ -1,6 +1,6 @@
  "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const workAreas = [
   ["01","Çevre ve","Sürdürülebilirlik","Çevre"],
@@ -21,6 +21,64 @@ const councils = [
 export default function Home() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    {
+      eyebrow: "SARIYER KENT KONSEYİ",
+      title: "Birlikte Düşünüyor,<br/>Sarıyer'i Birlikte Geliştiriyoruz.",
+      lead: "Katılımcı demokrasi kültürüyle<br/>Sarıyer’in ortak akıl platformu.",
+      bg: "https://placehold.co/1920x720/jpg?text=Sarıyer+Bosphorus",
+      alt: "Sarıyer sahil görünümü"
+    },
+    {
+      eyebrow: "SÖZ SENDE SARIYER",
+      title: "Sarıyer için<br/>bir fikrin mi var?",
+      lead: "Fikrini, önerini ve projeni<br/>bizimle paylaş.",
+      bg: "https://placehold.co/1920x720/jpg?text=Söz+Sende+Sarıyer",
+      alt: "Sarıyer fikir platformu"
+    },
+    {
+      eyebrow: "GÜÇLÜ BİR SARİYER İÇİN",
+      title: "Birlikte Üretiyor,<br/>Birlikte Büyüyoruz.",
+      lead: "Ortak akılla kentimizin geleceğini<br/>şekillendiriyoruz.",
+      bg: "https://placehold.co/1920x720/jpg?text=Birlikte+Gelecek",
+      alt: "Birlikte gelecek"
+    }
+  ];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+    document.querySelectorAll(
+      ".section-heading, .content-panel, .event-row, .report-row"
+    ).forEach(el => observer.observe(el));
+
+    const processItems = document.querySelectorAll(".process-item");
+    processItems.forEach((el, index) => {
+      el.style.transitionDelay = `${index * 0.15}s`;
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide(prev => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
+  const goToSlide = (index) => setCurrentSlide(index);
+  const prevSlide = () => setCurrentSlide(prev => (prev - 1 + slides.length) % slides.length);
+  const nextSlide = () => setCurrentSlide(prev => (prev + 1) % slides.length);
 
   return (
     <>
@@ -32,10 +90,15 @@ export default function Home() {
             </a>
             <button className="nav-toggle" aria-label="Menüyü aç">☰</button>
             <div className="nav">
-              <a className="active" href="#">Anasayfa</a>
-              <a href="#">Kent Konseyi⌄</a><a href="#">Meclislerimiz⌄</a><a href="#">Çalışma Grupları⌄</a>
-              <a href="#haberler">Haberler</a><a href="#etkinlikler">Etkinlikler</a><a href="#raporlar">Raporlar &amp; Yayınlar</a>
-              <a href="#iletisim">İletişim</a><a href="#">⌕</a><a className="join" href="#katil">Bize Katılın →</a>
+              <a href="#">Kent Konseyi <i className="fa-solid fa-chevron-down nav-icon"/></a>
+              <a href="#">Meclislerimiz <i className="fa-solid fa-chevron-down nav-icon"/></a>
+              <a href="#">Çalışma Grupları <i className="fa-solid fa-chevron-down nav-icon"/></a>
+              <a href="#haberler">Haberler</a>
+              <a href="#etkinlikler">Etkinlikler</a>
+              <a href="#raporlar">Raporlar &amp; Yayınlar</a>
+              <a href="#iletisim">İletişim</a>
+              <a href="#"><i className="fa-solid fa-magnifying-glass nav-icon"/></a>
+              <a className="join" href="#katil">Bize Katılın →</a>
             </div>
           </div>
         </nav>
@@ -43,20 +106,40 @@ export default function Home() {
 
       <main>
         <section className="hero">
-          <img className="hero-bg" src="https://placehold.co/1920x720/jpg?text=Sarıyer+Bosphorus" alt="Sarıyer sahil görünümü"/>
-          <div className="hero-overlay"/>
-          <div className="container hero-inner">
-            <div className="hero-content">
-              <p className="eyebrow light">SARIYER KENT KONSEYİ</p>
-              <h1>Birlikte Düşünüyor,<br/>Sarıyer'i Birlikte Geliştiriyoruz.</h1>
-              <p className="hero-lead">Katılımcı demokrasi kültürüyle<br/>Sarıyer’in ortak akıl platformu.</p>
-              <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
-                <a className="btn btn-primary" href="#hakkimizda">Hakkımızda →</a>
-                <a className="btn btn-outline-light" href="#katil">Bize Katılın →</a>
+          <div className="slider">
+            {slides.map((slide, index) => (
+              <div className={`slide ${index === currentSlide ? 'active' : ''}`} key={index}>
+                <img className="hero-bg" src={slide.bg} alt={slide.alt} loading={index === 0 ? "eager" : "lazy"} fetchPriority={index === 0 ? "high" : undefined}/>
+                <div className="hero-overlay"/>
+                <div className="container hero-inner">
+                  <div className="hero-content">
+                    <p className="eyebrow light">{slide.eyebrow}</p>
+                    <h1 dangerouslySetInnerHTML={{ __html: slide.title }}/>
+                    <p className="hero-lead" dangerouslySetInnerHTML={{ __html: slide.lead }}/>
+                    <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
+                      <a className="btn btn-primary" href="#hakkimizda">Hakkımızda →</a>
+                      <a className="btn btn-outline-light" href="#katil">Bize Katılın →</a>
+                    </div>
+                  </div>
+                  <div className="hero-card">
+                    <strong>Birlikte<br/>Daha Güçlüyüz</strong>
+                    <p>Sarıyer’in geleceğini birlikte şekillendiriyoruz.</p>
+                    <span className="round-arrow">→</span>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="hero-card"><strong>Birlikte<br/>Daha Güçlüyüz</strong><p>Sarıyer’in geleceğini birlikte şekillendiriyoruz.</p><span className="round-arrow">→</span></div>
-            <div className="hero-dots"><span className="active"/><span/><span/></div>
+            ))}
+          </div>
+          <button className="slider-arrow prev" onClick={prevSlide} aria-label="Önceki">
+            <i className="fa-solid fa-chevron-left"/>
+          </button>
+          <button className="slider-arrow next" onClick={nextSlide} aria-label="Sonraki">
+            <i className="fa-solid fa-chevron-right"/>
+          </button>
+          <div className="hero-dots">
+            {slides.map((_, index) => (
+              <span key={index} className={index === currentSlide ? 'active' : ''} onClick={() => goToSlide(index)}/>
+            ))}
           </div>
         </section>
 
@@ -96,18 +179,18 @@ export default function Home() {
 
         <section className="section" style={{paddingTop:0}}>
           <div className="container">
-            <div className="idea-banner"><img src="https://placehold.co/1400x600/jpg?text=Söz+Sende+Sarıyer" alt=""/><div className="idea-overlay"/><div className="idea-content"><p className="eyebrow light">SÖZ SENDE SARIYER</p><h2>Sarıyer için<br/>bir fikrin mi var?</h2><p>Fikrini, önerini ve projeni bizimle paylaş.</p><a className="btn btn-light" href="#katil">Fikrini Paylaş →</a></div></div>
+            <div className="idea-banner"><img src="https://placehold.co/1400x600/jpg?text=Söz+Sende+Sarıyer" alt="" loading="lazy"/><div className="idea-overlay"/><div className="idea-content"><p className="eyebrow light">SÖZ SENDE SARIYER</p><h2>Sarıyer için<br/>bir fikrin mi var?</h2><p>Fikrini, önerini ve projeni bizimle paylaş.</p><a className="btn btn-light" href="#katil">Fikrini Paylaş →</a></div></div>
           </div>
         </section>
 
         <section className="section" style={{paddingTop:0}} id="haberler">
           <div className="container">
             <div className="content-grid">
-              <article className="content-panel"><div className="panel-head"><h2>HABERLER</h2><a href="#">Tüm Haberler →</a></div><img className="featured-img" src="https://placehold.co/900x560/jpg?text=Haber" alt=""/><span className="tag">DUYURU</span><h3>Sarıyer Kent Konseyi Genel Kurulu Gerçekleştirildi</h3><small>12 Mayıs 2024</small><p>Genel kurulumuz geniş katılımla tamamlandı. Yeni dönem çalışma programımız belirlendi.</p><a className="read-more" href="#">Devamını Oku →</a></article>
-              <article className="content-panel" id="etkinlikler"><div className="panel-head"><h2>ETKİNLİKLER</h2><a href="#">Tüm Etkinlikler →</a></div><div className="event-feature"><img src="https://placehold.co/900x420/jpg?text=Sürdürülebilir+Yaşam" alt=""/><div className="event-text"><h3>Sarıyer’de Sürdürülebilir Yaşam Paneli</h3><p>14:00 - 17:00 · Sarıyer Kültür Merkezi</p><a className="btn btn-light" href="#" style={{padding:"0.5rem",fontSize:"0.7rem"}}>Detaylar →</a></div></div><div className="event-row"><b>01</b><span><strong>Çocuk Atölyesi: Doğa ile Sanat</strong><small>11:00 - 13:00 · Sarıyer Belediyesi Ek Hizmet Binası</small></span></div><div className="event-row"><b>08</b><span><strong>Kent Söyleşileri: Katılımcı Demokrasi</strong><small>14:00 - 16:00 · Sarıyer Kültür Merkezi</small></span></div></article>
+              <article className="content-panel"><div className="panel-head"><h2>HABERLER</h2><a href="#">Tüm Haberler →</a></div><img className="featured-img" src="https://placehold.co/900x560/jpg?text=Haber" alt="" loading="lazy"/><span className="tag">DUYURU</span><h3>Sarıyer Kent Konseyi Genel Kurulu Gerçekleştirildi</h3><small>12 Mayıs 2024</small><p>Genel kurulumuz geniş katılımla tamamlandı. Yeni dönem çalışma programımız belirlendi.</p><a className="read-more" href="#">Devamını Oku →</a></article>
+              <article className="content-panel" id="etkinlikler"><div className="panel-head"><h2>ETKİNLİKLER</h2><a href="#">Tüm Etkinlikler →</a></div><div className="event-feature"><img src="https://placehold.co/900x420/jpg?text=Sürdürülebilir+Yaşam" alt="" loading="lazy"/><div className="event-text"><h3>Sarıyer’de Sürdürülebilir Yaşam Paneli</h3><p>14:00 - 17:00 · Sarıyer Kültür Merkezi</p><a className="btn btn-light" href="#" style={{padding:"0.5rem",fontSize:"0.7rem"}}>Detaylar →</a></div></div><div className="event-row"><b>01</b><span><strong>Çocuk Atölyesi: Doğa ile Sanat</strong><small>11:00 - 13:00 · Sarıyer Belediyesi Ek Hizmet Binası</small></span></div><div className="event-row"><b>08</b><span><strong>Kent Söyleşileri: Katılımcı Demokrasi</strong><small>14:00 - 16:00 · Sarıyer Kültür Merkezi</small></span></div></article>
               <article className="content-panel" id="raporlar"><div className="panel-head"><h2>RAPORLAR &amp; YAYINLAR</h2><a href="#">Tüm Yayınlar →</a></div>{["Sarıyer Kent Konseyi Faaliyet Raporu 2023","Çalışma Grupları Raporu 2024","Sarıyer Kent Vizyonu — Ortak Gelecek"].map(x=><a className="report-row" href="#" key={x}><span className="pdf-icon">PDF</span><span><strong>{x}</strong><small>PDF · 4.2 MB</small></span></a>)}</article>
             </div>
-            <div className="gallery-strip"><div className="panel-head"><h2>SARIYER'DEN KARELER</h2><a href="#">Tüm Galeri →</a></div><div className="gallery-grid">{Array.from({length:6},(_,i)=><img key={i} src={`https://placehold.co/500x500/jpg?text=Sarıyer+${i+1}`} alt=""/>)}</div></div>
+            <div className="gallery-strip"><div className="panel-head"><h2>SARIYER'DEN KARELER</h2><a href="#">Tüm Galeri →</a></div><div className="gallery-grid">{Array.from({length:6},(_,i)=><img key={i} src={`https://placehold.co/500x500/jpg?text=Sarıyer+${i+1}`} alt="" loading="lazy"/>)}</div></div>
           </div>
         </section>
 
