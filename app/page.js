@@ -3,19 +3,22 @@
 import { useState, useEffect } from "react";
 
 const workAreas = [
-  ["01","Çevre ve","Sürdürülebilirlik","Çevre"],
-  ["02","Eğitim ve","Gençlik","Eğitim"],
-  ["03","Sağlık ve","Sosyal Hizmetler","Sağlık"],
-  ["04","Kültür ve","Sanat","Kültür"],
-  ["05","Kentleşme ve","Planlama","Kentleşme"],
-  ["06","Ekonomi ve","İstihdam","Ekonomi"],
-  ["07","Engelli ve","Erişilebilirlik","Erişilebilirlik"],
-  ["08","Çocuk ve","Aile","Çocuk ve Aile"],
+  ["01","Çevre ve","Sürdürülebilirlik","https://images.pexels.com/photos/30748783/pexels-photo-30748783.jpeg?auto=compress&cs=tinysrgb&w=800"],
+  ["02","Eğitim ve","Gençlik","https://images.pexels.com/photos/31864453/pexels-photo-31864453.jpeg?auto=compress&cs=tinysrgb&w=800"],
+  ["03","Sağlık ve","Sosyal Hizmetler","https://images.pexels.com/photos/127873/pexels-photo-127873.jpeg?auto=compress&cs=tinysrgb&w=800"],
+  ["04","Kültür ve","Sanat","https://images.pexels.com/photos/8409286/pexels-photo-8409286.jpeg?auto=compress&cs=tinysrgb&w=800"],
+  ["05","Kentleşme ve","Planlama","https://images.pexels.com/photos/14187552/pexels-photo-14187552.jpeg?auto=compress&cs=tinysrgb&w=800"],
+  ["06","Ekonomi ve","İstihdam","https://images.pexels.com/photos/11267632/pexels-photo-11267632.jpeg?auto=compress&cs=tinysrgb&w=800"],
+  ["07","Engelli ve","Erişilebilirlik","https://images.pexels.com/photos/8415586/pexels-photo-8415586.jpeg?auto=compress&cs=tinysrgb&w=800"],
+  ["08","Çocuk ve","Aile","https://images.pexels.com/photos/8944248/pexels-photo-8944248.jpeg?auto=compress&cs=tinysrgb&w=800"],
 ];
 
 const councils = [
-  ["Gençlik","Meclisi"],["Kadın","Meclisi"],["Çocuk","Meclisi"],
-  ["Engelli","Meclisi"],["Yaşlılar","Meclisi"]
+  ["Gençlik","Meclisi","https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&w=520"],
+  ["Kadın","Meclisi","https://images.pexels.com/photos/601170/pexels-photo-601170.jpeg?auto=compress&cs=tinysrgb&w=520"],
+  ["Çocuk","Meclisi","https://images.pexels.com/photos/25748912/pexels-photo-25748912.jpeg?auto=compress&cs=tinysrgb&w=520"],
+  ["Engelli","Meclisi","https://images.pexels.com/photos/2245218/pexels-photo-2245218.jpeg?auto=compress&cs=tinysrgb&w=520"],
+  ["Yaşlılar","Meclisi","https://images.pexels.com/photos/12085752/pexels-photo-12085752.jpeg?auto=compress&cs=tinysrgb&w=520"]
 ];
 
 export default function Home() {
@@ -28,23 +31,16 @@ export default function Home() {
       eyebrow: "SARIYER KENT KONSEYİ",
       title: "Birlikte Düşünüyor,<br/>Sarıyer'i Birlikte Geliştiriyoruz.",
       lead: "Katılımcı demokrasi kültürüyle<br/>Sarıyer’in ortak akıl platformu.",
-      bg: "https://placehold.co/1920x720/jpg?text=Sarıyer+Bosphorus",
+      bg: "https://images.pexels.com/photos/29231327/pexels-photo-29231327.jpeg?auto=compress&cs=tinysrgb&w=1920",
       alt: "Sarıyer sahil görünümü"
     },
     {
       eyebrow: "SÖZ SENDE SARIYER",
       title: "Sarıyer için<br/>bir fikrin mi var?",
       lead: "Fikrini, önerini ve projeni<br/>bizimle paylaş.",
-      bg: "https://placehold.co/1920x720/jpg?text=Söz+Sende+Sarıyer",
+      bg: "https://images.pexels.com/photos/38359478/pexels-photo-38359478.jpeg?auto=compress&cs=tinysrgb&w=1920",
       alt: "Sarıyer fikir platformu"
     },
-    {
-      eyebrow: "GÜÇLÜ BİR SARİYER İÇİN",
-      title: "Birlikte Üretiyor,<br/>Birlikte Büyüyoruz.",
-      lead: "Ortak akılla kentimizin geleceğini<br/>şekillendiriyoruz.",
-      bg: "https://placehold.co/1920x720/jpg?text=Birlikte+Gelecek",
-      alt: "Birlikte gelecek"
-    }
   ];
 
   useEffect(() => {
@@ -56,13 +52,55 @@ export default function Home() {
       });
     }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
 
-    document.querySelectorAll(
-      ".section-heading, .content-panel, .event-row, .report-row"
-    ).forEach(el => observer.observe(el));
+    document.querySelectorAll(".section-heading").forEach(el => observer.observe(el));
+
+    document.querySelectorAll(".content-panel").forEach((el, index) => {
+      el.style.transitionDelay = `${index * 0.1}s`;
+      observer.observe(el);
+    });
+
+    const eventRows = document.querySelectorAll(".event-row");
+    eventRows.forEach((el, index) => {
+      el.style.transitionDelay = `${index * 0.1}s`;
+      observer.observe(el);
+    });
+
+    const reportRows = document.querySelectorAll(".report-row");
+    reportRows.forEach((el, index) => {
+      el.style.transitionDelay = `${index * 0.1}s`;
+      observer.observe(el);
+    });
+
+    const newsRows = document.querySelectorAll(".news-row");
+    newsRows.forEach((el, index) => {
+      el.style.transitionDelay = `${index * 0.1}s`;
+      observer.observe(el);
+    });
 
     const processItems = document.querySelectorAll(".process-item");
     processItems.forEach((el, index) => {
       el.style.transitionDelay = `${index * 0.15}s`;
+      observer.observe(el);
+    });
+
+    const imageCards = document.querySelectorAll(".work-grid .image-card");
+    imageCards.forEach((el, index) => {
+      el.style.transitionDelay = `${index * 0.1}s`;
+      observer.observe(el);
+    });
+
+    const councilCards = document.querySelectorAll(".council-grid .council-card");
+    councilCards.forEach((el, index) => {
+      el.style.transitionDelay = `${index * 0.1}s`;
+      observer.observe(el);
+    });
+
+    const ideaContent = document.querySelector(".idea-content");
+    if (ideaContent) observer.observe(ideaContent);
+
+    const galleryItems = document.querySelectorAll(".gallery-grid .gallery-item");
+    galleryItems.forEach((el, index) => {
+      el.style.transitionDelay = `${index * 0.1}s`;
       observer.observe(el);
     });
 
@@ -147,11 +185,11 @@ export default function Home() {
           <div className="container">
             <div className="section-heading">
               <div><p className="eyebrow">HİZMET ALANLARIMIZ</p><h2>Çalışma Alanlarımız</h2></div>
-              <p className="section-intro">Kentimizin yaşam kalitesini artırmak için birçok alanda ortak akılla çözüm üretmeye devam ediyoruz.</p>
+              <small className="section-intro">Kentimizin yaşam kalitesini artırmak için birçok alanda ortak akılla çözüm üretmeye devam ediyoruz.</small>
               <a className="text-link" href="#">Tüm Alanlar →</a>
             </div>
             <div className="work-grid">
-              {workAreas.map(([n,a,b,img]) => <a className="image-card" href="#" key={n}><img src={`https://placehold.co/800x520/jpg?text=${encodeURIComponent(img)}`} alt=""/><div><span>{n}</span><h3>{a}<br/>{b}</h3></div></a>)}
+              {workAreas.map(([n,a,b,img]) => <a className="image-card" href="#" key={n}><img src={img} alt=""/><div><span>{n}</span><h3>{a}<br/>{b}</h3></div></a>)}
             </div>
           </div>
         </section>
@@ -160,7 +198,7 @@ export default function Home() {
           <div className="container">
             <div className="section-heading"><div><p className="eyebrow">MECLİSLERİMİZ</p><h2>Güçlü Bir Sarıyer İçin Birlikteyiz</h2></div><a className="text-link" href="#">Tüm Meclisler →</a></div>
             <div className="council-grid">
-              {councils.map(([a,b],i)=><a className="council-card" href="#" key={a}><img src={`https://placehold.co/520x420/jpg?text=${encodeURIComponent(a)}`} alt=""/><strong>{a}<br/>{b}</strong></a>)}
+              {councils.map(([a,b,img],i)=><a className="council-card" href="#" key={a}><img src={img} alt=""/><strong>{a}<br/>{b}</strong></a>)}
               <a className="council-card other" href="#"><strong>Diğer Meclisler</strong><span>→</span></a>
             </div>
           </div>
@@ -179,18 +217,18 @@ export default function Home() {
 
         <section className="section" style={{paddingTop:0}}>
           <div className="container">
-            <div className="idea-banner"><img src={`https://placehold.co/1400x600/jpg?text=${encodeURIComponent('Söz Sende Sarıyer')}`} alt="" loading="lazy"/><div className="idea-overlay"/><div className="idea-content"><p className="eyebrow light">SÖZ SENDE SARIYER</p><h2>Sarıyer için<br/>bir fikrin mi var?</h2><p>Fikrini, önerini ve projeni bizimle paylaş.</p><a className="btn btn-light" href="#katil">Fikrini Paylaş →</a></div></div>
+            <div className="idea-banner"><img src="https://images.pexels.com/photos/25596066/pexels-photo-25596066.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="" loading="lazy"/><div className="idea-overlay"/><div className="idea-content"><p className="eyebrow light">SÖZ SENDE SARIYER</p><h2>Sarıyer için<br/>bir fikrin mi var?</h2><p>Fikrini, önerini ve projeni bizimle paylaş.</p><a className="btn btn-light" href="#katil">Fikrini Paylaş →</a></div></div>
           </div>
         </section>
 
         <section className="section" style={{paddingTop:0}} id="haberler">
           <div className="container">
             <div className="content-grid">
-              <article className="content-panel"><div className="panel-head"><h2>HABERLER</h2><a href="#">Tüm Haberler →</a></div><img className="featured-img" src={`https://placehold.co/900x560/jpg?text=${encodeURIComponent('Haber')}`} alt="" loading="lazy"/><span className="tag">DUYURU</span><h3>Sarıyer Kent Konseyi Genel Kurulu Gerçekleştirildi</h3><small>12 Mayıs 2024</small><p>Genel kurulumuz geniş katılımla tamamlandı. Yeni dönem çalışma programımız belirlendi.</p><a className="read-more" href="#">Devamını Oku →</a></article>
-              <article className="content-panel" id="etkinlikler"><div className="panel-head"><h2>ETKİNLİKLER</h2><a href="#">Tüm Etkinlikler →</a></div><div className="event-feature"><img src={`https://placehold.co/900x420/jpg?text=${encodeURIComponent('Sürdürülebilir Yaşam')}`} alt="" loading="lazy"/><div className="event-text"><h3>Sarıyer’de Sürdürülebilir Yaşam Paneli</h3><p>14:00 - 17:00 · Sarıyer Kültür Merkezi</p><a className="btn btn-light" href="#" style={{padding:"0.5rem",fontSize:"0.7rem"}}>Detaylar →</a></div></div><div className="event-row"><b>01</b><span><strong>Çocuk Atölyesi: Doğa ile Sanat</strong><small>11:00 - 13:00 · Sarıyer Belediyesi Ek Hizmet Binası</small></span></div><div className="event-row"><b>08</b><span><strong>Kent Söyleşileri: Katılımcı Demokrasi</strong><small>14:00 - 16:00 · Sarıyer Kültür Merkezi</small></span></div></article>
-              <article className="content-panel" id="raporlar"><div className="panel-head"><h2>RAPORLAR &amp; YAYINLAR</h2><a href="#">Tüm Yayınlar →</a></div>{["Sarıyer Kent Konseyi Faaliyet Raporu 2023","Çalışma Grupları Raporu 2024","Sarıyer Kent Vizyonu — Ortak Gelecek"].map(x=><a className="report-row" href="#" key={x}><span className="pdf-icon">PDF</span><span><strong>{x}</strong><small>PDF · 4.2 MB</small></span></a>)}</article>
+              <article className="content-panel"><div className="panel-head"><h2>HABERLER</h2><a href="#">Tüm Haberler →</a></div><div className="news-feature"><img className="featured-img" src="https://images.pexels.com/photos/12127176/pexels-photo-12127176.jpeg?auto=compress&cs=tinysrgb&w=900" alt="" loading="lazy"/><div className="news-text"><span className="tag">DUYURU</span><h3>Sarıyer Kent Konseyi Genel Kurulu Gerçekleştirildi</h3><small>12 Mayıs 2024</small><p>Genel kurulumuz geniş katılımla tamamlandı. Yeni dönem çalışma programımız belirlendi.</p><a className="read-more" href="#">Devamını Oku →</a></div></div><div className="news-row"><b>02</b><span><strong>Sürdürülebilir Yaşam Paneli Tamamlandı</strong><small>8 Mayıs 2024 · Haber</small></span></div><div className="news-row"><b>03</b><span><strong>Kent Gençliği Proje Yarışması Başladı</strong><small>3 Mayıs 2024 · Etkinlik</small></span></div><div className="news-row"><b>04</b><span><strong>Çocuk Hakları Sempozyumu</strong><small>28 Nisan 2024 · Duyuru</small></span></div></article>
+              <article className="content-panel" id="etkinlikler"><div className="panel-head"><h2>ETKİNLİKLER</h2><a href="#">Tüm Etkinlikler →</a></div><div className="event-feature"><img src="https://images.pexels.com/photos/32401052/pexels-photo-32401052.jpeg?auto=compress&cs=tinysrgb&w=900" alt="" loading="lazy"/><div className="event-text"><h3>Sarıyer’de Sürdürülebilir Yaşam Paneli</h3><p>14:00 - 17:00 · Sarıyer Kültür Merkezi</p><a className="btn btn-light" href="#" style={{padding:"0.5rem",fontSize:"0.7rem"}}>Detaylar →</a></div></div><div className="event-row"><b>01</b><span><strong>Çocuk Atölyesi: Doğa ile Sanat</strong><small>11:00 - 13:00 · Sarıyer Belediyesi Ek Hizmet Binası</small></span></div><div className="event-row"><b>02</b><span><strong>Gençlik Atölyesi: Fotoğraf ve Video</strong><small>10:00 - 12:00 · Sarıyer Gençlik Merkezi</small></span></div><div className="event-row"><b>03</b><span><strong>Kadın Dayanışması: Sağlık ve Spor</strong><small>13:00 - 15:00 · Sarıyer Spor Salonu</small></span></div><div className="event-row"><b>04</b><span><strong>Kent Söyleşileri: Katılımcı Demokrasi</strong><small>14:00 - 16:00 · Sarıyer Kültür Merkezi</small></span></div></article>
+              <article className="content-panel" id="raporlar"><div className="panel-head"><h2>RAPORLAR &amp; YAYINLAR</h2><a href="#">Tüm Yayınlar →</a></div>{["Sarıyer Kent Konseyi Faaliyet Raporu 2023","Sarıyer Kent Konseyi Faaliyet Raporu 2022","Çalışma Grupları Raporu 2024","Çalışma Grupları Değerlendirme Raporu 2024","Sarıyer Kent Vizyonu — Ortak Gelecek","Sarıyer Kent Konseyi Stratejik Plan 2025-2030"].map(x=><a className="report-row" href="#" key={x}><span className="pdf-icon">PDF</span><span><strong>{x}</strong><small>PDF · 4.2 MB</small></span></a>)}</article>
             </div>
-            <div className="gallery-strip"><div className="panel-head"><h2>SARIYER'DEN KARELER</h2><a href="#">Tüm Galeri →</a></div><div className="gallery-grid">{Array.from({length:6},(_,i)=><img key={i} src={`https://placehold.co/500x500/jpg?text=${encodeURIComponent(`Sarıyer ${i+1}`)}`} alt="" loading="lazy"/>)}</div></div>
+            <div className="gallery-strip"><div className="panel-head"><h2>SARIYER'DEN KARELER</h2><a href="#">Tüm Galeri →</a></div><div className="gallery-grid">{["https://images.pexels.com/photos/12127176/pexels-photo-12127176.jpeg?auto=compress&cs=tinysrgb&w=500","https://images.pexels.com/photos/28579551/pexels-photo-28579551.jpeg?auto=compress&cs=tinysrgb&w=500","https://images.pexels.com/photos/30748783/pexels-photo-30748783.jpeg?auto=compress&cs=tinysrgb&w=500","https://images.pexels.com/photos/32401052/pexels-photo-32401052.jpeg?auto=compress&cs=tinysrgb&w=500","https://images.pexels.com/photos/26844076/pexels-photo-26844076.jpeg?auto=compress&cs=tinysrgb&w=500","https://images.pexels.com/photos/11267632/pexels-photo-11267632.jpeg?auto=compress&cs=tinysrgb&w=500"].map((src,i)=><div className="gallery-item" key={i}><img src={src} alt="" loading="lazy"/></div>)}</div></div>
           </div>
         </section>
 
