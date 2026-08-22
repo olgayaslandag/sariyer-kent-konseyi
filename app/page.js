@@ -54,6 +54,12 @@ export default function Home() {
 
     document.querySelectorAll(".section-heading").forEach(el => observer.observe(el));
 
+    const processItems = document.querySelectorAll(".process-item");
+    processItems.forEach((el, index) => {
+      el.style.transitionDelay = `${index * 0.15}s`;
+      observer.observe(el);
+    });
+
     document.querySelectorAll(".content-panel").forEach((el, index) => {
       el.style.transitionDelay = `${index * 0.1}s`;
       observer.observe(el);
@@ -74,12 +80,6 @@ export default function Home() {
     const newsRows = document.querySelectorAll(".news-row");
     newsRows.forEach((el, index) => {
       el.style.transitionDelay = `${index * 0.1}s`;
-      observer.observe(el);
-    });
-
-    const processItems = document.querySelectorAll(".process-item");
-    processItems.forEach((el, index) => {
-      el.style.transitionDelay = `${index * 0.15}s`;
       observer.observe(el);
     });
 
@@ -104,7 +104,43 @@ export default function Home() {
       observer.observe(el);
     });
 
-    return () => observer.disconnect();
+    const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener("click", (e) => {
+        e.preventDefault();
+        const dropdown = toggle.nextElementSibling;
+        const isOpen = dropdown.classList.contains("open");
+        document.querySelectorAll(".dropdown-menu").forEach(menu => menu.classList.remove("open"));
+        document.querySelectorAll(".nav-item").forEach(item => item.classList.remove("open"));
+        if (!isOpen) {
+          dropdown.classList.add("open");
+          toggle.closest(".nav-item").classList.add("open");
+        }
+      });
+    });
+
+    const handleClickOutside = (e) => {
+      if (!e.target.closest(".nav-item")) {
+        document.querySelectorAll(".dropdown-menu").forEach(menu => menu.classList.remove("open"));
+        document.querySelectorAll(".nav-item").forEach(item => item.classList.remove("open"));
+      }
+    };
+
+    const handleEscape = (e) => {
+      if (e.key === "Escape") {
+        document.querySelectorAll(".dropdown-menu").forEach(menu => menu.classList.remove("open"));
+        document.querySelectorAll(".nav-item").forEach(item => item.classList.remove("open"));
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("click", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
+    };
   }, []);
 
   useEffect(() => {
@@ -128,9 +164,18 @@ export default function Home() {
             </a>
             <button className="nav-toggle" aria-label="Menüyü aç">☰</button>
             <div className="nav">
-              <a href="#">Kent Konseyi <i className="fa-solid fa-chevron-down nav-icon"/></a>
-              <a href="#">Meclislerimiz <i className="fa-solid fa-chevron-down nav-icon"/></a>
-              <a href="#">Çalışma Grupları <i className="fa-solid fa-chevron-down nav-icon"/></a>
+              <div className="nav-item">
+                <a href="#" className="dropdown-toggle">Kent Konseyi <i className="fa-solid fa-chevron-down nav-icon"/></a>
+                <div className="dropdown-menu"><a href="#">Hakkımızda</a><a href="#">Vizyon & Misyon</a><a href="#">Yönetim</a><a href="#">Yönetmelik</a></div>
+              </div>
+              <div className="nav-item">
+                <a href="#" className="dropdown-toggle">Meclislerimiz <i className="fa-solid fa-chevron-down nav-icon"/></a>
+                <div className="dropdown-menu"><a href="#">Gençlik Meclisi</a><a href="#">Kadın Meclisi</a><a href="#">Çocuk Meclisi</a><a href="#">Engelli Meclisi</a><a href="#">Yaşlılar Meclisi</a></div>
+              </div>
+              <div className="nav-item">
+                <a href="#" className="dropdown-toggle">Çalışma Grupları <i className="fa-solid fa-chevron-down nav-icon"/></a>
+                <div className="dropdown-menu"><a href="#">Çevre ve Sürdürülebilirlik</a><a href="#">Eğitim ve Gençlik</a><a href="#">Sağlık ve Sosyal Hizmetler</a><a href="#">Kültür ve Sanat</a><a href="#">Kentleşme ve Planlama</a><a href="#">Ekonomi ve İstihdam</a></div>
+              </div>
               <a href="#haberler">Haberler</a>
               <a href="#etkinlikler">Etkinlikler</a>
               <a href="#raporlar">Raporlar &amp; Yayınlar</a>
