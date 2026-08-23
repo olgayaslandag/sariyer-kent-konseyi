@@ -1,0 +1,25 @@
+"use client";
+
+export default function PageHeader({ eyebrow, title, breadcrumbs, bgImage }) {
+  return (
+    <div
+      className={`page-header${bgImage ? " page-header-bg" : ""}`}
+      style={bgImage ? { backgroundImage: `url(${bgImage})` } : undefined}
+    >
+      <div className="container">
+        <nav className="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/">Ana Sayfa</a></li>
+            {breadcrumbs.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ol>
+        </nav>
+        <div className="page-header-content">
+          {eyebrow && <p className="eyebrow light">{eyebrow}</p>}
+          <h1>{title}</h1>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function Navbar({
   isMobileMenuOpen,
@@ -48,9 +49,9 @@ export default function Navbar({
     <header className="site-header">
       <nav className="navbar">
         <div className="container nav-inner">
-          <a className="brand" href="#">
+          <Link className="brand" href="/">
             <img className="brand-img" src="/img/logo.png" alt="Sarıyer Kent Konseyi" />
-          </a>
+          </Link>
           <button
             className="nav-toggle"
             aria-label="Menüyü aç"
@@ -82,10 +83,10 @@ export default function Navbar({
                   openDropdown === "kent-konseyi" ? " active" : ""
                 }`}
               >
-                <a href="#" className="dropdown-item">Hakkımızda</a>
-                <a href="#" className="dropdown-item">Vizyon & Misyon</a>
-                <a href="#" className="dropdown-item">Yönetim</a>
-                <a href="#" className="dropdown-item">Yönetmelik</a>
+                <Link href="/hakkimizda" className="dropdown-item">Hakkımızda</Link>
+                <Link href="/vizyon-misyon" className="dropdown-item">Vizyon & Misyon</Link>
+                <Link href="/yonetim" className="dropdown-item">Yönetim</Link>
+                <Link href="/yonetmelik" className="dropdown-item">Yönetmelik</Link>
               </div>
             </div>
             <div className="nav-item">
@@ -101,11 +102,11 @@ export default function Navbar({
                   openDropdown === "meclisler" ? " active" : ""
                 }`}
               >
-                <a href="#" className="dropdown-item">Gençlik Meclisi</a>
-                <a href="#" className="dropdown-item">Kadın Meclisi</a>
-                <a href="#" className="dropdown-item">Çocuk Meclisi</a>
-                <a href="#" className="dropdown-item">Engelli Meclisi</a>
-                <a href="#" className="dropdown-item">Yaşlılar Meclisi</a>
+                <Link href="/meclisler/genclik" className="dropdown-item">Gençlik Meclisi</Link>
+                <Link href="/meclisler/kadin" className="dropdown-item">Kadın Meclisi</Link>
+                <Link href="/meclisler/cocuk" className="dropdown-item">Çocuk Meclisi</Link>
+                <Link href="/meclisler/engelli" className="dropdown-item">Engelli Meclisi</Link>
+                <Link href="/meclisler/yasli" className="dropdown-item">Yaşlılar Meclisi</Link>
               </div>
             </div>
             <div className="nav-item">
@@ -121,22 +122,22 @@ export default function Navbar({
                   openDropdown === "calisma-gruplari" ? " active" : ""
                 }`}
               >
-                <a href="#" className="dropdown-item">Çevre ve Sürdürülebilirlik</a>
-                <a href="#" className="dropdown-item">Eğitim ve Gençlik</a>
-                <a href="#" className="dropdown-item">Sağlık ve Sosyal Hizmetler</a>
-                <a href="#" className="dropdown-item">Kültür ve Sanat</a>
-                <a href="#" className="dropdown-item">Kentleşme ve Planlama</a>
-                <a href="#" className="dropdown-item">Ekonomi ve İstihdam</a>
+                <Link href="/calisma-gruplari/cevre" className="dropdown-item">Çevre ve Sürdürülebilirlik</Link>
+                <Link href="/calisma-gruplari/egitim" className="dropdown-item">Eğitim ve Gençlik</Link>
+                <Link href="/calisma-gruplari/saglik" className="dropdown-item">Sağlık ve Sosyal Hizmetler</Link>
+                <Link href="/calisma-gruplari/kultur" className="dropdown-item">Kültür ve Sanat</Link>
+                <Link href="/calisma-gruplari/kentlesme" className="dropdown-item">Kentleşme ve Planlama</Link>
+                <Link href="/calisma-gruplari/ekonomi" className="dropdown-item">Ekonomi ve İstihdam</Link>
               </div>
             </div>
-            <a href="#haberler" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Haberler</a>
-            <a href="#etkinlikler" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Etkinlikler</a>
-            <a href="#raporlar" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Raporlar &amp; Yayınlar</a>
-            <a href="#iletisim" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>İletişim</a>
-            <a href="#" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+            <Link href="/haberler" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Haberler</Link>
+            <Link href="/etkinlikler" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Etkinlikler</Link>
+            <Link href="/raporlar" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Raporlar &amp; Yayınlar</Link>
+            <Link href="/iletisim" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>İletişim</Link>
+            <Link href="/haberler" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>
               <i className="fa-solid fa-magnifying-glass nav-icon" />
-            </a>
-            <a className="nav-link join" href="#katil" onClick={() => setIsMobileMenuOpen(false)}>Bize Katılın →</a>
+            </Link>
+            <Link className="nav-link join" href="/iletisim" onClick={() => setIsMobileMenuOpen(false)}>Bize Katılın →</Link>
           </div>
         </div>
       </nav>

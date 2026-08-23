@@ -52,8 +52,8 @@ export default function Hero() {
                 <h1 dangerouslySetInnerHTML={{ __html: slide.title }} />
                 <p className="hero-lead" dangerouslySetInnerHTML={{ __html: slide.lead }} />
                 <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                  <a className="btn btn-primary" href="#hakkimizda">Hakkımızda →</a>
-                  <a className="btn btn-outline-light" href="#katil">Bize Katılın →</a>
+                  <a className="btn btn-primary" href="/hakkimizda">Hakkımızda →</a>
+                  <a className="btn btn-outline-light" href="/iletisim">Bize Katılın →</a>
                 </div>
               </div>
               <div className="hero-card">

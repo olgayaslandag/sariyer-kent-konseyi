@@ -10,10 +10,10 @@ export default function Councils() {
   return (
     <section className="section" style={{paddingTop:12}}>
       <div className="container">
-        <div className="section-heading"><div><p className="eyebrow">MECLİSLERİMİZ</p><h2>Güçlü Bir Sarıyer İçin Birlikteyiz</h2></div><a className="text-link" href="#">Tüm Meclisler →</a></div>
+        <div className="section-heading"><div><p className="eyebrow">MECLİSLERİMİZ</p><h2>Güçlü Bir Sarıyer İçin Birlikteyiz</h2></div><a className="text-link" href="/meclisler">Tüm Meclisler →</a></div>
         <div className="council-grid">
-          {councils.map(([a,b,img],i)=><a className="council-card" href="#" key={a}><img src={img} alt=""/><strong>{a}<br/>{b}</strong></a>)}
-          <a className="council-card other" href="#"><strong>Diğer Meclisler</strong><span>→</span></a>
+          {councils.map(([a,b,img],i)=><a className="council-card" href="/meclisler" key={a}><img src={img} alt=""/><strong>{a}<br/>{b}</strong></a>)}
+          <a className="council-card other" href="/meclisler"><strong>Diğer Meclisler</strong><span>→</span></a>
         </div>
       </div>
     </section>

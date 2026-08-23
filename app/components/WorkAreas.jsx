@@ -16,10 +16,10 @@ export default function WorkAreas() {
         <div className="section-heading">
           <div><p className="eyebrow">HİZMET ALANLARIMIZ</p><h2>Çalışma Alanlarımız</h2></div>
           <small className="section-intro">Kentimizin yaşam kalitesini artırmak için birçok alanda ortak akılla çözüm üretmeye devam ediyoruz.</small>
-          <a className="text-link" href="#">Tüm Alanlar →</a>
+          <a className="text-link" href="/calisma-gruplari">Tüm Alanlar →</a>
         </div>
         <div className="work-grid">
-          {workAreas.map(([n,a,b,img]) => <a className="image-card" href="#" key={n}><img src={img} alt=""/><div><span>{n}</span><h3>{a}<br/>{b}</h3></div></a>)}
+          {workAreas.map(([n,a,b,img]) => <a className="image-card" href="/calisma-gruplari" key={n}><img src={img} alt=""/><div><span>{n}</span><h3>{a}<br/>{b}</h3></div></a>)}
         </div>
       </div>
     </section>
