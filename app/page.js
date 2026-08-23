@@ -25,6 +25,14 @@ export default function Home() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleDropdown = (key) => (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setOpenDropdown(prev => prev === key ? null : key);
+  };
 
   const slides = [
     {
@@ -108,28 +116,19 @@ export default function Home() {
     dropdownToggles.forEach(toggle => {
       toggle.addEventListener("click", (e) => {
         e.preventDefault();
-        const dropdown = toggle.nextElementSibling;
-        const isOpen = dropdown.classList.contains("open");
-        document.querySelectorAll(".dropdown-menu").forEach(menu => menu.classList.remove("open"));
-        document.querySelectorAll(".nav-item").forEach(item => item.classList.remove("open"));
-        if (!isOpen) {
-          dropdown.classList.add("open");
-          toggle.closest(".nav-item").classList.add("open");
-        }
       });
     });
 
     const handleClickOutside = (e) => {
       if (!e.target.closest(".nav-item")) {
-        document.querySelectorAll(".dropdown-menu").forEach(menu => menu.classList.remove("open"));
-        document.querySelectorAll(".nav-item").forEach(item => item.classList.remove("open"));
+        setOpenDropdown(null);
       }
     };
 
     const handleEscape = (e) => {
       if (e.key === "Escape") {
-        document.querySelectorAll(".dropdown-menu").forEach(menu => menu.classList.remove("open"));
-        document.querySelectorAll(".nav-item").forEach(item => item.classList.remove("open"));
+        setOpenDropdown(null);
+        setIsMobileMenuOpen(false);
       }
     };
 
@@ -162,27 +161,28 @@ export default function Home() {
             <a className="brand" href="#">
               <img className="brand-img" src="/img/logo.png" alt="Sarıyer Kent Konseyi"/>
             </a>
-            <button className="nav-toggle" aria-label="Menüyü aç">☰</button>
-            <div className="nav">
-              <div className="nav-item">
-                <a href="#" className="dropdown-toggle">Kent Konseyi <i className="fa-solid fa-chevron-down nav-icon"/></a>
-                <div className="dropdown-menu"><a href="#">Hakkımızda</a><a href="#">Vizyon & Misyon</a><a href="#">Yönetim</a><a href="#">Yönetmelik</a></div>
-              </div>
-              <div className="nav-item">
-                <a href="#" className="dropdown-toggle">Meclislerimiz <i className="fa-solid fa-chevron-down nav-icon"/></a>
-                <div className="dropdown-menu"><a href="#">Gençlik Meclisi</a><a href="#">Kadın Meclisi</a><a href="#">Çocuk Meclisi</a><a href="#">Engelli Meclisi</a><a href="#">Yaşlılar Meclisi</a></div>
-              </div>
-              <div className="nav-item">
-                <a href="#" className="dropdown-toggle">Çalışma Grupları <i className="fa-solid fa-chevron-down nav-icon"/></a>
-                <div className="dropdown-menu"><a href="#">Çevre ve Sürdürülebilirlik</a><a href="#">Eğitim ve Gençlik</a><a href="#">Sağlık ve Sosyal Hizmetler</a><a href="#">Kültür ve Sanat</a><a href="#">Kentleşme ve Planlama</a><a href="#">Ekonomi ve İstihdam</a></div>
-              </div>
-              <a href="#haberler">Haberler</a>
-              <a href="#etkinlikler">Etkinlikler</a>
-              <a href="#raporlar">Raporlar &amp; Yayınlar</a>
-              <a href="#iletisim">İletişim</a>
-              <a href="#"><i className="fa-solid fa-magnifying-glass nav-icon"/></a>
-              <a className="join" href="#katil">Bize Katılın →</a>
-            </div>
+            <button className="nav-toggle" aria-label="Menüyü aç" aria-expanded={isMobileMenuOpen} onClick={() => setIsMobileMenuOpen(prev => !prev)}>☰</button>
+            {isMobileMenuOpen && <div className="nav-overlay open" onClick={() => { setIsMobileMenuOpen(false); setOpenDropdown(null); }}/>}
+            <div className={`nav${isMobileMenuOpen ? ' open' : ''}`}>
+                  <div className="nav-item">
+                    <a href="#" className="nav-link dropdown-toggle" onClick={toggleDropdown('kent-konseyi')}>Kent Konseyi <i className="fa-solid fa-chevron-down nav-icon"/></a>
+                    <div className={`dropdown-menu${openDropdown === 'kent-konseyi' ? ' active' : ''}`}><a href="#" className="dropdown-item">Hakkımızda</a><a href="#" className="dropdown-item">Vizyon & Misyon</a><a href="#" className="dropdown-item">Yönetim</a><a href="#" className="dropdown-item">Yönetmelik</a></div>
+                  </div>
+                  <div className="nav-item">
+                    <a href="#" className="nav-link dropdown-toggle" onClick={toggleDropdown('meclisler')}>Meclislerimiz <i className="fa-solid fa-chevron-down nav-icon"/></a>
+                    <div className={`dropdown-menu${openDropdown === 'meclisler' ? ' active' : ''}`}><a href="#" className="dropdown-item">Gençlik Meclisi</a><a href="#" className="dropdown-item">Kadın Meclisi</a><a href="#" className="dropdown-item">Çocuk Meclisi</a><a href="#" className="dropdown-item">Engelli Meclisi</a><a href="#" className="dropdown-item">Yaşlılar Meclisi</a></div>
+                  </div>
+                  <div className="nav-item">
+                    <a href="#" className="nav-link dropdown-toggle" onClick={toggleDropdown('calisma-gruplari')}>Çalışma Grupları <i className="fa-solid fa-chevron-down nav-icon"/></a>
+                    <div className={`dropdown-menu${openDropdown === 'calisma-gruplari' ? ' active' : ''}`}><a href="#" className="dropdown-item">Çevre ve Sürdürülebilirlik</a><a href="#" className="dropdown-item">Eğitim ve Gençlik</a><a href="#" className="dropdown-item">Sağlık ve Sosyal Hizmetler</a><a href="#" className="dropdown-item">Kültür ve Sanat</a><a href="#" className="dropdown-item">Kentleşme ve Planlama</a><a href="#" className="dropdown-item">Ekonomi ve İstihdam</a></div>
+                  </div>
+                  <a href="#haberler" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Haberler</a>
+                  <a href="#etkinlikler" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Etkinlikler</a>
+                  <a href="#raporlar" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Raporlar &amp; Yayınlar</a>
+                  <a href="#iletisim" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>İletişim</a>
+                  <a href="#" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}><i className="fa-solid fa-magnifying-glass nav-icon"/></a>
+                  <a className="nav-link join" href="#katil" onClick={() => setIsMobileMenuOpen(false)}>Bize Katılın →</a>
+                </div>
           </div>
         </nav>
       </header>
