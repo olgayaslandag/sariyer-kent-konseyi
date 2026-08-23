@@ -3,12 +3,10 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-export default function Navbar({
-  isMobileMenuOpen,
-  setIsMobileMenuOpen,
-  openDropdown,
-  setOpenDropdown,
-}) {
+export default function Navbar() {
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const toggleDropdown = (key) => (e) => {
     e.preventDefault();
     e.stopPropagation();

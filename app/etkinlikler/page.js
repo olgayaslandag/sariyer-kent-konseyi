@@ -16,17 +16,10 @@ const events = [
 ];
 
 export default function Etkinlikler() {
-  const [openDropdown, setOpenDropdown] = useState(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <>
-      <Navbar
-        isMobileMenuOpen={isMobileMenuOpen}
-        setIsMobileMenuOpen={setIsMobileMenuOpen}
-        openDropdown={openDropdown}
-        setOpenDropdown={setOpenDropdown}
-      />
+      <Navbar />
       <main>
         <PageHeader eyebrow="BİLGİ" title="Etkinlikler" breadcrumbs={["Etkinlikler"]} />
         <section className="section">

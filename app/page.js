@@ -14,8 +14,6 @@ import Footer from "./components/Footer";
 export default function Home() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -83,12 +81,7 @@ export default function Home() {
 
   return (
     <>
-      <Navbar
-        isMobileMenuOpen={isMobileMenuOpen}
-        setIsMobileMenuOpen={setIsMobileMenuOpen}
-        openDropdown={openDropdown}
-        setOpenDropdown={setOpenDropdown}
-      />
+      <Navbar />
       <main>
         <Hero />
         <WorkAreas />

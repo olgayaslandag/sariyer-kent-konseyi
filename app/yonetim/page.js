@@ -5,39 +5,86 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
 
-const management = [
+const board = [
   {
     name: "Ahmet Yılmaz",
-    title: "Başkan",
-    desc: "Sarıyer Kent Konseyi Başkanı olarak, kentin sesini en üst düzeyde duyurmak için çalışıyoruz.",
+    role: "Başkan",
+    desc: "Kentin sesini en üst düzeyde duyurmak ve konsey kararlarını yürütmek için sorumludur.",
     img: "/img/sariyer-genel-kurul.jpg"
   },
   {
     name: "Elif Demir",
-    title: "Genel Sekreter",
-    desc: "Konseyin tüm faaliyetlerini koordine ediyor, yönetim süreçlerini yürütüyoruz.",
+    role: "Genel Sekreter",
+    desc: "Konseyin tüm faaliyetlerini koordine eder, yönetim süreçlerini yürütür.",
     img: "/img/sariyer-fikir-platformu.jpg"
   },
   {
     name: "Mehmet Kaya",
-    title: "Sayman",
-    desc: "Şeffaf mali yönetim ile konseyin kaynaklarını en verimli şekilde kullanıyoruz.",
+    role: "Sayman",
+    desc: "Şeffaf mali yönetim ile konseyin kaynaklarını en verimli şekilde kullanır.",
     img: "/img/sariyer-kare-1.jpg"
+  },
+  {
+    name: "Ayşe Yıldız",
+    role: "Gençlik Meclisi Başkanı",
+    desc: "Gençlerin sesini konseye taşır, gençlik projelerini yürütür.",
+    img: "/img/meclis-genclik.jpg"
+  },
+  {
+    name: "Zeynep Arslan",
+    role: "Kadın Meclisi Başkanı",
+    desc: "Kadınların haklarını ve katılımını teşvik eden çalışmaları yönetir.",
+    img: "/img/meclis-kadin.jpg"
+  },
+  {
+    name: "Mustafa Öz",
+    role: "Çevre ve Sürdürülebilirlik Temsilcisi",
+    desc: "Kentin çevresel süreçlerini izler, yeşil alan projelerini takip eder.",
+    img: "/img/calisma-alani-cevre-surdurulebilirlik.jpg"
+  },
+  {
+    name: "Fatma Demir",
+    role: "Sosyal Hizmetler Temsilcisi",
+    desc: "Kentin sosyal dayanışma ve hizmet projelerini koordine eder.",
+    img: "/img/calisma-alani-saglik-sosyal-hizmetler.jpg"
+  },
+  {
+    name: "Ali Kaya",
+    role: "Kültür ve Sanat Temsilcisi",
+    desc: "Kültürel etkinlikleri ve sanat projelerini yönetir.",
+    img: "/img/calisma-alani-kultur-sanat.jpg"
+  },
+  {
+    name: "Selin Yılmaz",
+    role: "Eğitim Temsilcisi",
+    desc: "Eğitim ve gençlik projelerini takip eder, okul iş birliklerini yürütür.",
+    img: "/img/calisma-alani-egitim-genclik.jpg"
+  },
+  {
+    name: "Burak Şahin",
+    role: "Kentleşme ve Planlama Temsilcisi",
+    desc: "Kentin planlama ve alan kullanımı süreçlerini izler, vatandaş odaklı çözümler üretir.",
+    img: "/img/calisma-alani-kentlesme-planlama.jpg"
+  },
+  {
+    name: "Derya Aydın",
+    role: "Ekonomi ve İstihdam Temsilcisi",
+    desc: "Yerel ekonomi projelerini ve istihdam desteklerini koordine eder.",
+    img: "/img/calisma-alani-ekonomi-istihdam.jpg"
+  },
+  {
+    name: "Emre Yıldırım",
+    role: "Halkla İlişkiler Temsilcisi",
+    desc: "Konsey ile vatandaşlar arasındaki iletişimi güçlendirir, duyuruları yönetir.",
+    img: "/img/sariyer-sahil-manzara.jpg"
   }
 ];
 
 export default function Yonetim() {
-  const [openDropdown, setOpenDropdown] = useState(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <>
-      <Navbar
-        isMobileMenuOpen={isMobileMenuOpen}
-        setIsMobileMenuOpen={setIsMobileMenuOpen}
-        openDropdown={openDropdown}
-        setOpenDropdown={setOpenDropdown}
-      />
+      <Navbar />
       <main>
         <PageHeader
           eyebrow="KENT KONSEYİ"
@@ -46,26 +93,39 @@ export default function Yonetim() {
         />
         <section className="section">
           <div className="container">
-            <small className="section-intro" style={{ display: "block", marginBottom: 24 }}>
-              Sarıyer Kent Konseyi’nin yönetimi, şeffaflık ve hesap verebilirlik
-              ilkeleriyle hizmetinizdedir.
-            </small>
-            <div className="content-grid">
-              {management.map((item, index) => (
-                <article className="content-panel" key={index}>
-                  <div style={{ height: 160, borderRadius: 7, overflow: "hidden", marginBottom: 12 }}>
-                    <img src={item.img} alt={item.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                  </div>
-                  <div className="panel-head">
-                    <div>
-                      <h3>{item.name}</h3>
-                      <small>{item.title}</small>
-                    </div>
-                  </div>
-                  <div style={{ lineHeight: 1.8, marginTop: 8 }}>
+            <p>
+              Sarıyer Kent Konseyi, ilçenin tüm kesimlerinden gelen temsilcilerin
+              katılımıyla oluşturulmuş bir yürütme kurulu ile yönetilir. Kurul,
+              konseyin kararlarını uygulamak, faaliyetleri koordine etmek ve
+              vatandaşların taleplerini karşılamak amacıyla çalışır. Her üyenin
+              uzmanlık alanına göre sorumlulukları vardır ve düzenli olarak
+              toplanarak ilçenin geleceğini şekillendiren kararlar alır.
+              Yönetim sürecimiz, şeffaflık, hesap verebilirlik ve katılımcılık
+              ilkeleri üzerine kuruludur. Tüm faaliyetlerimizde vatandaşlarımızın
+              sesini dinlemek, onların ihtiyaçlarını öncelikli tutmak ve
+              ilçemizin sürdürülebilir kalkınması için uzun vadeli çalışmalar
+              yürütmek temel misyonumuzdur.
+            </p>
+            <p>
+              Aşağıda, konsey yönetiminde görev alan ve her bir alanda
+              sorumluluk üstlenen yürütme kurulu üyelerini bulabilirsiniz.
+              Her üye, kendi uzmanlık alanında konsey faaliyetlerini yönlendirir
+              ve vatandaşların ihtiyaçlarını karşılamak için çalışır.
+              Yürütme kurulu, düzenli toplantılar ve çalışma grupları aracılığıyla
+              ilçenin sosyal, kültürel, ekonomik ve çevresel konularında
+              projeler üretir, bu projelerin hayata geçirilmesini takip eder
+              ve sonuçları kamuoyuyla paylaşır.
+            </p>
+            <div className="board-grid">
+              {board.map((item, index) => (
+                <div className="board-card" key={index}>
+                  <img src={item.img} alt={item.name} loading="lazy" />
+                  <div className="board-card-body">
+                    <strong>{item.name}</strong>
+                    <span className="board-role">{item.role}</span>
                     <p>{item.desc}</p>
                   </div>
-                </article>
+                </div>
               ))}
             </div>
           </div>

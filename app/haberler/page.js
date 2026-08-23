@@ -16,17 +16,10 @@ const news = [
 ];
 
 export default function Haberler() {
-  const [openDropdown, setOpenDropdown] = useState(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <>
-      <Navbar
-        isMobileMenuOpen={isMobileMenuOpen}
-        setIsMobileMenuOpen={setIsMobileMenuOpen}
-        openDropdown={openDropdown}
-        setOpenDropdown={setOpenDropdown}
-      />
+      <Navbar />
       <main>
         <PageHeader eyebrow="BİLGİ" title="Haberler" breadcrumbs={["Haberler"]} />
         <section className="section">

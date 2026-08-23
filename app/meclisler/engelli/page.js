@@ -6,17 +6,10 @@ import Footer from "../../components/Footer";
 import PageHeader from "../../components/PageHeader";
 
 export default function Engelli() {
-  const [openDropdown, setOpenDropdown] = useState(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <>
-      <Navbar
-        isMobileMenuOpen={isMobileMenuOpen}
-        setIsMobileMenuOpen={setIsMobileMenuOpen}
-        openDropdown={openDropdown}
-        setOpenDropdown={setOpenDropdown}
-      />
+      <Navbar />
       <main>
         <PageHeader
           eyebrow="MECLİSLERİMİZ"

@@ -35,6 +35,7 @@ export default function ScrollReveal() {
     observeWithInstantCheck(".news-row", 0.1);
     observeWithInstantCheck(".work-grid .image-card", 0.1);
     observeWithInstantCheck(".council-grid .council-card", 0.1);
+    observeWithInstantCheck(".board-grid .board-card", 0.1);
     observeWithInstantCheck(".gallery-grid .gallery-item", 0.1);
 
     const ideaContent = document.querySelector(".idea-content");
