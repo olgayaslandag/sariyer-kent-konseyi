@@ -1,9 +1,9 @@
 const councils = [
-  ["Gençlik","Meclisi","https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&w=520"],
-  ["Kadın","Meclisi","https://images.pexels.com/photos/601170/pexels-photo-601170.jpeg?auto=compress&cs=tinysrgb&w=520"],
-  ["Çocuk","Meclisi","https://images.pexels.com/photos/25748912/pexels-photo-25748912.jpeg?auto=compress&cs=tinysrgb&w=520"],
-  ["Engelli","Meclisi","https://images.pexels.com/photos/2245218/pexels-photo-2245218.jpeg?auto=compress&cs=tinysrgb&w=520"],
-  ["Yaşlılar","Meclisi","https://images.pexels.com/photos/12085752/pexels-photo-12085752.jpeg?auto=compress&cs=tinysrgb&w=520"]
+  ["Gençlik","Meclisi","/img/meclis-genclik.jpg"],
+  ["Kadın","Meclisi","/img/meclis-kadin.jpg"],
+  ["Çocuk","Meclisi","/img/meclis-cocuk.jpg"],
+  ["Engelli","Meclisi","/img/meclis-engelli.jpg"],
+  ["Yaşlılar","Meclisi","/img/meclis-yasli.jpg"]
 ];
 
 export default function Councils() {

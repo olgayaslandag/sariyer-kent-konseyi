@@ -7,14 +7,14 @@ const slides = [
     eyebrow: "SARIYER KENT KONSEYİ",
     title: "Birlikte Düşünüyor,<br/>Sarıyer'i Birlikte Geliştiriyoruz.",
     lead: "Katılımcı demokrasi kültürüyle<br/>Sarıyer’in ortak akıl platformu.",
-    bg: "https://images.pexels.com/photos/29231327/pexels-photo-29231327.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    bg: "/img/sariyer-sahil-manzara.jpg",
     alt: "Sarıyer sahil görünümü",
   },
   {
     eyebrow: "SÖZ SENDE SARIYER",
     title: "Sarıyer için<br/>bir fikrin mi var?",
     lead: "Fikrini, önerini ve projeni<br/>bizimle paylaş.",
-    bg: "https://images.pexels.com/photos/38359478/pexels-photo-38359478.jpeg?auto=compress&cs=tinysrgb&w=1920",
+    bg: "/img/sariyer-fikir-platformu.jpg",
     alt: "Sarıyer fikir platformu",
   },
 ];
