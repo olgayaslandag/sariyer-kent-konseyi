@@ -43,16 +43,27 @@ export default function Navbar() {
     };
   }, [isMobileMenuOpen, setOpenDropdown, setIsMobileMenuOpen]);
 
+  useEffect(() => {
+    if (!isMobileMenuOpen) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <header className="site-header">
       <nav className="navbar">
         <div className="container nav-inner">
           <Link className="brand" href="/">
-            <img className="brand-img" src="/img/logo.png" alt="Sarıyer Kent Konseyi" />
+            <img className="brand-img" src="/img/logo.svg" alt="Sarıyer Kent Konseyi" />
           </Link>
           <button
             className="nav-toggle"
-            aria-label="Menüyü aç"
+            aria-label={isMobileMenuOpen ? "Menüyü kapat" : "Menüyü aç"}
             aria-expanded={isMobileMenuOpen}
             onClick={() => setIsMobileMenuOpen((prev) => !prev)}
           >
