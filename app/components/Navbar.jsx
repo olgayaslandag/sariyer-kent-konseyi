@@ -98,11 +98,11 @@ export default function Navbar() {
                   openDropdown === "kurumsal" ? " active" : ""
                 }`}
               >
-                <Link href="/hakkimizda" className="dropdown-item">Hakkımızda</Link>
-                <Link href="/vizyon-misyon" className="dropdown-item">Vizyon & Misyon</Link>
-                <Link href="/yonetim" className="dropdown-item">Yönetim Kurulu</Link>
-                <Link href="/yonetmelik" className="dropdown-item">Yönetmelik</Link>
-                <Link href="/ic-yonerge" className="dropdown-item">İç Yönerge</Link>
+                <Link href="/kurumsal/hakkimizda" className="dropdown-item">Hakkımızda</Link>
+                <Link href="/kurumsal/vizyon-misyon" className="dropdown-item">Vizyon & Misyon</Link>
+                <Link href="/kurumsal/yonetim" className="dropdown-item">Yönetim Kurulu</Link>
+                <Link href="/kurumsal/yonetmelik" className="dropdown-item">Yönetmelik</Link>
+                <Link href="/kurumsal/ic-yonerge" className="dropdown-item">İç Yönerge</Link>
               </div>
             </div>
             <div className="nav-item">

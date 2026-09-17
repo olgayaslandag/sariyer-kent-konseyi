@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import PageHeader from "../components/PageHeader";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import PageHeader from "../../components/PageHeader";
 
 export default function Hakkimizda() {
 
@@ -12,9 +12,9 @@ export default function Hakkimizda() {
       <Navbar />
       <main>
         <PageHeader
-          eyebrow="KENT KONSEYİ"
+          eyebrow="KURUMSAL"
           title="Hakkımızda"
-          breadcrumbs={["Hakkımızda"]}
+          breadcrumbs={["Kurumsal", "Hakkımızda"]}
         />
         <section className="section">
           <div className="container">

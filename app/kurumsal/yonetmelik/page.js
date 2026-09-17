@@ -1,8 +1,8 @@
 "use client";
 
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import PageHeader from "../components/PageHeader";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import PageHeader from "../../components/PageHeader";
 
 export default function Yonetmelik() {
 
@@ -11,7 +11,7 @@ export default function Yonetmelik() {
       <Navbar />
       <main>
         <PageHeader
-          eyebrow="KENT KONSEYİ"
+          eyebrow="KURUMSAL"
           title="Yönetmelik"
           breadcrumbs={["Kurumsal", "Yönetmelik"]}
         />
