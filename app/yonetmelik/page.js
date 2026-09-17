@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
@@ -14,7 +13,7 @@ export default function Yonetmelik() {
         <PageHeader
           eyebrow="KENT KONSEYİ"
           title="Yönetmelik"
-          breadcrumbs={["Yönetmelik"]}
+          breadcrumbs={["Kurumsal", "Yönetmelik"]}
         />
         <section className="section">
           <div className="container">

@@ -5,80 +5,40 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
 
-const board = [
-  {
-    name: "Ahmet Yılmaz",
-    role: "Başkan",
-    desc: "Kentin sesini en üst düzeyde duyurmak ve konsey kararlarını yürütmek için sorumludur.",
-    img: "/img/sariyer-genel-kurul.jpg"
-  },
-  {
-    name: "Elif Demir",
-    role: "Genel Sekreter",
-    desc: "Konseyin tüm faaliyetlerini koordine eder, yönetim süreçlerini yürütür.",
-    img: "/img/sariyer-fikir-platformu.jpg"
-  },
-  {
-    name: "Mehmet Kaya",
-    role: "Sayman",
-    desc: "Şeffaf mali yönetim ile konseyin kaynaklarını en verimli şekilde kullanır.",
-    img: "/img/sariyer-kare-1.jpg"
-  },
-  {
-    name: "Ayşe Yıldız",
-    role: "Gençlik Meclisi Başkanı",
-    desc: "Gençlerin sesini konseye taşır, gençlik projelerini yürütür.",
-    img: "/img/meclis-genclik.jpg"
-  },
-  {
-    name: "Zeynep Arslan",
-    role: "Kadın Meclisi Başkanı",
-    desc: "Kadınların haklarını ve katılımını teşvik eden çalışmaları yönetir.",
-    img: "/img/meclis-kadin.jpg"
-  },
-  {
-    name: "Mustafa Öz",
-    role: "Çevre ve Sürdürülebilirlik Temsilcisi",
-    desc: "Kentin çevresel süreçlerini izler, yeşil alan projelerini takip eder.",
-    img: "/img/calisma-alani-cevre-surdurulebilirlik.jpg"
-  },
-  {
-    name: "Fatma Demir",
-    role: "Sosyal Hizmetler Temsilcisi",
-    desc: "Kentin sosyal dayanışma ve hizmet projelerini koordine eder.",
-    img: "/img/calisma-alani-saglik-sosyal-hizmetler.jpg"
-  },
-  {
-    name: "Ali Kaya",
-    role: "Kültür ve Sanat Temsilcisi",
-    desc: "Kültürel etkinlikleri ve sanat projelerini yönetir.",
-    img: "/img/calisma-alani-kultur-sanat.jpg"
-  },
-  {
-    name: "Selin Yılmaz",
-    role: "Eğitim Temsilcisi",
-    desc: "Eğitim ve gençlik projelerini takip eder, okul iş birliklerini yürütür.",
-    img: "/img/calisma-alani-egitim-genclik.jpg"
-  },
-  {
-    name: "Burak Şahin",
-    role: "Kentleşme ve Planlama Temsilcisi",
-    desc: "Kentin planlama ve alan kullanımı süreçlerini izler, vatandaş odaklı çözümler üretir.",
-    img: "/img/calisma-alani-kentlesme-planlama.jpg"
-  },
-  {
-    name: "Derya Aydın",
-    role: "Ekonomi ve İstihdam Temsilcisi",
-    desc: "Yerel ekonomi projelerini ve istihdam desteklerini koordine eder.",
-    img: "/img/calisma-alani-ekonomi-istihdam.jpg"
-  },
-  {
-    name: "Emre Yıldırım",
-    role: "Halkla İlişkiler Temsilcisi",
-    desc: "Konsey ile vatandaşlar arasındaki iletişimi güçlendirir, duyuruları yönetir.",
-    img: "/img/sariyer-sahil-manzara.jpg"
-  }
+const asilListe = [
+  "Ali Haydar ASLAN",
+  "Ömer Ertuğrul YILDIZ",
+  "Hasan YILMAZ",
+  "Adem ÇOBAN",
+  "Aslıhan EĞİLMEZ",
+  "Turan ALTUN",
+  "Serdar GÖKER",
+  "Ayşe Demir ÜNLÜ",
+  "Emin AKDEMİR",
+  "Sezai KAYA",
+  "Mustafa CİVAK",
+  "Ali Kadir MUTLU",
+  "Hürriyet UZUN",
+  "B.Tülin HATTAT",
+  "Makbule Ebru YAŞAR",
+  "Naci GÜNDAY",
+  "H. Murat LEHİMLER",
+  "İlkut ULUĞTUĞ",
+  "Oğuzhan GÖKYILDIZ",
+  "Emine BÜYÜKBALKAN"
 ];
+
+const yedekListe = [
+  "Selma SEÇGİN",
+  "Ercan EKER",
+  "Bayram ÖZSOY",
+  "Sencer TELCİ",
+  "Ezgi Özdal YARLIHAN",
+  "Şahin KIZILASLAN",
+  "İsmail ÜNLÜ"
+];
+
+const engelliTemsilcisi = "Mahmut Kement";
 
 export default function Yonetim() {
 
@@ -87,9 +47,9 @@ export default function Yonetim() {
       <Navbar />
       <main>
         <PageHeader
-          eyebrow="KENT KONSEYİ"
-          title="Yönetim"
-          breadcrumbs={["Yönetim"]}
+          eyebrow="KURUMSAL"
+          title="Yönetim Kurulu"
+          breadcrumbs={["Kurumsal", "Yönetim Kurulu"]}
         />
         <section className="section">
           <div className="container">
@@ -107,26 +67,47 @@ export default function Yonetim() {
               yürütmek temel misyonumuzdur.
             </p>
             <p>
-              Aşağıda, konsey yönetiminde görev alan ve her bir alanda
-              sorumluluk üstlenen yürütme kurulu üyelerini bulabilirsiniz.
-              Her üye, kendi uzmanlık alanında konsey faaliyetlerini yönlendirir
+              Aşağıda, konsey yönetiminde görev alan yürütme kurulu üyelerini
+              bulabilirsiniz. Her üye, kendi uzmanlık alanında konsey faaliyetlerini yönlendirir
               ve vatandaşların ihtiyaçlarını karşılamak için çalışır.
               Yürütme kurulu, düzenli toplantılar ve çalışma grupları aracılığıyla
               ilçenin sosyal, kültürel, ekonomik ve çevresel konularında
               projeler üretir, bu projelerin hayata geçirilmesini takip eder
               ve sonuçları kamuoyuyla paylaşır.
             </p>
+
+            <h2 style={{ marginTop: 40 }}>Asil Liste</h2>
             <div className="board-grid">
-              {board.map((item, index) => (
-                <div className="board-card" key={index}>
-                  <img src={item.img} alt={item.name} loading="lazy" />
+              {asilListe.map((name, index) => (
+                <div className="board-card" key={`asil-${index}`}>
                   <div className="board-card-body">
-                    <strong>{item.name}</strong>
-                    <span className="board-role">{item.role}</span>
-                    <p>{item.desc}</p>
+                    <strong>{name}</strong>
+                    <span className="board-role">Yürütme Kurulu Üyesi</span>
                   </div>
                 </div>
               ))}
+            </div>
+
+            <h2 style={{ marginTop: 60 }}>Yedek Liste</h2>
+            <div className="board-grid">
+              {yedekListe.map((name, index) => (
+                <div className="board-card" key={`yedek-${index}`}>
+                  <div className="board-card-body">
+                    <strong>{name}</strong>
+                    <span className="board-role">Yedek Üye</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <h2 style={{ marginTop: 60 }}>Engelli Temsilcisi</h2>
+            <div className="board-grid">
+              <div className="board-card">
+                <div className="board-card-body">
+                  <strong>{engelliTemsilcisi}</strong>
+                  <span className="board-role">Engelli Temsilcisi</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
