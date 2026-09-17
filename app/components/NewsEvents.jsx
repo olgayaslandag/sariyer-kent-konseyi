@@ -1,13 +1,97 @@
+"use client";
+
+import Link from "next/link";
+import eventsData from "../data/etkinlikler.json";
+import newsData from "../data/haberler.json";
+
 export default function NewsEvents() {
+  const featuredEvent = eventsData[0];
+  const eventRows = eventsData.slice(1, 5);
+  const newsRows = newsData.slice(1, 4);
+
   return (
-    <section className="section" style={{paddingTop:0}} id="haberler">
+    <section className="section" style={{ paddingTop: 0 }} id="haberler">
       <div className="container">
         <div className="content-grid">
-          <article className="content-panel"><div className="panel-head"><h2>HABERLER</h2><a href="/haberler">Tüm Haberler →</a></div><div className="news-feature"><img className="featured-img" src="/img/sariyer-genel-kurul.jpg" alt="" loading="lazy"/><div className="news-text"><span className="tag">DUYURU</span><h3>Sarıyer Kent Konseyi Genel Kurulu Gerçekleştirildi</h3><small>12 Mayıs 2024</small><p>Genel kurulumuz geniş katılımla tamamlandı. Yeni dönem çalışma programımız belirlendi.</p><a className="btn" href="/haberler" style={{padding:"0",fontSize:"0.7rem"}}>Devamını Oku →</a></div></div><div className="news-row"><b>02</b><span><strong>Sürdürülebilir Yaşam Paneli Tamamlandı</strong><small>8 Mayıs 2024 · Haber</small></span></div><div className="news-row"><b>03</b><span><strong>Kent Gençliği Proje Yarışması Başladı</strong><small>3 Mayıs 2024 · Etkinlik</small></span></div><div className="news-row"><b>04</b><span><strong>Çocuk Hakları Sempozyumu</strong><small>28 Nisan 2024 · Duyuru</small></span></div></article>
-          <article className="content-panel" id="etkinlikler"><div className="panel-head"><h2>ETKİNLİKLER</h2><a href="/etkinlikler">Tüm Etkinlikler →</a></div><div className="event-feature"><img src="/img/sariyer-surdurulebilir-yasam-paneli.jpg" alt="" loading="lazy"/><div className="event-text"><h3>Sarıyer’de Sürdürülebilir Yaşam Paneli</h3><p>14:00 - 17:00 · Sarıyer Kültür Merkezi</p><a className="btn" href="/etkinlikler" style={{padding:"0",fontSize:"0.7rem"}}>Detaylar →</a></div></div><div className="event-row"><b>01</b><span><strong>Çocuk Atölyesi: Doğa ile Sanat</strong><small>11:00 - 13:00 · Sarıyer Belediyesi Ek Hizmet Binası</small></span></div><div className="event-row"><b>02</b><span><strong>Gençlik Atölyesi: Fotoğraf ve Video</strong><small>10:00 - 12:00 · Sarıyer Gençlik Merkezi</small></span></div><div className="event-row"><b>03</b><span><strong>Kadın Dayanışması: Sağlık ve Spor</strong><small>13:00 - 15:00 · Sarıyer Spor Salonu</small></span></div><div className="event-row"><b>04</b><span><strong>Kent Söyleşileri: Katılımcı Demokrasi</strong><small>14:00 - 16:00 · Sarıyer Kültür Merkezi</small></span></div></article>
-          <article className="content-panel" id="raporlar"><div className="panel-head"><h2>RAPORLAR &amp; YAYINLAR</h2><a href="/raporlar">Tüm Yayınlar →</a></div>{["Sarıyer Kent Konseyi Faaliyet Raporu 2023","Sarıyer Kent Konseyi Faaliyet Raporu 2022","Çalışma Grupları Raporu 2024","Çalışma Grupları Değerlendirme Raporu 2024","Sarıyer Kent Vizyonu — Ortak Gelecek","Sarıyer Kent Konseyi Stratejik Plan 2025-2030"].map(x=><a className="report-row" href="/raporlar" key={x}><span className="pdf-icon">PDF</span><span><strong>{x}</strong><small>PDF · 4.2 MB</small></span></a>)}</article>
+          <article className="content-panel">
+            <div className="panel-head">
+              <h2>HABERLER</h2>
+              <Link href="/haberler">Tüm Haberler →</Link>
+            </div>
+            <Link href={`/haberler/${newsData[0]?.slug}`} className="news-feature">
+              <img className="featured-img" src={newsData[0]?.img} alt={newsData[0]?.title || 'Haber görseli'} loading="lazy" />
+              <div className="news-text">
+                <span className="tag">{newsData[0]?.tag}</span>
+                <h3>{newsData[0]?.title}</h3>
+                <small>{newsData[0]?.date}</small>
+              </div>
+            </Link>
+            <div className="news-rows">
+              {newsRows.map((item, i) => (
+                <Link href={`/haberler/${item.slug}`} key={item.slug} className="news-row">
+                  <b>{String(i + 2).padStart(2, '0')}</b>
+                  <span>
+                    <strong>{item.title}</strong>
+                    <small>{item.date} · {item.tag}</small>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </article>
+          <article className="content-panel" id="etkinlikler">
+            <div className="panel-head">
+              <h2>ETKİNLİKLER</h2>
+              <Link href="/etkinlikler">Tüm Etkinlikler →</Link>
+            </div>
+            <Link href={`/etkinlikler/${featuredEvent?.slug}`} className="event-feature">
+              <img src={featuredEvent?.img} alt={featuredEvent?.title || 'Etkinlik görseli'} loading="lazy" />
+              <div className="event-text">
+                <h3>{featuredEvent?.title}</h3>
+                <p>{featuredEvent?.time} · {featuredEvent?.location}</p>
+              </div>
+            </Link>
+            <div className="event-rows">
+              {eventRows.map((item, i) => (
+                <Link href={`/etkinlikler/${item.slug}`} key={item.slug} className="event-row">
+                  <b>{String(i + 1).padStart(2, '0')}</b>
+                  <span>
+                    <strong>{item.title}</strong>
+                    <small>{item.time} · {item.location}</small>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </article>
+          <article className="content-panel" id="raporlar">
+            <div className="panel-head">
+              <h2>RAPORLAR &amp; YAYINLAR</h2>
+              <Link href="/raporlar">Tüm Yayınlar →</Link>
+            </div>
+            {["Sarıyer Kent Konseyi Faaliyet Raporu 2023", "Sarıyer Kent Konseyi Faaliyet Raporu 2022", "Çalışma Grupları Raporu 2024", "Çalışma Grupları Değerlendirme Raporu 2024", "Sarıyer Kent Vizyonu — Ortak Gelecek", "Sarıyer Kent Konseyi Stratejik Plan 2025-2030"].map((x) => (
+              <a className="report-row" href="/raporlar" key={x}>
+                <span className="pdf-icon">PDF</span>
+                <span>
+                  <strong>{x}</strong>
+                  <small>PDF · 4.2 MB</small>
+                </span>
+              </a>
+            ))}
+          </article>
         </div>
-        <div className="gallery-strip"><div className="panel-head"><h2>SARIYER'DEN KARELER</h2><a href="/galeri">Tüm Galeri →</a></div><div className="gallery-grid">{[ "/img/sariyer-kare-1.jpg","/img/sariyer-kare-2.jpg","/img/sariyer-kare-3.jpg","/img/sariyer-kare-4.jpg","/img/sariyer-kare-5.jpg","/img/sariyer-kare-6.jpg"].map((src,i)=><div className="gallery-item" key={i}><img src={src} alt="" loading="lazy"/></div>)}</div></div>
+
+        <div className="gallery-strip">
+          <div className="panel-head">
+            <h2>SARIYER'DEN KARELER</h2>
+            <Link href="/galeri">Tüm Galeri →</Link>
+          </div>
+          <div className="gallery-grid">
+            {["/img/sariyer-kare-1.jpg", "/img/sariyer-kare-2.jpg", "/img/sariyer-kare-3.jpg", "/img/sariyer-kare-4.jpg", "/img/sariyer-kare-5.jpg", "/img/sariyer-kare-6.jpg"].map((src, i) => (
+              <div className="gallery-item" key={i}>
+                 <img src={src} alt="Sarıyer kareleri" loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

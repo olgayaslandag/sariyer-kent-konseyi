@@ -1,9 +1,12 @@
-"use client";
-
-import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
+
+export const metadata = {
+  title: 'Raporlar & Yayınlar | Sarıyer Kent Konseyi',
+  description: 'Sarıyer Kent Konseyi faaliyet raporları, stratejik planlar ve çalışma grubu raporları.',
+  alternates: { canonical: 'https://sariyerkentkonseyi.org/raporlar' },
+};
 
 const reports = [
   "Sarıyer Kent Konseyi Faaliyet Raporu 2023",
@@ -28,15 +31,15 @@ export default function Raporlar() {
         <section className="section">
           <div className="container">
             <div className="content-grid">
-              {reports.map((report, index) => (
-                 <a className="report-row" href="/raporlar" key={index}>
-                  <span className="pdf-icon">PDF</span>
-                  <span>
-                    <strong>{report}</strong>
-                    <small>PDF · 4.2 MB</small>
-                  </span>
-                </a>
-              ))}
+               {reports.map((report, index) => (
+                  <a className="report-row" href={`/raporlar/${encodeURIComponent(report.toLowerCase().replace(/[^a-z0-9ığüşöç]+/g, '-').replace(/^-+|-+$/g, ''))}.pdf`} key={index} download>
+                   <span className="pdf-icon">PDF</span>
+                   <span>
+                     <strong>{report}</strong>
+                     <small>PDF</small>
+                   </span>
+                 </a>
+               ))}
             </div>
           </div>
         </section>

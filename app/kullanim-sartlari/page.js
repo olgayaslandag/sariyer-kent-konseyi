@@ -1,9 +1,12 @@
-"use client";
-
-import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
+
+export const metadata = {
+  title: 'Kullanım Şartları | Sarıyer Kent Konseyi',
+  description: 'Sarıyer Kent Konseyi web sitesi kullanım şartları. Sitemizi kullanarak bu şartları kabul etmiş sayılırsınız.',
+  alternates: { canonical: 'https://sariyerkentkonseyi.org/kullanim-sartlari' },
+};
 
 export default function KullanimSartlari() {
 
@@ -19,7 +22,7 @@ export default function KullanimSartlari() {
         <section className="section">
           <div className="container">
             <div style={{ maxWidth: 800, margin: "0 auto", lineHeight: 1.8 }}>
-              <h2 style={{ marginTop: 0 }}>1. Kabul</h2>
+               <h2>1. Kabul</h2>
               <p>
                 Sarıyer Kent Konseyi web sitesini kullanarak bu kullanım şartlarını
                 kabul etmiş sayılırsınız. Şartları kabul etmiyorsanız lütfen

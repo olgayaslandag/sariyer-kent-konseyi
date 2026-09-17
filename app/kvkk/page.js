@@ -1,9 +1,12 @@
-"use client";
-
-import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
+
+export const metadata = {
+  title: 'KVKK Aydınlatma Metni | Sarıyer Kent Konseyi',
+  description: '6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında aydınlatma metnimiz. Verileriniz nasıl işleniyor?',
+  alternates: { canonical: 'https://sariyerkentkonseyi.org/kvkk' },
+};
 
 export default function Kvkk() {
 
@@ -19,7 +22,7 @@ export default function Kvkk() {
         <section className="section">
           <div className="container">
             <div style={{ maxWidth: 800, margin: "0 auto", lineHeight: 1.8 }}>
-              <h2 style={{ marginTop: 0 }}>1. Veri Sorumlusu</h2>
+               <h2>1. Veri Sorumlusu</h2>
               <p>
                 Sarıyer Kent Konseyi olarak, kişisel verilerinizin işlenmesinde 6698 sayılı
                 Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında veri sorumlusu

@@ -1,9 +1,12 @@
-"use client";
-
-import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
+
+export const metadata = {
+  title: 'Video Galerisi | Sarıyer Kent Konseyi',
+  description: 'Sarıyer Kent Konseyi\'nin tanıtım filmleri, röportajlar ve etkinlik kayıtlarını video galerimizden izleyin.',
+  alternates: { canonical: 'https://sariyerkentkonseyi.org/videolar' },
+};
 
 const videos = [
   { title: "Sarıyer Kent Konseyi Tanıtım Filmi", duration: "03:42", desc: "Konseyin misyonu, vizyonu ve çalışmalarını anlatan tanıtım filmi." },

@@ -1,19 +1,28 @@
-const councils = [
-  ["Gençlik","Meclisi","/img/meclis-genclik.jpg"],
-  ["Kadın","Meclisi","/img/meclis-kadin.jpg"],
-  ["Çocuk","Meclisi","/img/meclis-cocuk.jpg"],
-  ["Engelli","Meclisi","/img/meclis-engelli.jpg"],
-  ["Yaşlılar","Meclisi","/img/meclis-yasli.jpg"]
-];
+"use client";
+
+import Link from "next/link";
+import councilsData from "../data/meclisler.json";
 
 export default function Councils() {
   return (
     <section className="section" style={{paddingTop:12}}>
       <div className="container">
-        <div className="section-heading"><div><p className="eyebrow">MECLİSLERİMİZ</p><h2>Güçlü Bir Sarıyer İçin Birlikteyiz</h2></div><a className="text-link" href="/meclisler">Tüm Meclisler →</a></div>
+        <div className="section-heading"><div><p className="eyebrow">MECLİSLERİMİZ</p><h2>Güçlü Bir Sarıyer İçin Birlikteyiz</h2></div><Link className="text-link" href="/meclisler">Tüm Meclisler →</Link></div>
         <div className="council-grid">
-          {councils.map(([a,b,img],i)=><a className="council-card" href="/meclisler" key={a}><img src={img} alt=""/><strong>{a}<br/>{b}</strong></a>)}
-          <a className="council-card other" href="/meclisler"><strong>Diğer Meclisler</strong><span>→</span></a>
+          {councilsData.map((c) => (
+            <Link className="council-card" href={c.link} key={c.slug}>
+              <img src={c.img} alt={c.title} />
+              <div>
+                <strong>
+                  {c.shortTitle}
+                  <br />
+                  {c.subTitle}
+                </strong>
+                <p>{c.description}</p>
+              </div>
+            </Link>
+          ))}
+          <Link className="council-card other" href="/meclisler"><strong>Diğer Meclisler</strong><span>→</span></Link>
         </div>
       </div>
     </section>

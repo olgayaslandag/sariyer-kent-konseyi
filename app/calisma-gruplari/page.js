@@ -1,18 +1,14 @@
-"use client";
-
-import { useState } from "react";
+import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
+import groupsData from "../data/calisma-gruplari.json";
 
-const groups = [
-  ["01","Çevre ve Sürdürülebilirlik","Kentin doğal kaynaklarını korumak, yeşil alanları artırmak ve sürdürülebilir yaşamı teşvik etmek için çalışır.","/calisma-gruplari/cevre","/img/calisma-alani-cevre-surdurulebilirlik.jpg"],
-  ["02","Eğitim ve Gençlik","Gençlerin eğitim imkanlarını genişletmek, beceri kazandırmak ve aktif vatandaşlık bilinci aşılamak için çalışır.","/calisma-gruplari/egitim","/img/calisma-alani-egitim-genclik.jpg"],
-  ["03","Sağlık ve Sosyal Hizmetler","Halk sağlığını iyileştirmek, erişilebilir sosyal hizmetler sunmak ve destek mekanizmalarını güçlendirmek için çalışır.","/calisma-gruplari/saglik","/img/calisma-alani-saglik-sosyal-hizmetler.jpg"],
-  ["04","Kültür ve Sanat","Kentin kültürel kimliğini zenginleştirmek, sanatın erişilebilirliğini artırmak ve yerel kültürel mirası korumak için çalışır.","/calisma-gruplari/kultur","/img/calisma-alani-kultur-sanat.jpg"],
-  ["05","Kentleşme ve Planlama","Sürdürülebilir kentleşme, ulaşım, konut ve alan planlaması konularında projeler üretir.","/calisma-gruplari/kentlesme","/img/calisma-alani-kentlesme-planlama.jpg"],
-  ["06","Ekonomi ve İstihdam","Yerel ekonomiye katkı sağlayan projeler geliştirir, istihdamı destekler ve girişimciliği teşvik eder.","/calisma-gruplari/ekonomi","/img/calisma-alani-ekonomi-istihdam.jpg"]
-];
+export const metadata = {
+  title: 'Çalışma Grupları | Sarıyer Kent Konseyi',
+  description: 'Sarıyer Kent Konseyi çalışma grupları. Uzmanlık alanlarında fikir üreten, analiz yapan ve öneriler sunan gruplar.',
+  alternates: { canonical: 'https://sariyerkentkonseyi.org/calisma-gruplari' },
+};
 
 export default function CalismaGruplari() {
 
@@ -23,24 +19,20 @@ export default function CalismaGruplari() {
         <PageHeader
           eyebrow="KENT KONSEYİ NASIL ÇALIŞIR?"
           title="Çalışma Grupları"
+          subtitle="Her grup, uzmanlık alanında fikir üretir, analiz yapar ve kentin geleceğine yönelik somut öneriler sunar. Gruplarımız, vatandaşların katılımıyla çalışır."
           breadcrumbs={["Çalışma Grupları"]}
         />
         <section className="section">
           <div className="container">
-            <small className="section-intro" style={{ display: "block", marginBottom: 24 }}>
-              Her grup, uzmanlık alanında fikir üretir, analiz yapar ve
-              kentin geleceğine yönelik somut öneriler sunar. Gruplarımız,
-              vatandaşların katılımıyla çalışır.
-            </small>
             <div className="work-grid">
-              {groups.map(([n,t,d,link,img])=>(
-                <a className="image-card" href={link} key={n}>
-                  <img src={img} alt={t} />
+              {groupsData.map((g) => (
+                <Link className="image-card" href={g.link} key={g.id}>
+                  <img src={g.img} alt={g.title} />
                   <div>
-                    <span>{n}</span>
-                    <h3>{t}</h3>
+                    <span>{g.id}</span>
+                    <h3>{g.title}</h3>
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           </div>

@@ -1,8 +1,12 @@
-"use client";
-
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import PageHeader from "../../components/PageHeader";
+
+export const metadata = {
+  title: 'Yönetmelik | Sarıyer Kent Konseyi',
+  description: 'Sarıyer Kent Konseyi yönetmelik. Faaliyetler, çalışma usulleri ve şeffaflık ilkeleri.',
+  alternates: { canonical: 'https://sariyerkentkonseyi.org/kurumsal/yonetmelik' },
+};
 
 export default function Yonetmelik() {
 

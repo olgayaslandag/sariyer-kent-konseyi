@@ -1,9 +1,12 @@
-"use client";
-
-import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
+
+export const metadata = {
+  title: 'İletişim | Sarıyer Kent Konseyi',
+  description: 'Sarıyer Kent Konseyi ile iletişime geçin. Merkez Mah. Darüşşafaka Cad. No: 33 Sarıyer/İstanbul. Tel: 0212 242 00 00.',
+  alternates: { canonical: 'https://sariyerkentkonseyi.org/iletisim' },
+};
 
 export default function Iletisim() {
 

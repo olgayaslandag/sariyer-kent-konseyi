@@ -1,9 +1,12 @@
-"use client";
-
-import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
+
+export const metadata = {
+  title: 'Gizlilik Politikası | Sarıyer Kent Konseyi',
+  description: 'Sarıyer Kent Konseyi olarak kişisel verilerinizin korunması en öncelikli görevlerimizden biridir. Gizlilik politikamızı okuyun.',
+  alternates: { canonical: 'https://sariyerkentkonseyi.org/gizlilik-politikasi' },
+};
 
 export default function GizlilikPolitikasi() {
 
@@ -19,7 +22,7 @@ export default function GizlilikPolitikasi() {
         <section className="section">
           <div className="container">
             <div style={{ maxWidth: 800, margin: "0 auto", lineHeight: 1.8 }}>
-              <h2 style={{ marginTop: 0 }}>1. Giriş</h2>
+               <h2>1. Giriş</h2>
               <p>
                 Sarıyer Kent Konseyi olarak, kullanıcılarımızın gizliliğini korumak
                 en öncelikli görevlerimizden biridir. Bu politika, web sitemizi

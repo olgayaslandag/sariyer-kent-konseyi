@@ -1,13 +1,15 @@
-const workAreas = [
-  ["01","Çevre ve","Sürdürülebilirlik","/img/calisma-alani-cevre-surdurulebilirlik.jpg"],
-  ["02","Eğitim ve","Gençlik","/img/calisma-alani-egitim-genclik.jpg"],
-  ["03","Sağlık ve","Sosyal Hizmetler","/img/calisma-alani-saglik-sosyal-hizmetler.jpg"],
-  ["04","Kültür ve","Sanat","/img/calisma-alani-kultur-sanat.jpg"],
-  ["05","Kentleşme ve","Planlama","/img/calisma-alani-kentlesme-planlama.jpg"],
-  ["06","Ekonomi ve","İstihdam","/img/calisma-alani-ekonomi-istihdam.jpg"],
-  ["07","Engelli ve","Erişilebilirlik","/img/calisma-alani-engelli-erisebilirlik.jpg"],
-  ["08","Çocuk ve","Aile","/img/calisma-alani-cocuk-aile.jpg"],
-];
+"use client";
+
+import Link from "next/link";
+import groupsData from "../data/calisma-gruplari.json";
+
+const workAreas = groupsData.slice(0, 8).map((g) => [
+  g.id,
+  g.shortTitle,
+  g.subTitle,
+  g.img,
+  g.link,
+]);
 
 export default function WorkAreas() {
   return (
@@ -16,10 +18,22 @@ export default function WorkAreas() {
         <div className="section-heading">
           <div><p className="eyebrow">HİZMET ALANLARIMIZ</p><h2>Çalışma Alanlarımız</h2></div>
           <small className="section-intro">Kentimizin yaşam kalitesini artırmak için birçok alanda ortak akılla çözüm üretmeye devam ediyoruz.</small>
-          <a className="text-link" href="/calisma-gruplari">Tüm Alanlar →</a>
+          <Link className="text-link" href="/calisma-gruplari">Tüm Alanlar →</Link>
         </div>
         <div className="work-grid">
-          {workAreas.map(([n,a,b,img]) => <a className="image-card" href="/calisma-gruplari" key={n}><img src={img} alt=""/><div><span>{n}</span><h3>{a}<br/>{b}</h3></div></a>)}
+          {workAreas.map(([n, a, b, img, link]) => (
+            <Link className="image-card" href={link} key={n}>
+              <img src={img} alt={n ? `${n} çalışma alanı` : 'Çalışma alanı'} loading="lazy" />
+              <div>
+                <span>{n}</span>
+                <h3>
+                  {a}
+                  {b && <br />}
+                  {b}
+                </h3>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </section>

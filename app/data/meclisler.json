@@ -1,0 +1,122 @@
+[
+  {
+    "id": "01",
+    "slug": "genclik",
+    "title": "Gençlik Meclisi",
+    "shortTitle": "Gençlik",
+    "subTitle": "Meclisi",
+    "description": "Gençlerin sesini en üst düzeyde duyurmak, kentin geleceğini şekillendirmek için çalışır.",
+    "link": "/meclisler/genclik",
+    "img": "/img/meclis-genclik.jpg",
+    "detail": {
+      "about": "Gençlik Meclisi, Sarıyer’in geleceğini şekillendirecek gençlerin sesini en üst düzeyde duyurmak için kurulmuştur. 18-30 yaş arasındaki gençlerin katılımıyla çalışmalarımızı yürütüyoruz. Meclisimiz, fikir üretme, proje geliştirme ve toplumsal etki alanlarında aktif rol oynuyor.",
+      "goals": [
+        {"title": "Katılımcılık", "desc": "Gençlerin kent yaşamındaki rolünü artırmak."},
+        {"title": "Proje Üretimi", "desc": "Gençlik odaklı somut projeler geliştirmek."},
+        {"title": "Eğitim", "desc": "Beceri kazandırma ve liderlik eğitimleri sunmak."}
+      ],
+      "activities": "Gençlik Atölyeleri, Fotoğraf ve Video Yarışması, Kent Gençliği Zirvesi, Sürdürülebilir Yaşam Paneli ve daha birçok etkinlikle gençlerle buluşuyoruz.",
+      "projects": [
+        {"title": "Gençlik Liderliği Programı", "desc": "Gençlere liderlik becerileri kazandıran, toplumsal proje üretmelerini sağlayan kapsamlı bir programdır."},
+        {"title": "Fotoğraf ve Video Yarışması", "desc": "Sarıyer’i farklı bakış açısıyla görselleştiren, genç fotoğrafçı ve videocu adayların katılımıyla düzenlenen yarışma."},
+        {"title": "Kent Gençliği Zirvesi", "desc": "Yıllık olarak düzenlenen zirvede gençler, kentin sorunlarını tartışıyor ve ortak çözüm önerileri geliştiriyor."}
+      ]
+    }
+  },
+  {
+    "id": "02",
+    "slug": "kadin",
+    "title": "Kadın Meclisi",
+    "shortTitle": "Kadın",
+    "subTitle": "Meclisi",
+    "description": "Kadınların kent yaşamındaki rolünü güçlendirmek, eşitlik ve dayanışma temelinde çalışır.",
+    "link": "/meclisler/kadin",
+    "img": "/img/meclis-kadin.jpg",
+    "detail": {
+      "about": "Kadın Meclisi, Sarıyer’de kadınların kent yaşamındaki rolünü güçlendirmek, eşitlik ve dayanışma temelinde çalışmalar yürütmek amacıyla kurulmuştur. Meclisimiz, kadınların sosyal, kültürel ve ekonomik yaşamdaki katılımını artırmak için projeler üretir.",
+      "goals": [
+        {"title": "Eşitlik", "desc": "Kadınların fırsat eşitliğini savunmak."},
+        {"title": "Dayanışma", "desc": "Kadınlar arası sosyal dayanışma ağını güçlendirmek."},
+        {"title": "Girişimcilik", "desc": "Kadın girişimcilere destek olmak."}
+      ],
+      "activities": "Kadın Sağlığı Seminerleri, Spor ve Hareket Etkinlikleri, Mentörlük Programı, Kadınların Gücü Paneli gibi etkinlikler düzenliyoruz.",
+      "projects": [
+        {"title": "Kadın Sağlığı Seminerleri", "desc": "Kadınların sağlıklı yaşam bilincini artırmak amacıyla düzenlenen ücretsiz seminerler ve taramalar."},
+        {"title": "Kadın Girişimciliği Programı", "desc": "Kadın girişimcilere yönelik mentörlük, eğitim ve finansman destekleri sağlayan kapsamlı bir program."},
+        {"title": "Spor ve Hareket Etkinlikleri", "desc": "Kadınların spor yapma alışkanlığı kazandırmak için düzenlenen yürüyüş, yoga ve dans etkinlikleri."}
+      ]
+    }
+  },
+  {
+    "id": "03",
+    "slug": "cocuk",
+    "title": "Çocuk Meclisi",
+    "shortTitle": "Çocuk",
+    "subTitle": "Meclisi",
+    "description": "Çocukların haklarını savunmak, ihtiyaçlarını dinlemek ve seslerini kent politikalarında duyurmak için çalışır.",
+    "link": "/meclisler/cocuk",
+    "img": "/img/meclis-cocuk.jpg",
+    "detail": {
+      "about": "Çocuk Meclisi, çocukların haklarını savunmak, ihtiyaçlarını dinlemek ve onların sesini kent politikalarında duyurmak amacıyla kurulmuştur. Meclisimiz, 6-14 yaş arası çocukların katılımıyla çalışmalar yürütür.",
+      "goals": [
+        {"title": "Haklarını Savunmak", "desc": "Çocuk haklarına önem vermek."},
+        {"title": "Güvenli Alanlar", "desc": "Çocuklar için güvenli ve erişilebilir alanlar yaratmak."},
+        {"title": "Eğitim", "desc": "Eğlenerek öğrenme ortamları sağlamak."}
+      ],
+      "activities": "Çocuk Atölyeleri, Doğa ile Sanat, Çocuk Hakları Sempozyumu, Oyun Alanları Projeleri ve yarışmalarla çocuklarla buluşuyoruz.",
+      "projects": [
+        {"title": "Çocuk Dostu Kent Projesi", "desc": "Sarıyer’de çocuklar için güvenli, erişilebilir ve eğlenceli alanlar yaratmak amacıyla hayata geçirilen proje."},
+        {"title": "Doğa ile Sanat Atölyesi", "desc": "Çocukların doğayla bağ kurmasını ve sanat yaparak öğrenmesini sağlayan düzenli atölye çalışmaları."},
+        {"title": "Çocuk Hakları Sempozyumu", "desc": "Çocuk hakları konusunda farkındalık artırmak, paydaşları bir araya getirmek amacıyla düzenlenen yıllık sempozyum."}
+      ]
+    }
+  },
+  {
+    "id": "04",
+    "slug": "engelli",
+    "title": "Engelli Meclisi",
+    "shortTitle": "Engelli",
+    "subTitle": "Meclisi",
+    "description": "Engelli bireylerin erişilebilirlik sorunlarına çözüm üretmek, kapsayıcı bir kent inşa etmek için çalışır.",
+    "link": "/meclisler/engelli",
+    "img": "/img/meclis-engelli.jpg",
+    "detail": {
+      "about": "Engelli Meclisi, engelli bireylerin kent yaşamındaki erişilebilirlik sorunlarına çözüm üretmek ve kapsayıcı bir kent inşa etmek amacıyla çalışır. Meclisimiz, engelli bireylerin ve ailelerinin sesini yerel yönetime taşır.",
+      "goals": [
+        {"title": "Erişilebilirlik", "desc": "Kamu alanlarının engelli bireyler için erişilebilir olmasını sağlamak."},
+        {"title": "Farkındalık", "desc": "Engelli hakları konusunda toplumsal farkındalık yaratmak."},
+        {"title": "Proje Üretimi", "desc": "Kapsayıcı kent projeleri geliştirmek."}
+      ],
+      "activities": "Erişilebilirlik Denetimleri, Engelli Hakları Seminerleri, Spor Etkinlikleri ve Kapsayıcı Tasarım Atölyeleri düzenliyoruz.",
+      "projects": [
+        {"title": "Erişilebilir Kent Projesi", "desc": "Sarıyer’deki kamusal alanların engelli bireyler için erişilebilir olması için denetimler ve projeler ürettik."},
+        {"title": "Engelli Hakları Seminerleri", "desc": "Engelli bireyler, aileleri ve kamu çalışanları için düzenlenen haklar seminerleri ve farkındalık çalışmaları."},
+        {"title": "Kapsayıcı Spor Etkinlikleri", "desc": "Engelli bireylerin spora katılımını teşvik eden, engelli dostu spor etkinlikleri ve turnuvalar."}
+      ]
+    }
+  },
+  {
+    "id": "05",
+    "slug": "yasli",
+    "title": "Yaşlılar Meclisi",
+    "shortTitle": "Yaşlılar",
+    "subTitle": "Meclisi",
+    "description": "Yaşlıların yaşam kalitesini artırmak, sosyal dayanışmayı güçlendirmek ve ihtiyaçlarını dinlemek için çalışır.",
+    "link": "/meclisler/yasli",
+    "img": "/img/meclis-yasli.jpg",
+    "detail": {
+      "about": "Yaşlılar Meclisi, yaşlı bireylerin yaşam kalitesini artırmak, sosyal dayanışmayı güçlendirmek ve yaşlıların ihtiyaçlarını dinlemek amacıyla çalışır. Meclisimiz, yaşlıların aktif vatandaşlık rolünü destekler.",
+      "goals": [
+        {"title": "Yaşam Kalitesi", "desc": "Yaşlıların sağlıklı ve aktif yaşamasını desteklemek."},
+        {"title": "Sosyal Dayanışma", "desc": "Yalnızlığı azaltmak, sosyal etkinlikler organize etmek."},
+        {"title": "Erişilebilirlik", "desc": "Yaşlı dostu alanlar ve hizmetler geliştirmek."}
+      ],
+      "activities": "Sağlık Taramaları, Sosyal Buluşmalar, Hobi Atölyeleri, Yaşlılar Günü etkinlikleri ve rehberlik programlarıyla yaşlılarımızla buluşuyoruz.",
+      "projects": [
+        {"title": "Yaşlı Dostu Kent Projesi", "desc": "Sarıyer’de yaşlılar için erişilebilir, güvenli ve konforlu alanlar yaratmak amacıyla geliştirilen proje."},
+        {"title": "Sağlık Tarama Programı", "desc": "Yaşlıların sağlığını izlemek ve erken teşhis imkanı sunmak için düzenlenen ücretsiz sağlık taramaları."},
+        {"title": "Sosyal Buluşmalar", "desc": "Yaşlıların sosyal çevrelerini genişletmesi, yeni dostluklar kurması için düzenlenen çay, sohbet ve eğlence etkinlikleri."}
+      ]
+    }
+  }
+]

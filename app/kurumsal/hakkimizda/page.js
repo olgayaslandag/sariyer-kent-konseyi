@@ -1,9 +1,12 @@
-"use client";
-
-import { useState } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import PageHeader from "../../components/PageHeader";
+
+export const metadata = {
+  title: 'Hakkımızda | Sarıyer Kent Konseyi',
+  description: 'Sarıyer Kent Konseyi ne zaman, nasıl ve niçin kuruldu? Kısa bir tarihçe ve misyonumuz.',
+  alternates: { canonical: 'https://sariyerkentkonseyi.org/kurumsal/hakkimizda' },
+};
 
 export default function Hakkimizda() {
 

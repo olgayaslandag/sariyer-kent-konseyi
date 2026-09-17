@@ -1,0 +1,56 @@
+[
+  {
+    "slug": "yasli-gunu-bulusmasi",
+    "title": "Yaşlılar Günü Buluşması",
+    "time": "10:00 - 12:00",
+    "location": "Sarıyer Yaşlılar Merkezi",
+    "img": "/img/sariyer-kare-2.jpg",
+    "contentImg": "/img/meclis-yasli.jpg",
+    "desc": "Sarıyer Yaşlılar Merkezi’nde düzenlenen Yaşlılar Günü Buluşması, ilçemizdeki yaşlı bireylerle bir araya gelme ve dayanışma günü olarak gerçekleştirildi. Etkinlikte kahve, sohbet, eğlenceli oyunlar ve hatıra fotoğrafları gibi keyifli anlar yaşandı. Aynı zamanda yaşlılarımızın ihtiyaçları ve önerileri dinlenerek yaşlı hizmetlerine yönelik geliştirme çalışmalarına katkı sağlandı."
+  },
+  {
+    "slug": "surdurulebilir-yasam-paneli",
+    "title": "Sarıyer’de Sürdürülebilir Yaşam Paneli",
+    "time": "14:00 - 17:00",
+    "location": "Sarıyer Kültür Merkezi",
+    "img": "/img/sariyer-surdurulebilir-yasam-paneli.jpg",
+    "contentImg": "/img/sariyer-sahil-manzara.jpg",
+    "desc": "Sarıyer Kültür Merkezi’nde gerçekleştirilen Sürdürülebilir Yaşam Paneli, uzmanlar, belediye temsilcileri ve vatandaşların katılımıyla düzenlendi. Panelde enerji verimliliği, atık yönetimi, yeşil alanların artırılması ve sürdürülebilir kent yaşamı konularında fikir alışverişi yapıldı. Katılımcılara pratik bilgiler verilirken, toplumsal farkındalığı artırmak amacıyla çeşitli sunumlar ve atölye çalışmaları düzenlendi."
+  },
+  {
+    "slug": "kent-soyleşileri-katilimci-demokrasi",
+    "title": "Kent Söyleşileri: Katılımcı Demokrasi",
+    "time": "14:00 - 16:00",
+    "location": "Sarıyer Kültür Merkezi",
+    "img": "/img/sariyer-kare-1.jpg",
+    "contentImg": "/img/sariyer-kare-3.jpg",
+    "desc": "Sarıyer Kültür Merkezi’nde düzenlenen Kent Söyleşileri etkinliği, katılımcı demokrasi kavramını merkeze alarak vatandaşların görüş ve önerilerini dinlemeyi hedefledi. Sivil toplum kuruluşları, belediye yetkilileri ve vatandaşlar bir araya gelerek kent sorunlarına yönelik çözüm önerileri üretildi. Söyleşide fikir alışverişi yapılırken, toplumsal katılımın artırılması ve demokratik süreçlere halkın daha fazla dahil edilmesi konuları vurgulandı."
+  },
+  {
+    "slug": "cocuk-atolyesi-doga-ile-sanat",
+    "title": "Çocuk Atölyesi: Doğa ile Sanat",
+    "time": "11:00 - 13:00",
+    "location": "Sarıyer Belediyesi Ek Hizmet Binası",
+    "img": "/img/sariyer-kare-4.jpg",
+    "contentImg": "/img/calisma-alani-kultur-sanat.jpg",
+    "desc": "Sarıyer Belediyesi Ek Hizmet Binası’nda düzenlenen Çocuk Atölyesi: Doğa ile Sanat etkinliği, çocukların doğayla bağ kurmasını ve sanat yaparak öğrenmesini sağlamak amacıyla gerçekleştirildi. Atölye çalışmalarında doğal malzemeler kullanılarak yaratıcı projeler üretilirken, çocukların hayal gücü ve becerileri desteklendi. Etkinlik, çocukların estetik duygusunu geliştirmelerine ve çevre bilincini kazanmalarına katkı sağladı."
+  },
+  {
+    "slug": "kadin-dayanismasi-saglik-ve-spor",
+    "title": "Kadın Dayanışması: Sağlık ve Spor",
+    "time": "13:00 - 15:00",
+    "location": "Sarıyer Spor Salonu",
+    "img": "/img/sariyer-kare-6.jpg",
+    "contentImg": "/img/meclis-kadin.jpg",
+    "desc": "Sarıyer Spor Salonu’nda düzenlenen Kadın Dayanışması: Sağlık ve Spor etkinliği, kadınların sağlıklı yaşam bilincini artırmak ve sosyal dayanışmayı güçlendirmek amacıyla gerçekleştirildi. Etkinlikte panel tartışmaları, spor müsabakaları ve sağlık taramaları düzenlendi. Uzmanlar tarafından sunulan bilgiler, kadınların kendi sağlıklarını daha iyi yönetmelerine yardımcı olmayı hedefliyor."
+  },
+  {
+    "slug": "genclik-atolyesi-fotograf-ve-video",
+    "title": "Gençlik Atölyesi: Fotoğraf ve Video",
+    "time": "10:00 - 12:00",
+    "location": "Sarıyer Gençlik Merkezi",
+    "img": "/img/sariyer-kare-5.jpg",
+    "contentImg": "/img/calisma-alani-egitim-genclik.jpg",
+    "desc": "Sarıyer Gençlik Merkezi’nde düzenlenen Gençlik Atölyesi: Fotoğraf ve Video etkinliği, gençlere fotoğraf ve video çekim tekniklerini ücretsiz olarak sunmayı hedefliyor. Atölye çalışmalarında kompozisyon, ışık kullanımı, kurgu ve düzenleme konularında uygulamalı eğitim verilirken, gençlerin kendi projelerini geliştirmeleri için de imkanlar sağlandı. Etkinlik, gençlerin yaratıcılıklarını keşfetmelerine ve iletişim becerilerini geliştirmelerine katkı sağlıyor."
+  }
+]

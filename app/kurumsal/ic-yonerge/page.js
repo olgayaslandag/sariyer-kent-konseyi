@@ -1,8 +1,12 @@
-"use client";
-
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import PageHeader from "../../components/PageHeader";
+
+export const metadata = {
+  title: 'İç Yönerge | Sarıyer Kent Konseyi',
+  description: 'Sarıyer Kent Konseyi iç yönergesi. Amaç, kapsam, organlar ve çalışma ilkeleri.',
+  alternates: { canonical: 'https://sariyerkentkonseyi.org/kurumsal/ic-yonerge' },
+};
 
 export default function IcYonerge() {
 
@@ -18,7 +22,7 @@ export default function IcYonerge() {
         <section className="section">
           <div className="container">
             <div style={{ maxWidth: 1000, margin: "0 auto", lineHeight: 1.9 }}>
-              <h2 style={{ marginTop: 0 }}>Sarıyer Kent Konseyi İç Yönergesi (9 Nisan 2026)</h2>
+               <h2>Sarıyer Kent Konseyi İç Yönergesi (9 Nisan 2026)</h2>
 
               <h3>BİRİNCİ BÖLÜM - Amaç, Kapsam, Dayanak ve Tanımlar</h3>
 

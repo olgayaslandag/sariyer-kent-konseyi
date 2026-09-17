@@ -1,9 +1,12 @@
-"use client";
-
-import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
+
+export const metadata = {
+  title: 'Fotoğraf Galerisi | Sarıyer Kent Konseyi',
+  description: 'Sarıyer\'den kareler. Kent konseyimizin çalışmaları ve etkinliklerinden fotoğraflar.',
+  alternates: { canonical: 'https://sariyerkentkonseyi.org/galeri' },
+};
 
 const images = [
   "/img/sariyer-kare-1.jpg",
@@ -30,7 +33,7 @@ export default function Galeri() {
             <div className="gallery-grid">
               {images.map((src, i) => (
                 <div className="gallery-item" key={i}>
-                  <img src={src} alt={`Galeri ${i + 1}`} loading="lazy" />
+                  <img src={src} alt={`Sarıyer kent konseyi galeri fotoğrafı ${i + 1}`} loading="lazy" />
                 </div>
               ))}
             </div>

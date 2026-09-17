@@ -1,9 +1,12 @@
-"use client";
-
-import { useState } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import PageHeader from "../../components/PageHeader";
+
+export const metadata = {
+  title: 'Vizyon & Misyon | Sarıyer Kent Konseyi',
+  description: 'Sarıyer Kent Konseyi vizyonu, misyonu ve değerleri. Sürdürülebilir, adil ve erişilebilir bir Sarıyer için çalışıyoruz.',
+  alternates: { canonical: 'https://sariyerkentkonseyi.org/kurumsal/vizyon-misyon' },
+};
 
 export default function VizyonMisyon() {
 

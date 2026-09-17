@@ -1,0 +1,546 @@
+[
+  {
+    "id": "01",
+    "slug": "cevre",
+    "title": "Çevre ve Sürdürülebilirlik",
+    "shortTitle": "Çevre ve",
+    "subTitle": "Sürdürülebilirlik",
+    "description": "Kentin doğal kaynaklarını korumak, yeşil alanları artırmak ve sürdürülebilir yaşamı teşvik etmek için çalışır.",
+    "link": "/calisma-gruplari/cevre",
+    "img": "/img/calisma-alani-cevre-surdurulebilirlik.jpg",
+    "detail": {
+      "about": "Çevre ve Sürdürülebilirlik çalışma grubu, Sarıyer’in doğal kaynaklarını korumak, yeşil alanları artırmak ve sürdürülebilir bir yaşam kültürü yaymak için çalışır. Grubumuz, iklim değişikliği, atık yönetimi, enerji verimliliği ve biyolojik çeşitlilik konularında çözüm önerileri geliştirir.",
+      "focusAreas": [
+        {"title": "Yeşil Alanlar", "desc": "Kent içi yeşil alanların artırılması ve korunması."},
+        {"title": "Atık Yönetimi", "desc": "Sıfır atık hedefleri ve geri dönüşüm projeleri."},
+        {"title": "Enerji Verimliliği", "desc": "Yenilenebilir enerji kullanımını teşvik etmek."}
+      ],
+      "activities": "Ağaç Dikim Etkinlikleri, Sürdürülebilir Yaşam Paneli, Sıfır Atık Atölyeleri ve Bisiklet Turları düzenliyoruz.",
+      "projects": [
+        {"title": "Sarıyer’i Yeşillendirme", "desc": "Kent içi yeşil alanların artırılması ve ağaçlandırma çalışmalarıyla Sarıyer’i daha yaşanabilir hale getirmek."},
+        {"title": "Sıfır Atık Projesi", "desc": "Geri dönüşüm, kompost ve azaltma odaklı uygulamalarla sıfır atık hedefine ulaşmak için çalışmalar yürütüyoruz."},
+        {"title": "Bisiklet Dostu Kent", "desc": "Bisiklet yolları ve bisiklet paylaşım sistemleri için projeler üretiyor, sürdürülebilir ulaşımı destekliyoruz."}
+      ]
+    }
+  },
+  {
+    "id": "02",
+    "slug": "egitim",
+    "title": "Eğitim ve Gençlik",
+    "shortTitle": "Eğitim ve",
+    "subTitle": "Gençlik",
+    "description": "Gençlerin eğitim imkanlarını genişletmek, beceri kazandırmak ve aktif vatandaşlık bilinci aşılamak için çalışır.",
+    "link": "/calisma-gruplari/egitim",
+    "img": "/img/calisma-alani-egitim-genclik.jpg",
+    "detail": {
+      "about": "Eğitim ve Gençlik çalışma grubu, gençlerin eğitim imkanlarını genişletmek, beceri kazandırmak ve aktif vatandaşlık bilinci aşılamak için çalışır. Grubumuz, eğitimde eşitlik ve kaliteyi artırmak, gençlerin potansiyelini en üst düzeye çıkarmak için projeler üretir.",
+      "focusAreas": [
+        {"title": "Erişilebilir Eğitim", "desc": "Tüm gençlere eğitim imkanı sunmak."},
+        {"title": "Beceri Kazandırma", "desc": "Mesleki ve sosyal beceri eğitimleri."},
+        {"title": "Vatandaşlık", "desc": "Aktif vatandaşlık bilinci aşılamak."}
+      ],
+      "activities": "Eğitim Atölyeleri, Gençlik Zirvesi, Mentorluk Programları, Burs ve Ödül Törenleri ile gençlerle birlikteyiz.",
+      "projects": [
+        {"title": "Gençlik Mentorluk Programı", "desc": "Deneyimli profesyonellerin gençlere rehberlik ettiği, kariyer hedeflerini belirlemelerini sağlayan program."},
+        {"title": "Dijital Okuryazlık Atölyeleri", "desc": "Gençlere dijital araçları etkin kullanmayı, içerik üretmeyi ve dijital güvenliği öğreten atölyeler."},
+        {"title": "Burs ve Ödül Programı", "desc": "Akademik başarılı ve sosyal proje geliştiren gençlere burs ve ödül desteği sağlayan program."}
+      ]
+    }
+  },
+  {
+    "id": "03",
+    "slug": "saglik",
+    "title": "Sağlık ve Sosyal Hizmetler",
+    "shortTitle": "Sağlık ve",
+    "subTitle": "Sosyal Hizmetler",
+    "description": "Halk sağlığını iyileştirmek, erişilebilir sosyal hizmetler sunmak ve destek mekanizmalarını güçlendirmek için çalışır.",
+    "link": "/calisma-gruplari/saglik",
+    "img": "/img/calisma-alani-saglik-sosyal-hizmetler.jpg",
+    "detail": {
+      "about": "Sağlık ve Sosyal Hizmetler çalışma grubu, Sarıyer’de halk sağlığını iyileştirmek, erişilebilir sosyal hizmetler sunmak ve destek mekanizmalarını güçlendirmek için çalışır. Grubumuz, toplumsal dayanışmayı artırmak ve en yalnız kesimlere ulaşmak için projeler geliştirir.",
+      "focusAreas": [
+        {"title": "Halk Sağlığı", "desc": "Sağlıklı yaşam taramaları ve farkındalık çalışmaları."},
+        {"title": "Sosyal Destek", "desc": "Yalnız kesimlere yönelik destek mekanizmaları."},
+        {"title": "Erişilebilir Hizmetler", "desc": "Sosyal hizmetlerin ulaşılabilirliğini artırmak."}
+      ],
+      "activities": "Sağlık Taramaları, Sosyal Destek Seminerleri, Aile Sağlığı Günleri ve Gönüllü Dayanışma Programları düzenliyoruz.",
+      "projects": [
+        {"title": "Halk Sağlığı Taramaları", "desc": "Ücretsiz kan şekeri, tansiyon ve kolesterol taramaları ile halk sağlığını korumak ve erken teşhis imkanı sağlamak."},
+        {"title": "Aile Sağlığı Programı", "desc": "Bireylerin ve ailelerin sağlıklı yaşam bilincini artırmak, psikolojik danışmanlık ve aile terapisi imkanı sunmak."},
+        {"title": "Sosyal Destek Ağı", "desc": "Yalnız kesimlere yönelik gıda, barınma ve psikolojik destek sağlayan, toplumsal dayanışmayı güçlendiren ağ."}
+      ]
+    }
+  },
+  {
+    "id": "04",
+    "slug": "kultur",
+    "title": "Kültür ve Sanat",
+    "shortTitle": "Kültür ve",
+    "subTitle": "Sanat",
+    "description": "Kentin kültürel kimliğini zenginleştirmek, sanatın erişilebilirliğini artırmak ve yerel kültürel mirası korumak için çalışır.",
+    "link": "/calisma-gruplari/kultur",
+    "img": "/img/calisma-alani-kultur-sanat.jpg",
+    "detail": {
+      "about": "Kültür ve Sanat çalışma grubu, kentin kültürel kimliğini zenginleştirmek, sanatın erişilebilirliğini artırmak ve yerel kültürel mirası korumak için çalışır. Grubumuz, kültürel etkinlikleri destekler ve sanatın her kesime ulaşması için projeler üretir.",
+      "focusAreas": [
+        {"title": "Kültürel Etkinlikler", "desc": "Kentin kültürel yaşamını zenginleştirmek."},
+        {"title": "Sanat Erişimi", "desc": "Sanatın her kesime erişilebilir olmasını sağlamak."},
+        {"title": "Miras Koruma", "desc": "Yerel kültürel mirası korumak ve yaşatmak."}
+      ],
+      "activities": "Sanat Festivali, Kültür Gezileri, Sergiler ve Atölye Çalışmaları düzenliyoruz.",
+      "projects": [
+        {"title": "Kültürel Miras Projesi", "desc": "Yerel kültürel mirası envanterlemek ve koruma çalışmaları yürütmek."},
+        {"title": "Sanatın Her Köşesine", "desc": "Kent içinde sanat eserlerini her mahalleye taşımak ve erişilebilirliği artırmak."},
+        {"title": "Genç Sanatçı Platformu", "desc": "Genç sanatçılara ortam sağlamak, eserlerini sergilemelerine destek olmak."}
+      ]
+    }
+  },
+  {
+    "id": "05",
+    "slug": "kentlesme",
+    "title": "Kentleşme ve Planlama",
+    "shortTitle": "Kentleşme ve",
+    "subTitle": "Planlama",
+    "description": "Sürdürülebilir kentleşme, ulaşım, konut ve alan planlaması konularında projeler üretir.",
+    "link": "/calisma-gruplari/kentlesme",
+    "img": "/img/calisma-alani-kentlesme-planlama.jpg",
+    "detail": {
+      "about": "Kentleşme ve Planlama çalışma grubu, sürdürülebilir kentleşme, ulaşım, konut ve alan planlaması konularında projeler üretir. Grubumuz, kentin fiziksel yapısını planlamak, alan kullanımını optimize etmek ve yaşanabilir bir kent inşa etmek için çalışır.",
+      "focusAreas": [
+        {"title": "Sürdürülebilir Kentleşme", "desc": "Çevre dostu kentleşme modelleri üretmek."},
+        {"title": "Ulaşım", "desc": "Güvenli ve erişilebilir ulaşım çözümleri."},
+        {"title": "Konut", "desc": "Uygun maliyetli ve kaliteli konut çözümleri."}
+      ],
+      "activities": "Kent Planlama Panelleri, Ulaşım Çalıştayları, Mahalle Diyalogları ve Alan Kullanımı Atölyeleri düzenliyoruz.",
+      "projects": [
+        {"title": "Sürdürülebilir Kent Modeli", "desc": "Çevre dostu, enerji verimli ve yaşanabilir bir kent modeli tasarlamak."},
+        {"title": "Akıllı Ulaşım Ağı", "desc": "Kent içi ulaşımı kolaylaştıracak akıllı durak ve rota sistemleri kurmak."},
+        {"title": "Konut Güvencesi", "desc": "Düşük gelirli ailelere uygun konut çözümleri üretmek."}
+      ]
+    }
+  },
+  {
+    "id": "06",
+    "slug": "ekonomi",
+    "title": "Ekonomi ve İstihdam",
+    "shortTitle": "Ekonomi ve",
+    "subTitle": "İstihdam",
+    "description": "Yerel ekonomiye katkı sağlayan projeler geliştirir, istihdamı destekler ve girişimciliği teşvik eder.",
+    "link": "/calisma-gruplari/ekonomi",
+    "img": "/img/calisma-alani-ekonomi-istihdam.jpg",
+    "detail": {
+      "about": "Ekonomi ve İstihdam çalışma grubu, yerel ekonomiye katkı sağlayan projeler geliştirir, istihdamı destekler ve girişimciliği teşvik eder. Grubumuz, kentin ekonomik kalkınması için sürdürülebilir modeller üretir.",
+      "focusAreas": [
+        {"title": "Yerel Ekonomi", "desc": "Yerel üretimi ve tüketimi desteklemek."},
+        {"title": "İstihdam", "desc": "İş imkanları yaratmak ve desteklemek."},
+        {"title": "Girişimcilik", "desc": "Genç girişimcileri desteklemek."}
+      ],
+      "activities": "Girişimcilik Panelleri, İstihdam Fuarları, Kooperatif Eğitimleri ve Yerel Üretim Günleri düzenliyoruz.",
+      "projects": [
+        {"title": "Yerel Üretici Pazarı", "desc": "Yerel üreticilerin ürünlerini doğrudan tüketiciye ulaştırmak için pazar düzenlemek."},
+        {"title": "Girişimcilik Merkezi", "desc": "Genç girişimcilere eğitim, mentörlük ve finansman imkanı sağlamak."},
+        {"title": "Kooperatif Destek Programı", "desc": "Kooperatifçilik bilincini artırmak, kurulma sürecinde destek olmak."}
+      ]
+    }
+  },
+  {
+    "id": "07",
+    "slug": "engelli-erisebilirlik",
+    "title": "Engelli ve Erişilebilirlik",
+    "shortTitle": "Engelli ve",
+    "subTitle": "Erişilebilirlik",
+    "description": "Engelli bireylerin haklarını korumak, erişilebilir kent çalışmaları yapmak ve sosyal katılımı artırmak için çalışır.",
+    "link": "/calisma-gruplari/engelli-erisebilirlik",
+    "img": "/img/calisma-alani-engelli-erisebilirlik.jpg",
+    "detail": {
+      "about": "Engelli ve Erişilebilirlik çalışma grubu, engelli bireylerin haklarını korumak, erişilebilir kent çalışmaları yapmak ve sosyal katılımı artırmak için çalışır. Grubumuz, kentin fiziksel ve dijital alanlarını herkes için erişilebilir hale getirmek için projeler üretir.",
+      "focusAreas": [
+        {"title": "Erişilebilir Kent", "desc": "Fiziksel alanları engelli bireyler için uyarlamak."},
+        {"title": "Haklar", "desc": "Engelli bireylerin haklarını korumak ve desteklemek."},
+        {"title": "Sosyal Katılım", "desc": "Sosyal hayata katılımı artırmak."},
+        {"title": "Dijital Erişilebilirlik", "desc": "Dijital içerik ve hizmetleri erişilebilir kılmak."}
+      ],
+      "activities": "Erişilebilirlik Atölyeleri, Engelli Farkındalık Günleri, Sempozyumlar ve Proje Sunumları düzenliyoruz.",
+      "projects": [
+        {"title": "Erişilebilir Kent Projesi", "desc": "Kentin fiziksel alanlarını engelli bireyler için uyarlamak, rampalar ve asansörler eklemek."},
+        {"title": "Dijital Erişilebilirlik", "desc": "Web ve mobil platformları erişilebilir hale getirmek, alternatif metin ve sesli yönlendirme eklemek."},
+        {"title": "Engelli Hakları Sempozyumu", "desc": "Engelli bireylerin haklarını korumak, farkındalığı artırmak ve mevcut sorunları ele almak için sempozyumlar düzenlemek."}
+      ]
+    }
+  },
+  {
+    "id": "08",
+    "slug": "cocuk-aile",
+    "title": "Çocuk ve Aile",
+    "shortTitle": "Çocuk ve",
+    "subTitle": "Aile",
+    "description": "Çocuk haklarını korumak, aileleri desteklemek ve çocukların güvenli büyümesini sağlamak için çalışır.",
+    "link": "/calisma-gruplari/cocuk-aile",
+    "img": "/img/calisma-alani-cocuk-aile.jpg",
+    "detail": {
+      "about": "Çocuk ve Aile çalışma grubu, çocuk haklarını korumak, aileleri desteklemek ve çocukların güvenli büyümesini sağlamak için çalışır. Grubumuz, ailelerin sosyal, ekonomik ve psikolojik desteklerini güçlendirmek için projeler üretir.",
+      "focusAreas": [
+        {"title": "Çocuk Hakları", "desc": "Çocukların korunması ve desteklenmesi."},
+        {"title": "Aile Desteği", "desc": "Ailelere sosyal, ekonomik ve psikolojik destek sağlamak."},
+        {"title": "Sosyal Dayanışma", "desc": "Sosyal dayanışmayı güçlendirmek."},
+        {"title": "Ebeveynlik", "desc": "Ebeveynlere rehberlik ve destek sağlamak."}
+      ],
+      "activities": "Aile Günleri, Çocuk Hakları Sempozyumları, Ebeveyn Atölyeleri ve Çocuklarla Aktivite Günleri düzenliyoruz.",
+      "projects": [
+        {"title": "Aile Destek Merkezi", "desc": "Ailelere sosyal, ekonomik ve psikolojik destek sağlayan bir merkez oluşturmak ve hizmetlerini yaymak."},
+        {"title": "Çocuk Dostu Kent", "desc": "Çocukların güvenli ve sağlıklı büyümesini sağlamak için çocuk dostu alanlar ve projeler üretmek."},
+        {"title": "Ebeveynlik Programı", "desc": "Ebeveynlere rehberlik, eğitim ve destek sağlayan bir program oluşturmak."}
+      ]
+    }
+  },
+  {
+    "id": "09",
+    "slug": "tuketici-haklari",
+    "title": "Tüketici Hakları ve Gıda Güvenliği",
+    "shortTitle": "Tüketici Hakları",
+    "subTitle": "Gıda Güvenliği",
+    "description": "Tüketici haklarını korumak, gıda güvenliğini sağlamak ve sorunlara hızlı çözüm üretmek için çalışır.",
+    "link": "/calisma-gruplari/tuketici-haklari",
+    "img": "/img/calisma-alani-saglik-sosyal-hizmetler.jpg",
+    "detail": {
+      "about": "Tüketici Hakları ve Gıda Güvenliği çalışma grubu, tüketici haklarını korumak, gıda güvenliğini sağlamak ve şikayetlere hızlı çözüm üretmek için çalışır. Gurubumuz, tüketicinin gücünü artırmak ve adil ticaret pratiklerini yaymak için projeler geliştirir.",
+      "focusAreas": [
+        {"title": "Gıda Güvenliği", "desc": "Gıda güvenliği standartlarını yaymak ve denetlemek."},
+        {"title": "Tüketici Bilinci", "desc": "Tüketici haklarını ve sorumluluklarını öğretmek."},
+        {"title": "Şikayet Mekanizmaları", "desc": "Hızlı ve etkili şikayet çözüm süreçleri oluşturmak."},
+        {"title": "Adil Ticaret", "desc": "Adil ticaret uygulamalarını desteklemek ve yaymak."}
+      ],
+      "activities": "Tüketici Farkındalık Günleri, Gıda Denetim Atölyeleri, Tüketici Hakkı Sempozyumları düzenliyoruz.",
+      "projects": [
+        {"title": "Güvenli Market Programı", "desc": "Gıda güvenliği standartlarını tüm marketlerde uygulamak, denetim ve bilgilendirme çalışmaları yürütmek."},
+        {"title": "Şikayet Çözümleme Platformu", "desc": "Tüketici şikayetlerini hızlıca çözümlemek için dijital bir platform oluşturmak ve şeffaflığı artırmak."},
+        {"title": "Gıda Etiket Okuryazarlığı", "desc": "Gıda etiketlerini anlama ve sağlıklı alışveriş alışkanlıkları kazandırma eğitimleri sunmak."}
+      ]
+    }
+  },
+  {
+    "id": "10",
+    "slug": "sanat",
+    "title": "Sanat",
+    "shortTitle": "Sanat",
+    "subTitle": "",
+    "description": "Kentin kültürel kimliğini zenginleştirmek, sanatın erişilebilirliğini artırmak ve yerel sanatçıları desteklemek için çalışır.",
+    "link": "/calisma-gruplari/sanat",
+    "img": "/img/calisma-alani-kultur-sanat.jpg",
+    "detail": {
+      "about": "Sanat çalışma grubu, kentin kültürel kimliğini zenginleştirmek, sanatın her kesime erişilebilir olmasını sağlamak ve yerel sanatçıları desteklemek için çalışır.",
+      "focusAreas": [
+        {"title": "Erişilebilir Sanat", "desc": "Sanatın her kesime erişilebilir olmasını sağlamak."},
+        {"title": "Yerel Sanatçı Desteği", "desc": "Yerel sanatçıları desteklemek ve yaymak."},
+        {"title": "Kültürel Etkinlikler", "desc": "Sanat ve kültürel etkinlikleri desteklemek."},
+        {"title": "Sanat Eğitimi", "desc": "Sanat eğitimini yaygınlaştırmak."}
+      ],
+      "activities": "Sokak Sanatı Festivali, Sanat Atölyeleri, Sergiler ve Sanat Gezileri düzenliyoruz.",
+      "projects": [
+        {"title": "Sanatın Her Köşesine", "desc": "Kent içinde sanat eserlerini her mahalleye taşımak ve erişilebilirliği artırmak."},
+        {"title": "Genç Sanatçı Platformu", "desc": "Genç sanatçılara ortam sağlamak, eserlerini sergilemelerine destek olmak."},
+        {"title": "Kentsel Doku Sanat Projeleri", "desc": "Kentin tarihi dokusuna uygun sanat projeleri üretmek."}
+      ]
+    }
+  },
+  {
+    "id": "11",
+    "slug": "basin-iletisim",
+    "title": "Basın, Sosyal Medya ve İletişim",
+    "shortTitle": "Basın, Sosyal Medya",
+    "subTitle": "İletişim",
+    "description": "Şeffaf iletişimi güçlendirmek, medya okuryazarlığını artırmak ve doğru bilginin her kesime ulaşmasını sağlamak için çalışır.",
+    "link": "/calisma-gruplari/basin-iletisim",
+    "img": "/img/calisma-alani-ekonomi-istihdam.jpg",
+    "detail": {
+      "about": "Basın, Sosyal Medya ve İletişim çalışma grubu, şeffaf iletişimi güçlendirmek, medya okuryazarlığını artırmak ve doğru bilginin her kesime ulaşmasını sağlamak için çalışır.",
+      "focusAreas": [
+        {"title": "Medya Okuryazarlığı", "desc": "Medya okuryazarlığını artırmak."},
+        {"title": "Şeffaflık", "desc": "Şeffaf iletişimi güçlendirmek."},
+        {"title": "Dijital İletişim", "desc": "Dijital iletişim araçlarını etkin kullanmak."},
+        {"title": "Doğru Bilgi", "desc": "Doğru bilginin yayılmasını sağlamak."}
+      ],
+      "activities": "Basın Kulisi, Medya Eğitim Atölyeleri, İletişim Panelleri ve Medya Okuryazarlığı Günleri düzenliyoruz.",
+      "projects": [
+        {"title": "Doğru Bilgi Platformu", "desc": "Doğru bilgiye erişimi kolaylaştırmak için bir platform oluşturmak."},
+        {"title": "Kent Haberleri", "desc": "Kentin haberlerini doğru ve tarafsız bir şekilde yaymak."},
+        {"title": "Sosyal Medya Rehberi", "desc": "Sosyal medyayı etkin ve güvenli kullanma rehberi hazırlamak."}
+      ]
+    }
+  },
+  {
+    "id": "12",
+    "slug": "afet-arama-kurtarma",
+    "title": "Afet, Deprem, Arama ve Kurtarma",
+    "shortTitle": "Afet, Deprem",
+    "subTitle": "Arama Kurtarma",
+    "description": "Afet öncesi hazırlığı artırmak, eğitimler düzenlemek ve afet sonrası dayanışma mekanizmalarını güçlendirmek için çalışır.",
+    "link": "/calisma-gruplari/afet-arama-kurtarma",
+    "img": "/img/calisma-alani-kentlesme-planlama.jpg",
+    "detail": {
+      "about": "Afet, Deprem, Arama ve Kurtarma çalışma grubu, afet öncesi hazırlığı artırmak, eğitimler düzenlemek ve afet sonrası dayanışma mekanizmalarını güçlendirmek için çalışır.",
+      "focusAreas": [
+        {"title": "Afet Eğitimi", "desc": "Afet öncesi ve sonrası eğitimler düzenlemek."},
+        {"title": "Hazırlık", "desc": "Afet hazırlık çalışmaları yapmak."},
+        {"title": "Gönüllü Arama Kurtarma", "desc": "Gönüllü arama kurtarma ekibi oluşturmak."},
+        {"title": "Dayanışma Ağı", "desc": "Afet sonrası dayanışma mekanizmalarını güçlendirmek."}
+      ],
+      "activities": "Deprem Tatbikatları, Afet Farkındalık Günleri, Yardım Organizasyonları ve Afet Eğitim Atölyeleri düzenliyoruz.",
+      "projects": [
+        {"title": "Kentin Güvenliği", "desc": "Kentin afete karşı dayanıklılığını artırmak için çalışmalar yürütmek."},
+        {"title": "Afet Eğitim Merkezi", "desc": "Afet eğitimleri veren bir merkez oluşturmak."},
+        {"title": "Gönüllü Arama Kurtarma Ekibi", "desc": "Gönüllü arama kurtarma ekibi kurmak ve eğitmek."}
+      ]
+    }
+  },
+  {
+    "id": "13",
+    "slug": "trafik-ulasim",
+    "title": "Trafik ve Ulaşım",
+    "shortTitle": "Trafik ve",
+    "subTitle": "Ulaşım",
+    "description": "Güvenli, sürdürülebilir ve erişilebilir ulaşım çözümleri üretmek, trafik güvenliğini artırmak ve ulaşım imkanlarını genişletmek için çalışır.",
+    "link": "/calisma-gruplari/trafik-ulasim",
+    "img": "/img/calisma-alani-egitim-genclik.jpg",
+    "detail": {
+      "about": "Trafik ve Ulaşım çalışma grubu, güvenli, sürdürülebilir ve erişilebilir ulaşım çözümleri üretmek, trafik güvenliğini artırmak ve ulaşım imkanlarını genişletmek için çalışır.",
+      "focusAreas": [
+        {"title": "Trafik Güvenliği", "desc": "Trafik güvenliğini artırmak."},
+        {"title": "Sürdürülebilir Ulaşım", "desc": "Sürdürülebilir ulaşım çözümleri üretmek."},
+        {"title": "Erişilebilirlik", "desc": "Ulaşımın her kesime erişilebilir olmasını sağlamak."},
+        {"title": "Akıllı Ulaşım", "desc": "Akıllı ulaşım sistemleri kurmak."}
+      ],
+      "activities": "Trafik Farkındalık Kampanyaları, Bisiklet Turları, Ulaşım Panelleri ve Trafik Eğitimleri düzenliyoruz.",
+      "projects": [
+        {"title": "Güvenli Yol Projesi", "desc": "Trafik güvenliğini artırmak için güvenli yollar ve yaya geçitleri oluşturmak."},
+        {"title": "Akıllı Duraklar", "desc": "Akıllı durak sistemleri kurmak ve ulaşımı kolaylaştırmak."},
+        {"title": "Bisiklet Dostu Kent", "desc": "Bisiklet yolları yaygınlaştırmak ve bisiklet kullanımını teşvik etmek."}
+      ]
+    }
+  },
+  {
+    "id": "14",
+    "slug": "demokrasi-haklar",
+    "title": "Demokrasi, Temel Hak ve Özgürlükler",
+    "shortTitle": "Demokrasi, Temel Hak",
+    "subTitle": "Özgürlükler",
+    "description": "Demokratik süreçleri güçlendirmek, temel hak ve özgürlükleri korumak ve farklı inançların barış içinde yaşamasını desteklemek için çalışır.",
+    "link": "/calisma-gruplari/demokrasi-haklar",
+    "img": "/img/calisma-alani-engelli-erisebilirlik.jpg",
+    "detail": {
+      "about": "Demokrasi, Temel Hak ve Özgürlükler çalışma grubu, demokratik süreçleri güçlendirmek, temel hak ve özgürlükleri korumak, farklı inanç ve kimliklerin barış içinde yaşamasını desteklemek için çalışır.",
+      "focusAreas": [
+        {"title": "Katılımcı Demokrasi", "desc": "Katılımcı demokrasiyi güçlendirmek."},
+        {"title": "Temel Haklar", "desc": "Temel hakları korumak ve desteklemek."},
+        {"title": "İnanç Özgürlüğü", "desc": "İnanç özgürlüğünü sağlamak."},
+        {"title": "Farkındalık", "desc": "Hak ve özgürlükler konusunda farkındalığı artırmak."}
+      ],
+      "activities": "Demokrasi Panelleri, Hak Sempozyumları, Hoşgörü ve Dayanışma Günleri ve Demokrasi Atölyeleri düzenliyoruz.",
+      "projects": [
+        {"title": "Demokrasi Atölyeleri", "desc": "Demokrasi ve katılımcılık üzerine atölyeler düzenlemek."},
+        {"title": "Hak ve Özgürlükler Raporu", "desc": "Hak ve özgürlükler konusunda bir rapor hazırlamak ve yaymak."},
+        {"title": "Farklı İnançlar Platformu", "desc": "Farklı inançların barış içinde yaşaması için bir platform oluşturmak."}
+      ]
+    }
+  },
+  {
+    "id": "15",
+    "slug": "balikcilik",
+    "title": "Balıkçılık ve Su Ürünleri",
+    "shortTitle": "Balıkçılık",
+    "subTitle": "Su Ürünleri",
+    "description": "Sürdürülebilir balıkçılık, su ürünleri ve kıyı ekosistemlerini korumak için çalışır.",
+    "link": "/calisma-gruplari/balikcilik",
+    "img": "/img/calisma-alani-cevre-surdurulebilirlik.jpg",
+    "detail": {
+      "about": "Balıkçılık ve Su Ürünleri çalışma grubu, sürdürülebilir balıkçılık, su ürünleri üretimini desteklemek ve kıyı ekosistemlerini korumak için çalışır.",
+      "focusAreas": [
+        {"title": "Sürdürülebilir Balıkçılık", "desc": "Sürdürülebilir balıkçılık uygulamalarını desteklemek."},
+        {"title": "Su Ürünleri", "desc": "Su ürünleri üretimini desteklemek."},
+        {"title": "Kıyı Ekosistemi", "desc": "Kıyı ekosistemlerini korumak."},
+        {"title": "Balıkçı Desteği", "desc": "Balıkçılara destek olmak."}
+      ],
+      "activities": "Balıkçılık Panelleri, Su Ürünleri Festivali, Kıyı Temizlik Günleri ve Balıkçılık Eğitimleri düzenliyoruz.",
+      "projects": [
+        {"title": "Sürdürülebilir Balıkçılık Projesi", "desc": "Sürdürülebilir balıkçılık uygulamalarını yaymak."},
+        {"title": "Su Ürünleri Destek Programı", "desc": "Su ürünleri üreticilerini desteklemek."},
+        {"title": "Kıyı Koruma Girişimi", "desc": "Kıyı ekosistemlerini korumak için çalışmalar yürütmek."}
+      ]
+    }
+  },
+  {
+    "id": "16",
+    "slug": "hayvan-haklari",
+    "title": "Hayvan Hakları",
+    "shortTitle": "Hayvan",
+    "subTitle": "Hakları",
+    "description": "Hayvanların iyi yaşam şartlarını sağlamak, şiddet ve ihmal ile mücadele etmek için çalışır.",
+    "link": "/calisma-gruplari/hayvan-haklari",
+    "img": "/img/calisma-alani-cocuk-aile.jpg",
+    "detail": {
+      "about": "Hayvan Hakları çalışma grubu, hayvanların iyi yaşam şartlarını sağlamak, şiddet ve ihmal ile mücadele etmek ve toplumsal farkındalığı artırmak için çalışır.",
+      "focusAreas": [
+        {"title": "Hayvan Refahı", "desc": "Hayvanların iyi yaşam şartlarını sağlamak."},
+        {"title": "Şiddetle Mücadele", "desc": "Hayvana şiddet ve ihmal ile mücadele etmek."},
+        {"title": "Sahiplendirme", "desc": "Sahiplendirme kampanyaları düzenlemek."},
+        {"title": "Farkındalık", "desc": "Hayvan hakları konusunda farkındalığı artırmak."}
+      ],
+      "activities": "Hayvan Hakları Paneli, Sahiplendirme Günleri, Eğitim Atölyeleri ve Hayvan Dostu Etkinlikler düzenliyoruz.",
+      "projects": [
+        {"title": "Sahiplendirme Kampanyası", "desc": "Sahiplendirme kampanyaları düzenlemek ve hayvanların yuva bulmasını sağlamak."},
+        {"title": "Hayvan Dostu Kent", "desc": "Hayvan dostu bir kent için projeler üretmek."},
+        {"title": "Refah Standartları", "desc": "Hayvan refahı standartlarını yaymak ve denetlemek."}
+      ]
+    }
+  },
+  {
+    "id": "17",
+    "slug": "kentsel-donusum",
+    "title": "Kentsel Dönüşüm, Gecekondu Mülkiyet, Barınma Hakları, Göç ve Göçmen Sorunları",
+    "shortTitle": "Kentsel Dönüşüm",
+    "subTitle": "Barınma Hakları",
+    "description": "Sürdürülebilir kentsel dönüşüm, barınma hakları ve göçmen sorunlarına yönelik adil çözümler üretmek için çalışır.",
+    "link": "/calisma-gruplari/kentsel-donusum",
+    "img": "/img/calisma-alani-kentlesme-planlama.jpg",
+    "detail": {
+      "about": "Kentsel Dönüşüm, Gecekondu Mülkiyet, Barınma Hakları, Göç ve Göçmen Sorunları çalışma grubu, sürdürülebilir kentsel dönüşüm, adil barınma hakları ve göçmen sorunlarına yönelik adil çözümler üretmek için çalışır.",
+      "focusAreas": [
+        {"title": "Kentsel Dönüşüm", "desc": "Sürdürülebilir kentsel dönüşüm projeleri üretmek."},
+        {"title": "Barınma Hakları", "desc": "Barınma haklarını korumak ve desteklemek."},
+        {"title": "Göç ve Göçmenler", "desc": "Göç ve göçmen sorunlarına çözüm üretmek."},
+        {"title": "Gecekondu Mülkiyet", "desc": "Gecekondu mülkiyet haklarını desteklemek."}
+      ],
+      "activities": "Konut Panelleri, Göç Konferansları, Mahalle Diyalogları ve Barınma Hakları Sempozyumları düzenliyoruz.",
+      "projects": [
+        {"title": "Adil Kentsel Dönüşüm", "desc": "Sürdürülebilir ve adil bir kentsel dönüşüm modeli üretmek."},
+        {"title": "Barınma Güvencesi", "desc": "Herkes için barınma güvencesi sağlamak."},
+        {"title": "Göçmen Destek Ağı", "desc": "Göçmenlere destek olmak için bir ağ oluşturmak."}
+      ]
+    }
+  },
+  {
+    "id": "18",
+    "slug": "tarihi-doku-turizm",
+    "title": "Tarihi Doku, Turizm ve Kültür",
+    "shortTitle": "Tarihi Doku",
+    "subTitle": "Turizm ve Kültür",
+    "description": "Tarihi ve kültürel mirası korumak, turizmi sürdürülebilir kılıp kentin kimliğini yaşatmak için çalışır.",
+    "link": "/calisma-gruplari/tarihi-doku-turizm",
+    "img": "/img/calisma-alani-kultur-sanat.jpg",
+    "detail": {
+      "about": "Tarihi Doku, Turizm ve Kültür çalışma grubu, tarihi ve kültürel mirası korumak, turizmi sürdürülebilir kılıp kentin kimliğini yaşatmak ve kültürel etkinlikleri desteklemek için çalışır.",
+      "focusAreas": [
+        {"title": "Tarihi Miras", "desc": "Tarihi mirası korumak ve yaşatmak."},
+        {"title": "Sürdürülebilir Turizm", "desc": "Sürdürülebilir turizm modelleri üretmek."},
+        {"title": "Kültürel Etkinlikler", "desc": "Kültürel etkinlikleri desteklemek."},
+        {"title": "Koruma", "desc": "Kültürel mirası korumak."}
+      ],
+      "activities": "Tarihi Geziler, Kültür Festivalleri, Miras Koruma Panelleri ve Kültürel Atölyeler düzenliyoruz.",
+      "projects": [
+        {"title": "Tarihi Doku Envanteri", "desc": "Tarihi dokuyu envanterlemek ve koruma çalışmaları yürütmek."},
+        {"title": "Kültürel Rotalar", "desc": "Kültürel rotalar oluşturmak ve turizmi desteklemek."},
+        {"title": "Mirası Yaşatma Projesi", "desc": "Kültürel mirası yaşatmak için projeler üretmek."}
+      ]
+    }
+  },
+  {
+    "id": "19",
+    "slug": "surdurulebilir-kalkinma",
+    "title": "Sürdürülebilir Kalkınma, Kentli Hakları, Girişimcilik, Kooperatifçilik",
+    "shortTitle": "Sürdürülebilir Kalkınma",
+    "subTitle": "Kentli Hakları",
+    "description": "Sürdürülebilir kalkınma projeleri üretmek, kentli haklarını desteklemek ve girişimciliği teşvik etmek için çalışır.",
+    "link": "/calisma-gruplari/surdurulebilir-kalkinma",
+    "img": "/img/calisma-alani-ekonomi-istihdam.jpg",
+    "detail": {
+      "about": "Sürdürülebilir Kalkınma, Kentli Hakları, Girişimcilik, Kooperatifçilik çalışma grubu, sürdürülebilir kalkınma projeleri üretmek, kentli haklarını desteklemek, girişimciliği ve kooperatifçiliği teşvik etmek için çalışır.",
+      "focusAreas": [
+        {"title": "Sürdürülebilir Kalkınma", "desc": "Sürdürülebilir kalkınma projeleri üretmek."},
+        {"title": "Kentli Hakları", "desc": "Kentli haklarını desteklemek."},
+        {"title": "Girişimcilik", "desc": "Girişimciliği teşvik etmek."},
+        {"title": "Kooperatifçilik", "desc": "Kooperatifçiliği desteklemek."}
+      ],
+      "activities": "Girişimcilik Panelleri, Kooperatif Eğitimleri, Kalkınma Zirvesi ve Kentli Hakları Sempozyumları düzenliyoruz.",
+      "projects": [
+        {"title": "Girişimcilik Merkezi", "desc": "Girişimcilik merkezi kurmak ve genç girişimcileri desteklemek."},
+        {"title": "Kooperatif Destek Programı", "desc": "Kooperatifçilik bilincini artırmak ve kurulma sürecinde destek olmak."},
+        {"title": "Sürdürülebilir Kent Projeleri", "desc": "Sürdürülebilir kent projeleri üretmek."}
+      ]
+    }
+  },
+  {
+    "id": "20",
+    "slug": "orman-cevre-saglik",
+    "title": "Orman, Orman Ürünleri, Çevre, Sağlık",
+    "shortTitle": "Orman, Orman Ürünleri",
+    "subTitle": "Çevre, Sağlık",
+    "description": "Orman ve çevreyi korumak, sağlıklı yaşamı teşvik etmek ve sürdürülebilir kaynakları yönetmek için çalışır.",
+    "link": "/calisma-gruplari/orman-cevre-saglik",
+    "img": "/img/calisma-alani-cevre-surdurulebilirlik.jpg",
+    "detail": {
+      "about": "Orman, Orman Ürünleri, Çevre, Sağlık çalışma grubu, orman ve çevreyi korumak, orman ürünlerini sürdürülebilir kullanmak ve sağlıklı yaşamı teşvik etmek için çalışır.",
+      "focusAreas": [
+        {"title": "Orman Koruma", "desc": "Ormanları korumak ve yaşatmak."},
+        {"title": "Çevre", "desc": "Çevreyi korumak ve sürdürmek."},
+        {"title": "Sağlıklı Yaşam", "desc": "Sağlıklı yaşamı teşvik etmek."},
+        {"title": "Sürdürülebilir Kaynaklar", "desc": "Sürdürülebilir kaynakları yönetmek."}
+      ],
+      "activities": "Ağaç Dikim Etkinlikleri, Doğa Yürüyüşleri, Sağlık Panelleri ve Orman Koruma Eğitimleri düzenliyoruz.",
+      "projects": [
+        {"title": "Sarıyer'i Yeşillendirme", "desc": "Kent içi yeşil alanların artırılması ve ağaçlandırma çalışmalarıyla Sarıyer’i daha yaşanabilir hale getirmek."},
+        {"title": "Orman Koruma Projesi", "desc": "Ormanları korumak için çalışmalar yürütmek."},
+        {"title": "Sağlıklı Yaşam Kampanyası", "desc": "Sağlıklı yaşamı teşvik etmek için kampanyalar düzenlemek."}
+      ]
+    }
+  },
+  {
+    "id": "21",
+    "slug": "tarim-hayvancilik",
+    "title": "Tarım, Hayvancılık ve Gıda",
+    "shortTitle": "Tarım, Hayvancılık",
+    "subTitle": "Gıda",
+    "description": "Sürdürülebilir tarım ve hayvancılık politikaları geliştirmek, yerli üretimi desteklemek ve gıda güvenliğini sağlamak için çalışır.",
+    "link": "/calisma-gruplari/tarim-hayvancilik",
+    "img": "/img/calisma-alani-saglik-sosyal-hizmetler.jpg",
+    "detail": {
+      "about": "Tarım, Hayvancılık ve Gıda çalışma grubu, sürdürülebilir tarım ve hayvancılık politikaları geliştirmek, yerli üretimi desteklemek ve gıda güvenliğini sağlamak için çalışır.",
+      "focusAreas": [
+        {"title": "Sürdürülebilir Tarım", "desc": "Sürdürülebilir tarım uygulamalarını desteklemek."},
+        {"title": "Hayvancılık", "desc": "Hayvancılık sektörünü desteklemek."},
+        {"title": "Yerli Üretim", "desc": "Yerli üretimi desteklemek."},
+        {"title": "Gıda Güvenliği", "desc": "Gıda güvenliğini sağlamak."}
+      ],
+      "activities": "Tarım Panelleri, Hayvancılık Eğitimleri, Yerli Üretim Günleri ve Gıda Güvenliği Atölyeleri düzenliyoruz.",
+      "projects": [
+        {"title": "Sürdürülebilir Tarım Projesi", "desc": "Sürdürülebilir tarım uygulamalarını yaymak."},
+        {"title": "Hayvancılık Destek Programı", "desc": "Hayvancılık sektörüne destek olmak."},
+        {"title": "Yerli Gıda Kampanyası", "desc": "Yerli gıda üretimini desteklemek."}
+      ]
+    }
+  },
+  {
+    "id": "22",
+    "slug": "spor",
+    "title": "Spor",
+    "shortTitle": "Spor",
+    "subTitle": "",
+    "description": "Sporun her kesime erişilebilir olmasını sağlamak, sağlıklı yaşamı teşvik etmek ve gençleri spora yönlendirmek için çalışır.",
+    "link": "/calisma-gruplari/spor",
+    "img": "/img/calisma-alani-engelli-erisebilirlik.jpg",
+    "detail": {
+      "about": "Spor çalışma grubu, sporun her kesime erişilebilir olmasını sağlamak, sağlıklı yaşamı teşvik etmek ve gençleri spora yönlendirmek için çalışır.",
+      "focusAreas": [
+        {"title": "Erişilebilir Spor", "desc": "Sporun her kesime erişilebilir olmasını sağlamak."},
+        {"title": "Gençlik Sporu", "desc": "Gençleri spora yönlendirmek."},
+        {"title": "Sağlıklı Yaşam", "desc": "Sağlıklı yaşamı teşvik etmek."},
+        {"title": "Spor Eğitimi", "desc": "Spor eğitimini yaygınlaştırmak."}
+      ],
+      "activities": "Spor Turnuvaları, Sağlık ve Spor Günleri, Spor Atölyeleri ve Spor Gezileri düzenliyoruz.",
+      "projects": [
+        {"title": "Her Kesime Spor", "desc": "Sporun her kesime erişilebilir olmasını sağlamak."},
+        {"title": "Spor Okulları", "desc": "Spor okulları kurmak ve gençleri spora yönlendirmek."},
+        {"title": "Sağlıklı Yaşam Kampanyası", "desc": "Sağlıklı yaşamı teşvik etmek için kampanyalar düzenlemek."}
+      ]
+    }
+  }
+]

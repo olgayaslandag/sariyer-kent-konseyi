@@ -2,16 +2,29 @@ import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import PageHeader from "../../components/PageHeader";
-import content from "../../../data/content.json";
+import ScrollToTop from "../../components/ScrollToTop";
+import newsData from "../../data/haberler.json";
 
 export async function generateStaticParams() {
-  return content.haberler.map((item) => ({
+  return newsData.map((item) => ({
     slug: item.slug,
   }));
 }
 
-export default function HaberDetay({ params }) {
-  const item = content.haberler.find((h) => h.slug === params.slug);
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const item = newsData.find((h) => h.slug === slug);
+  if (!item) return {};
+  return {
+    title: `${item.title} | Sarıyer Kent Konseyi`,
+    description: item.desc,
+    alternates: { canonical: `https://sariyerkentkonseyi.org/haberler/${slug}` },
+  };
+}
+
+export default async function HaberDetay({ params }) {
+  const { slug } = await params;
+  const item = newsData.find((h) => h.slug === slug);
 
   if (!item) {
     return null;
@@ -19,6 +32,7 @@ export default function HaberDetay({ params }) {
 
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       <main>
         <PageHeader eyebrow={item.tag} title={item.title} breadcrumbs={["Haberler", item.title]} />

@@ -1,9 +1,12 @@
-"use client";
-
-import { useState } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import PageHeader from "../../components/PageHeader";
+
+export const metadata = {
+  title: 'Yönetim Kurulu | Sarıyer Kent Konseyi',
+  description: 'Sarıyer Kent Konseyi yönetim kurulu üyeleri, asil ve yedek liste.',
+  alternates: { canonical: 'https://sariyerkentkonseyi.org/kurumsal/yonetim' },
+};
 
 const asilListe = [
   "Ali Haydar ASLAN",

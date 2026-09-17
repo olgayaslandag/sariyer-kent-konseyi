@@ -1,6 +1,6 @@
 "use client";
 
-export default function PageHeader({ eyebrow, title, breadcrumbs, bgImage }) {
+export default function PageHeader({ eyebrow, title, subtitle, breadcrumbs, bgImage }) {
   return (
     <div
       className={`page-header${bgImage ? " page-header-bg" : ""}`}
@@ -18,6 +18,7 @@ export default function PageHeader({ eyebrow, title, breadcrumbs, bgImage }) {
         <div className="page-header-content">
           {eyebrow && <p className="eyebrow light">{eyebrow}</p>}
           <h1>{title}</h1>
+          {subtitle && <p className="page-header-subtitle" style={{ marginTop: 8, opacity: 0.9 }}>{subtitle}</p>}
         </div>
       </div>
     </div>

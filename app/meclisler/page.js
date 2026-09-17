@@ -1,17 +1,14 @@
-"use client";
-
-import { useState } from "react";
+import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
+import councilsData from "../data/meclisler.json";
 
-const councils = [
-  ["Gençlik","Meclisi","/img/meclis-genclik.jpg","Gençlik sesini Kent Konseyi'ne taşımak için çalışır.","/meclisler/genclik"],
-  ["Kadın","Meclisi","/img/meclis-kadin.jpg","Kadınların kent yaşamındaki rolünü güçlendirir.","/meclisler/kadin"],
-  ["Çocuk","Meclisi","/img/meclis-cocuk.jpg","Çocukların haklarını ve ihtiyaçlarını savunur.","/meclisler/cocuk"],
-  ["Engelli","Meclisi","/img/meclis-engelli.jpg","Erişilebilir kent için projeler üretir.","/meclisler/engelli"],
-  ["Yaşlılar","Meclisi","/img/meclis-yasli.jpg","Yaşlıların yaşam kalitesini artırmak için çalışır.","/meclisler/yasli"]
-];
+export const metadata = {
+  title: 'Meclislerimiz | Sarıyer Kent Konseyi',
+  description: 'Sarıyer\'in farklı kesimlerini temsil eden meclislerimiz. Gençlik, kadın, engelli meclisleri ve daha fazlası.',
+  alternates: { canonical: 'https://sariyerkentkonseyi.org/meclisler' },
+};
 
 export default function Meclisler() {
 
@@ -32,14 +29,18 @@ export default function Meclisler() {
               kendi alanında uzmanlaşmış çalışmalar yürütür.
             </small>
             <div className="council-grid">
-              {councils.map(([a,b,img,desc,link],i)=>(
-                <a className="council-card" href={link} key={a}>
-                  <img src={img} alt={a + " " + b} />
+              {councilsData.map((c) => (
+                <Link className="council-card" href={c.link} key={c.id}>
+                  <img src={c.img} alt={c.title} />
                   <div>
-                    <strong>{a}<br/>{b}</strong>
-                    <p>{desc}</p>
+                    <strong>
+                      {c.shortTitle}
+                      <br />
+                      {c.subTitle}
+                    </strong>
+                    <p>{c.description}</p>
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           </div>

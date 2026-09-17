@@ -49,7 +49,7 @@ export default function Hero() {
             <div className="container hero-inner">
               <div className="hero-content">
                 <p className="eyebrow light">{slide.eyebrow}</p>
-                <h1 dangerouslySetInnerHTML={{ __html: slide.title }} />
+                <h1 dangerouslySetInnerHTML={{ __html: slide.title }} aria-hidden={index !== currentSlide} />
                 <p className="hero-lead" dangerouslySetInnerHTML={{ __html: slide.lead }} />
                 <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                   <a className="btn btn-primary" href="/kurumsal/hakkimizda">Hakkımızda →</a>
