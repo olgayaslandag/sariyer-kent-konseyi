@@ -1,7 +1,8 @@
 
 :root{
   --purple:#0e9bd1;--purple-dark:#1c4278;--navy:#07152b;--ink:#0d1a38;--muted:#69738a;
-  --line:#e8eaf2;--soft:#f7f7fb;--radius:10px
+  --line:#e8eaf2;--soft:#f7f7fb;--radius:10px;
+  --blue:#0e9bd1;--blue2:#0984b8
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -76,10 +77,8 @@ a{text-decoration:none;color:inherit}
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(14,155,209,.4)}
 .btn-light{background:#fff;color:var(--purple);box-shadow:0 4px 15px rgba(0,0,0,.1)}
 .btn-light:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(0,0,0,.15)}
-.btn-outline{border:1px solid var(--purple);color:var(--purple);background:transparent;border-radius:7px;padding:10px 16px;font-weight:700;cursor:pointer;transition:transform .3s,background .3s}
-.btn-outline:hover{background:rgba(14,155,209,.08);transform:translateY(-2px)}
-.btn-ghost{border:0;color:var(--muted);background:transparent;border-radius:7px;padding:10px 16px;font-weight:700;cursor:pointer;transition:transform .3s,color .3s}
-.btn-ghost:hover{color:var(--ink);transform:translateY(-2px)}
+.btn-outline-light{border-color:#fff;color:#fff;backdrop-filter:blur(10px)}
+.btn-outline-light:hover{background:rgba(255,255,255,.1);transform:translateY(-3px)}
 .hero-card{position:absolute;right:0;bottom:0;background:var(--purple-dark);padding:30px 35px 28px;width:280px;min-height:150px;border-radius:8px 8px 0 0;box-shadow:0 10px 40px rgba(27,165,224,.3);opacity:0;transform:translateY(20px);transition:opacity .8s ease .6s,transform .8s ease .6s,box-shadow .4s}
 .slide.active .hero-card{opacity:1;transform:translateY(0)}
 .hero-card:hover{transform:translateY(-8px) !important;box-shadow:0 15px 50px rgba(27,165,224,.4)}
@@ -337,12 +336,110 @@ body.search-open{overflow:hidden}
 .search-result-title{font-size:15px;font-weight:700;flex:1;color:inherit}
 .search-result-badge{font-size:10px;text-transform:uppercase;letter-spacing:1px;background:rgba(255,255,255,.15);padding:3px 8px;border-radius:4px;white-space:nowrap}
 
-.cookie-consent{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e5e7eb;box-shadow:0 -4px 20px rgba(0,0,0,.08);padding:16px 0;z-index:1000;font-size:14px;color:#334155}
-.cookie-consent-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.cookie-consent-text{max-width:700px;line-height:1.5;margin:0}
-.cookie-consent-link{color:#0e9bd1;text-decoration:underline}
-.cookie-consent-actions{display:flex;gap:10px;flex-wrap:wrap}
-.cookie-consent-actions .btn{min-width:100px;justify-content:center}
+.cookie-consent {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  left: 24px;
+  z-index: 1100;
+  pointer-events: none;
+  font-size: 14px;
+  color: #334155;
+}
+
+.cookie-consent-inner {
+  width: min(100%, 980px);
+  margin: 0 auto;
+  padding: 20px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 18px 50px rgba(6, 22, 37, 0.18);
+  pointer-events: auto;
+}
+
+.cookie-consent-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.cookie-consent-icon {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  display: grid;
+  place-items: center;
+  color: var(--blue);
+  border: 1px solid #cfe5fb;
+  border-radius: 50%;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.cookie-consent strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.cookie-consent p {
+  max-width: 650px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.cookie-consent p a {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.cookie-consent-actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.cookie-consent-actions button {
+  min-height: 42px;
+  padding: 0 17px;
+  border-radius: 22px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.cookie-consent-reject {
+  color: var(--muted);
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+.cookie-consent-reject:hover {
+  color: var(--ink);
+  border-color: #b9c9d8;
+}
+
+.cookie-consent-accept {
+  color: #fff;
+  background: var(--blue);
+  border: 1px solid var(--blue);
+}
+
+.cookie-consent-accept:hover {
+  background: var(--blue2);
+  border-color: var(--blue2);
+}
 @media(max-width:700px){
   .admin-sidebar{width:100%;position:relative}
   .admin-main{margin-left:0;max-width:100%;padding:20px}
