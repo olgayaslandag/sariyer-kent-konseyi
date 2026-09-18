@@ -1,8 +1,7 @@
 
 :root{
   --purple:#0e9bd1;--purple-dark:#1c4278;--navy:#07152b;--ink:#0d1a38;--muted:#69738a;
-  --line:#e8eaf2;--soft:#f7f7fb;--radius:10px;
-  --blue:#0e9bd1;--blue2:#0984b8
+  --line:#e8eaf2;--soft:#f7f7fb;--radius:10px
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -374,7 +373,7 @@ body.search-open{overflow:hidden}
   flex: 0 0 34px;
   display: grid;
   place-items: center;
-  color: var(--blue);
+  color: var(--purple);
   border: 1px solid #cfe5fb;
   border-radius: 50%;
   font-size: 22px;
@@ -397,7 +396,7 @@ body.search-open{overflow:hidden}
 }
 
 .cookie-consent p a {
-  color: var(--blue);
+  color: var(--purple-dark);
   font-weight: 700;
 }
 
@@ -432,13 +431,13 @@ body.search-open{overflow:hidden}
 
 .cookie-consent-accept {
   color: #fff;
-  background: var(--blue);
-  border: 1px solid var(--blue);
+  background: var(--purple-dark);
+  border: 1px solid var(--purple-dark);
 }
 
 .cookie-consent-accept:hover {
-  background: var(--blue2);
-  border-color: var(--blue2);
+  background: var(--purple);
+  border-color: var(--purple);
 }
 @media(max-width:700px){
   .admin-sidebar{width:100%;position:relative}
