@@ -76,8 +76,10 @@ a{text-decoration:none;color:inherit}
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(14,155,209,.4)}
 .btn-light{background:#fff;color:var(--purple);box-shadow:0 4px 15px rgba(0,0,0,.1)}
 .btn-light:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(0,0,0,.15)}
-.btn-outline-light{border-color:#fff;color:#fff;backdrop-filter:blur(10px)}
-.btn-outline-light:hover{background:rgba(255,255,255,.1);transform:translateY(-3px)}
+.btn-outline{border:1px solid var(--purple);color:var(--purple);background:transparent;border-radius:7px;padding:10px 16px;font-weight:700;cursor:pointer;transition:transform .3s,background .3s}
+.btn-outline:hover{background:rgba(14,155,209,.08);transform:translateY(-2px)}
+.btn-ghost{border:0;color:var(--muted);background:transparent;border-radius:7px;padding:10px 16px;font-weight:700;cursor:pointer;transition:transform .3s,color .3s}
+.btn-ghost:hover{color:var(--ink);transform:translateY(-2px)}
 .hero-card{position:absolute;right:0;bottom:0;background:var(--purple-dark);padding:30px 35px 28px;width:280px;min-height:150px;border-radius:8px 8px 0 0;box-shadow:0 10px 40px rgba(27,165,224,.3);opacity:0;transform:translateY(20px);transition:opacity .8s ease .6s,transform .8s ease .6s,box-shadow .4s}
 .slide.active .hero-card{opacity:1;transform:translateY(0)}
 .hero-card:hover{transform:translateY(-8px) !important;box-shadow:0 15px 50px rgba(27,165,224,.4)}
