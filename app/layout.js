@@ -2,6 +2,7 @@ import '../public/css/style.css';
 import ScrollReveal from "./components/ScrollReveal";
 import CookieConsent from "./components/CookieConsent";
 import Preloader from "./components/Preloader";
+import ScrollToTop from "./components/ScrollToTop";
 
 export const metadata = {
   metadataBase: new URL('https://sariyerkentkonseyi.org'),
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <Preloader />
+        <ScrollToTop />
         {children}
         <ScrollReveal />
         <CookieConsent />
