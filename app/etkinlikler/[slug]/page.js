@@ -5,6 +5,14 @@ import PageHeader from "../../components/PageHeader";
 import ScrollToTop from "../../components/ScrollToTop";
 import eventsData from "../../data/etkinlikler.json";
 
+const normalizeSlug = (slug) => {
+  try {
+    return decodeURIComponent(slug).toLowerCase();
+  } catch {
+    return String(slug).toLowerCase();
+  }
+};
+
 export async function generateStaticParams() {
   return eventsData.map((item) => ({
     slug: item.slug,
@@ -13,7 +21,8 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const item = eventsData.find((e) => e.slug === slug);
+  const normalizedSlug = normalizeSlug(slug);
+  const item = eventsData.find((e) => normalizeSlug(e.slug) === normalizedSlug);
   if (!item) return {};
   return {
     title: `${item.title} | Sarıyer Kent Konseyi`,
@@ -24,10 +33,25 @@ export async function generateMetadata({ params }) {
 
 export default async function EtkinlikDetay({ params }) {
   const { slug } = await params;
-  const item = eventsData.find((e) => e.slug === slug);
+  const normalizedSlug = normalizeSlug(slug);
+  const item = eventsData.find((e) => normalizeSlug(e.slug) === normalizedSlug);
 
   if (!item) {
-    return null;
+    return (
+      <>
+        <ScrollToTop />
+        <Navbar />
+        <main>
+          <PageHeader eyebrow="ETKİNLİK" title="Etkinlik Bulunamadı" breadcrumbs={["Etkinlikler", "Bulunamadı"]} />
+          <section className="section">
+            <div className="container">
+              <p>İstenen etkinlik kaydı bulunamadı.</p>
+            </div>
+          </section>
+        </main>
+        <Footer />
+      </>
+    );
   }
 
   return (
