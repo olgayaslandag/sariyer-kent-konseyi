@@ -7,7 +7,8 @@ import newsData from "../data/haberler.json";
 export default function NewsEvents() {
   const featuredEvent = eventsData[0];
   const eventRows = eventsData.slice(1, 5);
-  const newsRows = newsData.slice(1, 4);
+  const featuredNews = newsData[0];
+  const newsRows = newsData.slice(1, 5);
 
   return (
     <section className="section" style={{ paddingTop: 0 }} id="haberler">
@@ -18,18 +19,18 @@ export default function NewsEvents() {
               <h2>HABERLER</h2>
               <Link href="/haberler">Tüm Haberler →</Link>
             </div>
-            <Link href={`/haberler/${newsData[0]?.slug}`} className="news-feature">
-              <img className="featured-img" src={newsData[0]?.img} alt={newsData[0]?.title || 'Haber görseli'} loading="lazy" />
+            <Link href={`/haberler/${featuredNews?.slug}`} className="news-feature">
+              <img className="featured-img" src={featuredNews?.img} alt={featuredNews?.title || 'Haber görseli'} loading="lazy" />
               <div className="news-text">
-                <span className="tag">{newsData[0]?.tag}</span>
-                <h3>{newsData[0]?.title}</h3>
-                <small>{newsData[0]?.date}</small>
+                <span className="tag">{featuredNews?.tag}</span>
+                <h3>{featuredNews?.title}</h3>
+                <small>{featuredNews?.date}</small>
               </div>
             </Link>
             <div className="news-rows">
               {newsRows.map((item, i) => (
                 <Link href={`/haberler/${item.slug}`} key={item.slug} className="news-row">
-                  <b>{String(i + 2).padStart(2, '0')}</b>
+                  <b>{String(i + 1).padStart(2, '0')}</b>
                   <span>
                     <strong>{item.title}</strong>
                     <small>{item.date} · {item.tag}</small>
