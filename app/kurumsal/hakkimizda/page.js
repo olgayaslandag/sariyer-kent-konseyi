@@ -40,27 +40,31 @@ export default function Hakkimizda() {
                 </div>
               </article>
               <article className="content-panel">
-                <div className="panel-head"><h2>MİSYONUMUZ</h2></div>
+                <div className="panel-head"><h2>NASIL ÇALIŞIRIZ?</h2></div>
                 <div style={{ lineHeight: 1.8 }}>
                   <p>
-                    Sarıyer’de yerel yönetim ile vatandaşlar arasında köprü
-                    kurarak, şeffaf ve hesap verebilir bir yapıyla hizmet
-                    sunmak.
+                    Sarıyer Kent Konseyi, katılımcı demokrasi modeliyle çalışır. Vatandaşların
+                    fikir ve önerilerini dinler, meclislerde ve çalışma gruplarında tartıştırır,
+                    ortak çözümler üretir ve projeleri hayata geçiririz.
                   </p>
                   <p>
-                    Her kesimden gelen önerileri dinlemek, analiz etmek ve
-                    kentin geleceğini birlikte şekillendirmek.
+                    Yönetim yapısı; Genel Kurul, Yürütme Kurulu, Meclisler ve Çalışma
+                    Grupları olarak düzenlenmiştir. Her kesimden gelen öneriler, bu organlar
+                    tarafından değerlendirilir ve uygulamaya dönüştürülür.
                   </p>
                 </div>
               </article>
               <article className="content-panel">
-                <div className="panel-head"><h2>VİZYONUMUZ</h2></div>
+                <div className="panel-head"><h2>NELER YAPIYORUZ?</h2></div>
                 <div style={{ lineHeight: 1.8 }}>
                   <p>
-                    Katılımcı demokrasinin kalbinde yer alan, her vatandaşın
-                    sesini duyan, kentin geleceğini birlikte tasarladığımız,
-                    sürdürülebilir, adil ve erişilebilir bir Sarıyer’i inşa
-                    etmek.
+                    Kent konseyimiz; çalışma grupları, meclisler, etkinlikler ve kamuoyu
+                    paneli ile Sarıyer’in sosyal, kültürel, çevresel ve ekonomik kalkınmasına
+                    katkı sağlıyor.
+                  </p>
+                  <p>
+                    Yürüttüğümüz projelerde sürdürülebilirlik, katılımcılık ve şeffaflık
+                    ilkelerini ön planda tutuyoruz.
                   </p>
                 </div>
               </article>
