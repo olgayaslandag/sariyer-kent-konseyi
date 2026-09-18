@@ -54,6 +54,10 @@ export default async function EtkinlikDetay({ params }) {
     );
   }
 
+  const related = eventsData
+    .filter((e) => e.slug !== item.slug)
+    .slice(0, 4);
+
   return (
     <>
       <ScrollToTop />
@@ -76,6 +80,25 @@ export default async function EtkinlikDetay({ params }) {
                 <Link className="read-more detail-back-link" href="/etkinlikler">← Tüm Etkinlikler</Link>
               </div>
             </article>
+          </div>
+        </section>
+        <section className="section" style={{ background: "linear-gradient(135deg,#fafaff,#f0f0ff)" }}>
+          <div className="container">
+            <div className="panel-head">
+              <h2>Son Etkinlikler</h2>
+              <Link href="/etkinlikler">Tüm Etkinlikler →</Link>
+            </div>
+            <div className="event-rows">
+              {related.map((h, i) => (
+                <Link href={`/etkinlikler/${h.slug}`} key={h.slug} className="event-row">
+                  <b>{String(i + 1).padStart(2, '0')}</b>
+                  <span>
+                    <strong>{h.title}</strong>
+                    <small>{h.time} · {h.location}</small>
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
       </main>
