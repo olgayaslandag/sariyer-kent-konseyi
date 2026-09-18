@@ -30,6 +30,23 @@ export default async function HaberDetay({ params }) {
     return null;
   }
 
+  const parseDate = (str) => {
+    const months = {
+      'Ocak': 0, 'Şubat': 1, 'Mart': 2, 'Nisan': 3, 'Mayıs': 4, 'Haziran': 5,
+      'Temmuz': 6, 'Ağustos': 7, 'Eylül': 8, 'Ekim': 9, 'Kasım': 10, 'Aralık': 11,
+    };
+    const parts = str.split(' ');
+    const day = parseInt(parts[0], 10);
+    const month = months[parts[1]];
+    const year = parseInt(parts[2], 10);
+    return new Date(year, month, day);
+  };
+
+  const related = newsData
+    .filter((h) => h.tag === item.tag && h.slug !== item.slug)
+    .sort((a, b) => parseDate(b.date) - parseDate(a.date))
+    .slice(0, 3);
+
   return (
     <>
       <ScrollToTop />
@@ -52,6 +69,25 @@ export default async function HaberDetay({ params }) {
                 <Link className="read-more detail-back-link" href="/haberler">← Tüm Haberler</Link>
               </div>
             </article>
+          </div>
+        </section>
+        <section className="section" style={{ background: "linear-gradient(135deg,#fafaff,#f0f0ff)" }}>
+          <div className="container">
+            <div className="panel-head">
+              <h2>Aynı Kategorideki Haberler</h2>
+              <Link href="/haberler">Tüm Haberler →</Link>
+            </div>
+            <div className="news-rows">
+              {related.map((h, i) => (
+                <Link href={`/haberler/${h.slug}`} key={h.slug} className="news-row">
+                  <b>{String(i + 1).padStart(2, '0')}</b>
+                  <span>
+                    <strong>{h.title}</strong>
+                    <small>{h.date} · {h.tag}</small>
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
       </main>
