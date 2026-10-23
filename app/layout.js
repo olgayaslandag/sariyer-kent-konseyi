@@ -33,7 +33,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="tr">
+    <html lang="tr" data-scroll-behavior="smooth">
       <head>
         <link rel="icon" href="/img/icon.svg" />
         <link rel="apple-touch-icon" href="/img/icon.svg" />

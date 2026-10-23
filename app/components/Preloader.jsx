@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 export default function Preloader() {
   const pathname = usePathname();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -15,26 +15,9 @@ export default function Preloader() {
   useEffect(() => {
     if (!mounted) return;
 
-    const handleStart = () => setLoading(true);
-    const handleComplete = () => {
-      setTimeout(() => setLoading(false), 400);
-    };
-
-    window.addEventListener("preloader-start", handleStart);
-    window.addEventListener("preloader-complete", handleComplete);
-
-    return () => {
-      window.removeEventListener("preloader-start", handleStart);
-      window.removeEventListener("preloader-complete", handleComplete);
-    };
-  }, [mounted]);
-
-  useEffect(() => {
-    if (!mounted) return;
-
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 600);
+    }, 1200);
 
     return () => clearTimeout(timer);
   }, [pathname, mounted]);

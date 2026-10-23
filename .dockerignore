@@ -1,0 +1,7 @@
+.git
+.kilo
+node_modules
+.next
+out
+.env*
+.DS_Store
