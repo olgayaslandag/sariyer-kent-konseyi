@@ -3,37 +3,49 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
 import ScrollToTop from "../components/ScrollToTop";
-import { search } from "../data/searchData";
+import { buildSearchIndex } from "../../lib/data/index.js";
+import { getCouncils, getWorkingGroups } from "../../lib/data/index.js";
+import { getSiteUrl } from "../../lib/data/config.js";
+import { runSearch } from "../data/searchData";
 import SearchResultsClient from "./SearchResultsClient";
 
 export async function generateMetadata({ searchParams }) {
-  const query = searchParams?.q || '';
+  const resolved = (await searchParams) ?? {};
+  const query = resolved.q || '';
   if (!query.trim()) {
     return {
       title: 'Arama | Sarıyer Kent Konseyi',
       description: 'Sarıyer Kent Konseyi sitesinde arama yapın.',
-      alternates: { canonical: 'https://sariyerkentkonseyi.org/arama' },
+      alternates: { canonical: `${getSiteUrl()}/arama` },
     };
   }
   return {
     title: `${query} için sonuçlar | Sarıyer Kent Konseyi`,
     description: `"${query}" arama sonuçları.`,
-    alternates: { canonical: 'https://sariyerkentkonseyi.org/arama?q=' + encodeURIComponent(query) },
+    alternates: { canonical: `${getSiteUrl()}/arama?q=${encodeURIComponent(query)}` },
   };
 }
 
 export default async function Arama({ searchParams }) {
-  const query = searchParams?.q || "";
+  const resolved = (await searchParams) ?? {};
+  const query = resolved.q || "";
 
   if (!query.trim()) {
     redirect("/");
   }
 
-  const results = search(query);
+  // Server-side arama (faz-4): dizin lib/data buildSearchIndex()'ten
+  // kurulur, skorlama server'da yapılır; client yalnızca props render eder.
+  const [navGroups, navCouncils, index] = await Promise.all([
+    getWorkingGroups(),
+    getCouncils(),
+    buildSearchIndex(),
+  ]);
+  const results = runSearch(index, query);
 
   return (
     <>
-      <Navbar />
+      <Navbar navGroups={navGroups} navCouncils={navCouncils} />
       <main>
         <PageHeader
           eyebrow="Arama"

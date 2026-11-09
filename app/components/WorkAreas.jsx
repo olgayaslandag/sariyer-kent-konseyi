@@ -1,17 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import groupsData from "../data/calisma-gruplari.json";
 
-const workAreas = groupsData.slice(0, 8).map((g) => [
-  g.id,
-  g.shortTitle,
-  g.subTitle,
-  g.img,
-  g.link,
-]);
+/**
+ * WorkAreas (client) — çalışma grubu verisi props ile server'dan gelir (faz-4).
+ * @param {{ workingGroups?: import("../../lib/data/shapes.js").WorkingGroup[] }} props
+ */
+export default function WorkAreas({ workingGroups = [] }) {
+  const workAreas = workingGroups.slice(0, 8).map((g) => [
+    g.id,
+    g.shortTitle,
+    g.subTitle,
+    g.img,
+    g.link,
+  ]);
 
-export default function WorkAreas() {
   return (
     <section className="section">
       <div className="container">

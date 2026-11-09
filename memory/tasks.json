@@ -1,0 +1,165 @@
+{
+  "project": "Sarıyer Kent Konseyi — CMS/headless refactor",
+  "tech": "Next.js 16.4.5, React 19, JavaScript, npm, App Router, SSG, Docker node:22-alpine",
+  "tasks": [
+    {
+      "id": "phase-0",
+      "phase": 0,
+      "title": "Vitest kurulumu ve jsconfig @/* path alias",
+      "description": "Node 22 uyumlu vitest sürümünü kur, package.json'a test scripti ve devDependency ekle, jsconfig.json'a baseUrl ve paths @/* ekle. TS yok, saf JS.",
+      "agent": "frontend-coder-agent",
+      "status": "done",
+      "dependsOn": [],
+      "acceptance": [
+        "npm run test (vitest run) çalışıyor",
+        "jsconfig.json'da @/* path alias mevcut",
+        "Node 22'de testler koşuyor"
+      ]
+    },
+    {
+      "id": "phase-1",
+      "phase": 1,
+      "title": "lib/data/shapes.js typedef ve fixture tutarlılık testi",
+      "description": "News, Event, Council, WorkingGroup, SearchIndex, SlugKind için JSDoc @typedef tanımları yaz. mocks/data JSON fixturesının typedef alanlarıyla uyumunu doğrulayan vitest yaz.",
+      "agent": "technical-architect-agent",
+      "status": "done",
+      "dependsOn": [
+        "phase-0"
+      ],
+      "acceptance": [
+        "shapes.js tüm entity'leri tanımlıyor",
+        "fixture tutarlılık testi yeşil",
+        "TS migrasyonu yapılmamış"
+      ]
+    },
+    {
+      "id": "phase-2",
+      "phase": 2,
+      "title": "lib/data sözleşmesi + sources/mock.js + config.js",
+      "description": "config.js (DATA_SOURCE, API_BASE_URL, SITE_URL env çözümleme), index.js (async public API: getNews/getNewsBySlug, getEvents/getEventsBySlug, getCouncils/getCouncilBySlug, getWorkingGroups/getWorkingGroupBySlug, getSlugs(kind), buildSearchIndex), sources/mock.js (mocks/data JSON okuma). http.js iskeleti minimal.",
+      "agent": "backend-api-agent",
+      "status": "done",
+      "dependsOn": [
+        "phase-1"
+      ],
+      "acceptance": [
+        "Tüm async interface fonksiyonları mock modda çalışıyor",
+        "DATA_SOURCE=mock varsayılan olarak çalışıyor",
+        "JSON import sadece sources/mock.js içinde"
+      ]
+    },
+    {
+      "id": "phase-baseline",
+      "phase": "baseline",
+      "title": "SSG HTML çıktısı baseline (refactor öncesi)",
+      "description": "Refaktör üstlenmeden önce npm run build al, .next/server/app altındaki HTML çıktılarını ve hash listesini qa-baseline/ altında sakla. Faz 7 diff karşılaştırması için.",
+      "agent": "qa-tester-agent",
+      "status": "done",
+      "dependsOn": [
+        "phase-2"
+      ],
+      "acceptance": [
+        "Baseline HTML snapshot diskte mevcut",
+        "Hash/dosya listesi kayıtlı",
+        "Build yeşil"
+      ]
+    },
+    {
+      "id": "phase-3",
+      "phase": 3,
+      "title": "mocks/data taşıma ve 12 import noktası güncellemesi",
+      "description": "app/data/*.json dosyalarını mocks/data/ altına taşı. 12 import noktasını lib/data üzerinden okuyacak şekilde güncelle. Bu fazda davranış korunur, henüz async değil; sadece import kaynağı değişir.",
+      "agent": "frontend-coder-agent",
+      "status": "done",
+      "dependsOn": [
+        "phase-baseline"
+      ],
+      "acceptance": [
+        "JSON dosyaları mocks/data/ altında",
+        "12 import noktası güncellendi",
+        "Site davranışı değişmedi (smoke test)"
+      ]
+    },
+    {
+      "id": "phase-4",
+      "phase": 4,
+      "title": "page.js async + HomeClient props shell + client JSON import temizliği",
+      "description": "Tüm page.js dosyalarını async yapıp lib/data await ile besle. HomeClient ve diğer client componentlere (Navbar, Councils, NewsEvents, WorkAreas) prop ile veri aktar. searchData.js yerine buildSearchIndex() kullan, server-side arama korunur.",
+      "agent": "frontend-coder-agent",
+      "status": "done",
+      "dependsOn": [
+        "phase-3"
+      ],
+      "acceptance": [
+        "Tüm page.js async ve veri lib/data'dan geliyor",
+        "use client dosyalar JSON import etmiyor",
+        "Server-side arama çalışıyor"
+      ]
+    },
+    {
+      "id": "phase-5",
+      "phase": 5,
+      "title": "SITE_URL env (30 nokta) + Dockerfile ARG + compose",
+      "description": "30 hard-coded https://sariyerkentkonseyi.org noktasını SITE_URL env'den besle (sitemap, robots, metadata/canonical, OG). Dockerfile'a ARG SITE_URL + ENV ekle, docker-compose.yml'e args passthrough ekle. Build-time ARG/ENV stratejisi.",
+      "agent": "backend-api-agent",
+      "status": "done",
+      "dependsOn": [
+        "phase-4"
+      ],
+      "acceptance": [
+        "Kod içinde hard-coded site URL sıfır (grep ile doğrulanır)",
+        "SITE_URL build-time ARG ile set edilebiliyor",
+        "compose SITE_URL passthrough çalışıyor"
+      ]
+    },
+    {
+      "id": "phase-6",
+      "phase": 6,
+      "title": "Ölü dosya temizliği ve README güncelleme",
+      "description": "haberler_test.json, kullanılmayan content.json kopyaları, ölü searchData export gibi dosyaları temizle. README'yi mimari (lib/data katmanı), env tablosu (DATA_SOURCE/API_BASE_URL/SITE_URL), test komutları ve geliştirme akışı ile güncelle.",
+      "agent": "code-cleaner-agent",
+      "status": "done",
+      "dependsOn": [
+        "phase-5"
+      ],
+      "acceptance": [
+        "Ölü dosyalar silindi, build kırılmadı",
+        "README güncel (mimari + env + test)",
+        "npx vitest run yeşil"
+      ]
+    },
+    {
+      "id": "phase-7",
+      "phase": 7,
+      "title": "HTML diff + a11y + responsive doğrulama",
+      "description": "Baseline ile HTML diff al, sadece onaylı beklenen farkları listele. Accessibility (klavye, axe/odak) ve responsive (360/768/1280px) kontrollerini yap. npm run build + npx vitest run yeşil doğrula.",
+      "agent": "qa-tester-agent",
+      "status": "done",
+      "dependsOn": [
+        "phase-6"
+      ],
+      "acceptance": [
+        "HTML diff temiz veya onaylı beklenen farklar listeli",
+        "a11y kontrolleri geçti",
+        "responsive kontroller geçti",
+        "npm run build ve npx vitest run yeşil"
+      ]
+    },
+    {
+      "id": "phase-8",
+      "phase": 8,
+      "title": "(Opsiyonel) app/api thin mock + MSW",
+      "description": "Bu faz ayrı PR olarak yürütülecek; merge koşulu değil. app/api altında thin mock route'lar ve MSW ile http senaryosu testleri. DATA_SOURCE=http akışını uçtan uca test et.",
+      "agent": "backend-api-agent",
+      "status": "done",
+      "dependsOn": [
+        "phase-7"
+      ],
+      "acceptance": [
+        "(Opsiyonel) Ayrı PR'da merge edilir",
+        "DATA_SOURCE=http + API_BASE_URL ile uygulama çalışır",
+        "MSW testleri yeşil"
+      ]
+    }
+  ]
+}

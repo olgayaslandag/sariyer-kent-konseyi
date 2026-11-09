@@ -3,26 +3,32 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import PageHeader from "../../components/PageHeader";
 import ScrollToTop from "../../components/ScrollToTop";
-import groupsData from "../../data/calisma-gruplari.json";
+import { getWorkingGroupBySlug, getCouncils, getSlugs, getWorkingGroups } from "../../../lib/data/index.js";
+import { getSiteUrl } from "../../../lib/data/config.js";
 
 export async function generateStaticParams() {
-  return groupsData.map((g) => ({ slug: g.slug }));
+  const slugs = await getSlugs('calisma-gruplari');
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const group = groupsData.find((g) => g.slug === slug);
+  const group = await getWorkingGroupBySlug(slug);
   if (!group) return {};
   return {
     title: `${group.title} | Sarıyer Kent Konseyi`,
     description: group.detail?.about?.slice(0, 160) || group.title,
-    alternates: { canonical: `https://sariyerkentkonseyi.org/calisma-gruplari/${slug}` },
+    alternates: { canonical: `${getSiteUrl()}/calisma-gruplari/${slug}` },
   };
 }
 
 export default async function CalismaGrubuDetay({ params }) {
   const { slug } = await params;
-  const group = groupsData.find((g) => g.slug === slug);
+  const [group, navGroups, navCouncils] = await Promise.all([
+    getWorkingGroupBySlug(slug),
+    getWorkingGroups(),
+    getCouncils(),
+  ]);
 
   if (!group) {
     notFound();
@@ -33,7 +39,7 @@ export default async function CalismaGrubuDetay({ params }) {
   return (
     <>
       <ScrollToTop />
-      <Navbar />
+      <Navbar navGroups={navGroups} navCouncils={navCouncils} />
       <main>
         <PageHeader
           eyebrow="ÇALIŞMA GRUPLARI"

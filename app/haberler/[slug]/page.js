@@ -3,28 +3,33 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import PageHeader from "../../components/PageHeader";
 import ScrollToTop from "../../components/ScrollToTop";
-import newsData from "../../data/haberler.json";
+import { getNews, getNewsBySlug, getCouncils, getSlugs, getWorkingGroups } from "../../../lib/data/index.js";
+import { getSiteUrl } from "../../../lib/data/config.js";
 
 export async function generateStaticParams() {
-  return newsData.map((item) => ({
-    slug: item.slug,
-  }));
+  const slugs = await getSlugs('haberler');
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const item = newsData.find((h) => h.slug === slug);
+  const item = await getNewsBySlug(slug);
   if (!item) return {};
   return {
     title: `${item.title} | Sarıyer Kent Konseyi`,
     description: item.desc,
-    alternates: { canonical: `https://sariyerkentkonseyi.org/haberler/${slug}` },
+    alternates: { canonical: `${getSiteUrl()}/haberler/${slug}` },
   };
 }
 
 export default async function HaberDetay({ params }) {
   const { slug } = await params;
-  const item = newsData.find((h) => h.slug === slug);
+  const [item, allNews, navGroups, navCouncils] = await Promise.all([
+    getNewsBySlug(slug),
+    getNews(),
+    getWorkingGroups(),
+    getCouncils(),
+  ]);
 
   if (!item) {
     return null;
@@ -42,7 +47,7 @@ export default async function HaberDetay({ params }) {
     return new Date(year, month, day);
   };
 
-  const related = newsData
+  const related = allNews
     .filter((h) => h.tag === item.tag && h.slug !== item.slug)
     .sort((a, b) => parseDate(b.date) - parseDate(a.date))
     .slice(0, 3);
@@ -50,7 +55,7 @@ export default async function HaberDetay({ params }) {
   return (
     <>
       <ScrollToTop />
-      <Navbar />
+      <Navbar navGroups={navGroups} navCouncils={navCouncils} />
       <main>
         <PageHeader eyebrow={item.tag} title={item.title} breadcrumbs={["Haberler", item.title]} />
         <section className="section">

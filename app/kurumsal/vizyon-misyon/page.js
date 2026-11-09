@@ -1,18 +1,24 @@
 import Navbar from "../../components/Navbar";
+import { getCouncils, getWorkingGroups } from "../../../lib/data/index.js";
+import { getSiteUrl } from "../../../lib/data/config.js";
 import Footer from "../../components/Footer";
 import PageHeader from "../../components/PageHeader";
 
 export const metadata = {
   title: 'Vizyon & Misyon | Sarıyer Kent Konseyi',
   description: 'Sarıyer Kent Konseyi vizyonu, misyonu ve değerleri. Sürdürülebilir, adil ve erişilebilir bir Sarıyer için çalışıyoruz.',
-  alternates: { canonical: 'https://sariyerkentkonseyi.org/kurumsal/vizyon-misyon' },
+  alternates: { canonical: `${getSiteUrl()}/kurumsal/vizyon-misyon` },
 };
 
-export default function VizyonMisyon() {
+export default async function VizyonMisyon() {
+  const [navGroups, navCouncils] = await Promise.all([
+    getWorkingGroups(),
+    getCouncils(),
+  ]);
 
   return (
     <>
-      <Navbar />
+      <Navbar navGroups={navGroups} navCouncils={navCouncils} />
       <main>
         <PageHeader
           eyebrow="KURUMSAL"

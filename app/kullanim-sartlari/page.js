@@ -1,18 +1,24 @@
 import Navbar from "../components/Navbar";
+import { getCouncils, getWorkingGroups } from "../../lib/data/index.js";
+import { getSiteUrl } from "../../lib/data/config.js";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
 
 export const metadata = {
   title: 'Kullanım Şartları | Sarıyer Kent Konseyi',
   description: 'Sarıyer Kent Konseyi web sitesi kullanım şartları. Sitemizi kullanarak bu şartları kabul etmiş sayılırsınız.',
-  alternates: { canonical: 'https://sariyerkentkonseyi.org/kullanim-sartlari' },
+  alternates: { canonical: `${getSiteUrl()}/kullanim-sartlari` },
 };
 
-export default function KullanimSartlari() {
+export default async function KullanimSartlari() {
+  const [navGroups, navCouncils] = await Promise.all([
+    getWorkingGroups(),
+    getCouncils(),
+  ]);
 
   return (
     <>
-      <Navbar />
+      <Navbar navGroups={navGroups} navCouncils={navCouncils} />
       <main>
         <PageHeader
           eyebrow="YASAL"

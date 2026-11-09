@@ -3,9 +3,10 @@ import ScrollReveal from "./components/ScrollReveal";
 import CookieConsent from "./components/CookieConsent";
 import Preloader from "./components/Preloader";
 import ScrollToTop from "./components/ScrollToTop";
+import { getSiteUrl } from "../lib/data/config.js";
 
 export const metadata = {
-  metadataBase: new URL('https://sariyerkentkonseyi.org'),
+  metadataBase: new URL(getSiteUrl()),
   title: {
     default: 'Sarıyer Kent Konseyi',
     template: '%s | Sarıyer Kent Konseyi',
@@ -14,7 +15,7 @@ export const metadata = {
   openGraph: {
     title: 'Sarıyer Kent Konseyi',
     description: 'Birlikte Düşünen, Birlikte Üreten, Birlikte Yaşayan Sarıyer',
-    url: 'https://sariyerkentkonseyi.org',
+    url: getSiteUrl(),
     siteName: 'Sarıyer Kent Konseyi',
     images: ['/img/og-default.jpg'],
     type: 'website',
@@ -27,7 +28,7 @@ export const metadata = {
     images: ['/img/og-default.jpg'],
   },
   alternates: {
-    canonical: 'https://sariyerkentkonseyi.org',
+    canonical: getSiteUrl(),
   },
 };
 

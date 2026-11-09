@@ -3,7 +3,8 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import PageHeader from "../../components/PageHeader";
 import ScrollToTop from "../../components/ScrollToTop";
-import eventsData from "../../data/etkinlikler.json";
+import { getEvents, getEventsBySlug, getCouncils, getSlugs, getWorkingGroups } from "../../../lib/data/index.js";
+import { getSiteUrl } from "../../../lib/data/config.js";
 
 const normalizeSlug = (slug) => {
   try {
@@ -14,33 +15,41 @@ const normalizeSlug = (slug) => {
 };
 
 export async function generateStaticParams() {
-  return eventsData.map((item) => ({
-    slug: item.slug,
-  }));
+  const slugs = await getSlugs('etkinlikler');
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const normalizedSlug = normalizeSlug(slug);
-  const item = eventsData.find((e) => normalizeSlug(e.slug) === normalizedSlug);
+  let item = await getEventsBySlug(slug);
+  if (!item) {
+    const all = await getEvents();
+    item = all.find((e) => normalizeSlug(e.slug) === normalizedSlug) ?? null;
+  }
   if (!item) return {};
   return {
     title: `${item.title} | Sarıyer Kent Konseyi`,
     description: item.desc,
-    alternates: { canonical: `https://sariyerkentkonseyi.org/etkinlikler/${slug}` },
+    alternates: { canonical: `${getSiteUrl()}/etkinlikler/${slug}` },
   };
 }
 
 export default async function EtkinlikDetay({ params }) {
   const { slug } = await params;
   const normalizedSlug = normalizeSlug(slug);
-  const item = eventsData.find((e) => normalizeSlug(e.slug) === normalizedSlug);
+  const [allEvents, navGroups, navCouncils] = await Promise.all([
+    getEvents(),
+    getWorkingGroups(),
+    getCouncils(),
+  ]);
+  const item = allEvents.find((e) => normalizeSlug(e.slug) === normalizedSlug) ?? null;
 
   if (!item) {
     return (
       <>
         <ScrollToTop />
-        <Navbar />
+        <Navbar navGroups={navGroups} navCouncils={navCouncils} />
         <main>
           <PageHeader eyebrow="ETKİNLİK" title="Etkinlik Bulunamadı" breadcrumbs={["Etkinlikler", "Bulunamadı"]} />
           <section className="section">
@@ -54,14 +63,14 @@ export default async function EtkinlikDetay({ params }) {
     );
   }
 
-  const related = eventsData
+  const related = allEvents
     .filter((e) => e.slug !== item.slug)
     .slice(0, 4);
 
   return (
     <>
       <ScrollToTop />
-      <Navbar />
+      <Navbar navGroups={navGroups} navCouncils={navCouncils} />
       <main>
         <PageHeader eyebrow="ETKİNLİK" title={item.title} breadcrumbs={["Etkinlikler", item.title]} />
         <section className="section">

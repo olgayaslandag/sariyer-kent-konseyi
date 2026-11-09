@@ -1,18 +1,24 @@
 import Navbar from "../../components/Navbar";
+import { getCouncils, getWorkingGroups } from "../../../lib/data/index.js";
+import { getSiteUrl } from "../../../lib/data/config.js";
 import Footer from "../../components/Footer";
 import PageHeader from "../../components/PageHeader";
 
 export const metadata = {
   title: 'Yönetmelik | Sarıyer Kent Konseyi',
   description: 'Sarıyer Kent Konseyi yönetmelik. Faaliyetler, çalışma usulleri ve şeffaflık ilkeleri.',
-  alternates: { canonical: 'https://sariyerkentkonseyi.org/kurumsal/yonetmelik' },
+  alternates: { canonical: `${getSiteUrl()}/kurumsal/yonetmelik` },
 };
 
-export default function Yonetmelik() {
+export default async function Yonetmelik() {
+  const [navGroups, navCouncils] = await Promise.all([
+    getWorkingGroups(),
+    getCouncils(),
+  ]);
 
   return (
     <>
-      <Navbar />
+      <Navbar navGroups={navGroups} navCouncils={navCouncils} />
       <main>
         <PageHeader
           eyebrow="KURUMSAL"

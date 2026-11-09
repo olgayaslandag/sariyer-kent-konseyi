@@ -1,22 +1,36 @@
 "use client";
 
-import { useState, useCallback } from "react";
-import { search } from "../data/searchData";
+import { useState, useEffect, useCallback } from "react";
+import { useRouter } from "next/navigation";
 
+/**
+ * SearchResultsClient (client) — faz-4: tam arama dizini client
+ * bundle'ında tutulmuyor; sonuçlar server'dan props ile gelir
+ * (initialResults). Yeni sorguda server sayfasına router.push
+ * ile gidilir, sonuçlar server'da yeniden hesaplanır.
+ * @param {{ initialQuery: string, initialResults: Array<{ slug: string, kind: string, title: string, href: string, text: string, type: string, score: number }> }} props
+ */
 export default function SearchResultsClient({ initialQuery, initialResults }) {
+  const router = useRouter();
   const [query, setQuery] = useState(initialQuery);
   const [results, setResults] = useState(initialResults);
   const [inputValue, setInputValue] = useState(initialQuery);
+
+  // Server props değişince (router.push ile yeni q geldiğinde) senkronla
+  useEffect(() => {
+    setQuery(initialQuery);
+    setInputValue(initialQuery);
+    setResults(initialResults);
+  }, [initialQuery, initialResults]);
 
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
       const trimmed = inputValue.trim();
       if (!trimmed) return;
-      setQuery(trimmed);
-      setResults(search(trimmed));
+      router.push(`/arama?q=${encodeURIComponent(trimmed)}`);
     },
-    [inputValue]
+    [inputValue, router]
   );
 
   return (

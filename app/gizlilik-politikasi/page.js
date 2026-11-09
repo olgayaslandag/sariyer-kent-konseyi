@@ -1,18 +1,24 @@
 import Navbar from "../components/Navbar";
+import { getCouncils, getWorkingGroups } from "../../lib/data/index.js";
+import { getSiteUrl } from "../../lib/data/config.js";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
 
 export const metadata = {
   title: 'Gizlilik Politikası | Sarıyer Kent Konseyi',
   description: 'Sarıyer Kent Konseyi olarak kişisel verilerinizin korunması en öncelikli görevlerimizden biridir. Gizlilik politikamızı okuyun.',
-  alternates: { canonical: 'https://sariyerkentkonseyi.org/gizlilik-politikasi' },
+  alternates: { canonical: `${getSiteUrl()}/gizlilik-politikasi` },
 };
 
-export default function GizlilikPolitikasi() {
+export default async function GizlilikPolitikasi() {
+  const [navGroups, navCouncils] = await Promise.all([
+    getWorkingGroups(),
+    getCouncils(),
+  ]);
 
   return (
     <>
-      <Navbar />
+      <Navbar navGroups={navGroups} navCouncils={navCouncils} />
       <main>
         <PageHeader
           eyebrow="YASAL"

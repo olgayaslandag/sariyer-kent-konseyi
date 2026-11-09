@@ -12,7 +12,19 @@ import Newsletter from "./Newsletter";
 import Footer from "./Footer";
 import ScrollReveal from "./ScrollReveal";
 
-export default function HomeClient() {
+/**
+ * HomeClient (client) — faz-4: tüm veri server page'den props ile gelir;
+ * JSON import yok, çocuklara aynen iletilir.
+ * @param {{ navGroups?: import("../../lib/data/shapes.js").WorkingGroup[], navCouncils?: import("../../lib/data/shapes.js").Council[], workingGroups?: import("../../lib/data/shapes.js").WorkingGroup[], councils?: import("../../lib/data/shapes.js").Council[], news?: import("../../lib/data/shapes.js").News[], events?: import("../../lib/data/shapes.js").Event[] }} props
+ */
+export default function HomeClient({
+  navGroups = [],
+  navCouncils = [],
+  workingGroups = [],
+  councils = [],
+  news = [],
+  events = [],
+}) {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
@@ -73,14 +85,14 @@ export default function HomeClient() {
 
   return (
     <>
-      <Navbar />
+      <Navbar navGroups={navGroups} navCouncils={navCouncils} />
       <main>
         <Hero />
-        <WorkAreas />
-        <Councils />
+        <WorkAreas workingGroups={workingGroups} />
+        <Councils councils={councils} />
         <Process />
         <IdeaBanner />
-        <NewsEvents />
+        <NewsEvents news={news} events={events} />
         <Newsletter email={email} setEmail={setEmail} subscribed={subscribed} setSubscribed={setSubscribed} />
       </main>
       <Footer />

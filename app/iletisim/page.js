@@ -1,18 +1,24 @@
 import Navbar from "../components/Navbar";
+import { getCouncils, getWorkingGroups } from "../../lib/data/index.js";
+import { getSiteUrl } from "../../lib/data/config.js";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
 
 export const metadata = {
   title: 'İletişim | Sarıyer Kent Konseyi',
   description: 'Sarıyer Kent Konseyi ile iletişime geçin. Merkez Mah. Darüşşafaka Cad. No: 33 Sarıyer/İstanbul. Tel: 0212 242 00 00.',
-  alternates: { canonical: 'https://sariyerkentkonseyi.org/iletisim' },
+  alternates: { canonical: `${getSiteUrl()}/iletisim` },
 };
 
-export default function Iletisim() {
+export default async function Iletisim() {
+  const [navGroups, navCouncils] = await Promise.all([
+    getWorkingGroups(),
+    getCouncils(),
+  ]);
 
   return (
     <>
-      <Navbar />
+      <Navbar navGroups={navGroups} navCouncils={navCouncils} />
       <main>
         <PageHeader
           eyebrow="BİZİMLE İLETİŞİME GEÇİN"

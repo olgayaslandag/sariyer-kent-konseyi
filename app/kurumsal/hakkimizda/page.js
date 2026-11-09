@@ -1,18 +1,24 @@
 import Navbar from "../../components/Navbar";
+import { getCouncils, getWorkingGroups } from "../../../lib/data/index.js";
+import { getSiteUrl } from "../../../lib/data/config.js";
 import Footer from "../../components/Footer";
 import PageHeader from "../../components/PageHeader";
 
 export const metadata = {
   title: 'Hakkımızda | Sarıyer Kent Konseyi',
   description: 'Sarıyer Kent Konseyi ne zaman, nasıl ve niçin kuruldu? Kısa bir tarihçe ve misyonumuz.',
-  alternates: { canonical: 'https://sariyerkentkonseyi.org/kurumsal/hakkimizda' },
+  alternates: { canonical: `${getSiteUrl()}/kurumsal/hakkimizda` },
 };
 
-export default function Hakkimizda() {
+export default async function Hakkimizda() {
+  const [navGroups, navCouncils] = await Promise.all([
+    getWorkingGroups(),
+    getCouncils(),
+  ]);
 
   return (
     <>
-      <Navbar />
+      <Navbar navGroups={navGroups} navCouncils={navCouncils} />
       <main>
         <PageHeader
           eyebrow="KURUMSAL"

@@ -1,20 +1,25 @@
 import Link from "next/link";
 import Navbar from "../components/Navbar";
+import { getCouncils, getWorkingGroups } from "../../lib/data/index.js";
+import { getSiteUrl } from "../../lib/data/config.js";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
-import groupsData from "../data/calisma-gruplari.json";
 
 export const metadata = {
   title: 'Çalışma Grupları | Sarıyer Kent Konseyi',
   description: 'Sarıyer Kent Konseyi çalışma grupları. Uzmanlık alanlarında fikir üreten, analiz yapan ve öneriler sunan gruplar.',
-  alternates: { canonical: 'https://sariyerkentkonseyi.org/calisma-gruplari' },
+  alternates: { canonical: `${getSiteUrl()}/calisma-gruplari` },
 };
 
-export default function CalismaGruplari() {
+export default async function CalismaGruplari() {
+  const [groups, navCouncils] = await Promise.all([
+    getWorkingGroups(),
+    getCouncils(),
+  ]);
 
   return (
     <>
-      <Navbar />
+      <Navbar navGroups={groups} navCouncils={navCouncils} />
       <main>
         <PageHeader
           eyebrow="KENT KONSEYİ NASIL ÇALIŞIR?"
@@ -25,7 +30,7 @@ export default function CalismaGruplari() {
         <section className="section">
           <div className="container">
             <div className="work-grid">
-              {groupsData.map((g) => (
+              {groups.map((g) => (
                 <Link className="image-card" href={g.link} key={g.id}>
                   <img src={g.img} alt={g.title} />
                   <div>

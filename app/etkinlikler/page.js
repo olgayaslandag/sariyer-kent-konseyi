@@ -1,26 +1,32 @@
 import Link from "next/link";
 import Navbar from "../components/Navbar";
+import { getCouncils, getEvents, getWorkingGroups } from "../../lib/data/index.js";
+import { getSiteUrl } from "../../lib/data/config.js";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
-import eventsData from "../data/etkinlikler.json";
 
 export const metadata = {
   title: 'Etkinlikler | Sarıyer Kent Konseyi',
   description: 'Sarıyer Kent Konseyi etkinlikleri, paneller, toplantılar ve sosyal etkinlikler.',
-  alternates: { canonical: 'https://sariyerkentkonseyi.org/etkinlikler' },
+  alternates: { canonical: `${getSiteUrl()}/etkinlikler` },
 };
 
-export default function Etkinlikler() {
+export default async function Etkinlikler() {
+  const [events, navGroups, navCouncils] = await Promise.all([
+    getEvents(),
+    getWorkingGroups(),
+    getCouncils(),
+  ]);
 
   return (
     <>
-      <Navbar />
+      <Navbar navGroups={navGroups} navCouncils={navCouncils} />
       <main>
         <PageHeader eyebrow="BİLGİ" title="Etkinlikler" breadcrumbs={["Etkinlikler"]} />
         <section className="section">
           <div className="container">
             <div className="masonry">
-              {eventsData.map((item, index) => (
+              {events.map((item, index) => (
                 <Link href={`/etkinlikler/${item.slug}`} className="news-card masonry-item" key={item.slug}>
                   <img src={item.img} alt={item.title} loading="lazy" />
                   <div className="news-card-body">

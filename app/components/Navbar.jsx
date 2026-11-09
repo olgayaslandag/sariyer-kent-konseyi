@@ -2,11 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import groupsData from "../data/calisma-gruplari.json";
-import councilsData from "../data/meclisler.json";
 import SearchOverlay from "./SearchOverlay";
 
-export default function Navbar() {
+/**
+ * Navbar (client) — veri JSON import etmez; menu verisi server page
+ * tarafından props ile verilir (faz-4):
+ * @param {{ navGroups?: import("../../lib/data/shapes.js").WorkingGroup[], navCouncils?: import("../../lib/data/shapes.js").Council[] }} props
+ */
+export default function Navbar({ navGroups = [], navCouncils = [] }) {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -58,7 +61,7 @@ export default function Navbar() {
     };
   }, [isMobileMenuOpen]);
 
-  const menuGroups = groupsData.slice(0, 8);
+  const menuGroups = navGroups.slice(0, 8);
 
   return (
     <header className="site-header">
@@ -118,7 +121,7 @@ export default function Navbar() {
                   openDropdown === "meclisler" ? " active" : ""
                 }`}
               >
-                {councilsData.map((c) => (
+                {navCouncils.map((c) => (
                   <Link href={c.link} className="dropdown-item" key={c.id}>
                     {c.title}
                   </Link>

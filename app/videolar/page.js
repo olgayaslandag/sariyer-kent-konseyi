@@ -1,11 +1,13 @@
 import Navbar from "../components/Navbar";
+import { getCouncils, getWorkingGroups } from "../../lib/data/index.js";
+import { getSiteUrl } from "../../lib/data/config.js";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
 
 export const metadata = {
   title: 'Video Galerisi | Sarıyer Kent Konseyi',
   description: 'Sarıyer Kent Konseyi\'nin tanıtım filmleri, röportajlar ve etkinlik kayıtlarını video galerimizden izleyin.',
-  alternates: { canonical: 'https://sariyerkentkonseyi.org/videolar' },
+  alternates: { canonical: `${getSiteUrl()}/videolar` },
 };
 
 const videos = [
@@ -15,11 +17,15 @@ const videos = [
   { title: "Kent Konseyi Genel Kurulu 2024", duration: "12:07", desc: "2024 yılı Genel Kurulu’nda yaşananlar, kararlar ve yeni dönem hedefleri." }
 ];
 
-export default function Videolar() {
+export default async function Videolar() {
+  const [navGroups, navCouncils] = await Promise.all([
+    getWorkingGroups(),
+    getCouncils(),
+  ]);
 
   return (
     <>
-      <Navbar />
+      <Navbar navGroups={navGroups} navCouncils={navCouncils} />
       <main>
         <PageHeader
           eyebrow="BİLGİ"

@@ -3,26 +3,32 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import PageHeader from "../../components/PageHeader";
 import ScrollToTop from "../../components/ScrollToTop";
-import councilsData from "../../data/meclisler.json";
+import { getCouncilBySlug, getCouncils, getSlugs, getWorkingGroups } from "../../../lib/data/index.js";
+import { getSiteUrl } from "../../../lib/data/config.js";
 
 export async function generateStaticParams() {
-  return councilsData.map((c) => ({ slug: c.slug }));
+  const slugs = await getSlugs('meclisler');
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const council = councilsData.find((c) => c.slug === slug);
+  const council = await getCouncilBySlug(slug);
   if (!council) return {};
   return {
     title: `${council.title} | Sarıyer Kent Konseyi`,
     description: council.description,
-    alternates: { canonical: `https://sariyerkentkonseyi.org/meclisler/${slug}` },
+    alternates: { canonical: `${getSiteUrl()}/meclisler/${slug}` },
   };
 }
 
 export default async function MeclisDetay({ params }) {
   const { slug } = await params;
-  const council = councilsData.find((c) => c.slug === slug);
+  const [council, navGroups, navCouncils] = await Promise.all([
+    getCouncilBySlug(slug),
+    getWorkingGroups(),
+    getCouncils(),
+  ]);
 
   if (!council) {
     notFound();
@@ -33,7 +39,7 @@ export default async function MeclisDetay({ params }) {
   return (
     <>
       <ScrollToTop />
-      <Navbar />
+      <Navbar navGroups={navGroups} navCouncils={navCouncils} />
       <main>
         <PageHeader
           eyebrow="MECLİSLERİMİZ"

@@ -1,10 +1,42 @@
-import haberler from "./haberler.json";
-import etkinlikler from "./etkinlikler.json";
-import calismaGruplari from "./calisma-gruplari.json";
-import meclisler from "./meclisler.json";
+/**
+ * @file app/data/searchData.js — server-side arama yardımcısı (faz-4)
+ *
+ * Faz-3'te bu modül mock veri dosyalarını doğrudan import eden tam
+ * arama dizini + senkron search() içeriyordu ve "use client" dosyalar
+ * (SearchOverlay, SearchResultsClient) tarafından import ediliyordu.
+ * Faz-4'te:
+ * - Doğrudan veri dosyası import tamamen kaldırıldı
+ *   (tek okuma noktası lib/data/sources/mock.js).
+ * - Dizin lib/data buildSearchIndex() üzerinden kurulur (async).
+ * - Arama server tarafında app/arama/page.js'de çalışır; sonuçları
+ *   props ile SearchResultsClient'a iner.
+ * - Bu modül SADECE server tarafında import edilmelidir; client-side
+ *   dosyalar bunu import etmez (kabul kriteri).
+ *
+ * Exportlar (faz-6 temizliği sonrası):
+ * - normalize(text)       — metin normalizasyonu (saf fonksiyon)
+ * - KIND_LABELS           — SlugKind -> UI etiketi eşlemesi
+ * - runSearch(index, q)   — hazır SearchIndex üzerinde skorlamalı arama (saf)
+ * - search(query)         — buildSearchIndex() + runSearch() birleşik (async)
+ *
+ * Faz-6'da ölü `searchIndex()` exportu silindi: hiçbiri tarafından import
+ * edilmiyordu ve `search()` onu kullanmadan doğrudan buildSearchIndex()
+ * çağırıyordu (gereksiz dolaylı katman). `normalize`/`KIND_LABELS`
+ * `runSearch` tarafından aktif kullanıldığı için canlıdır; `search`
+ * tests/smoke.test.js tarafından doğrulanır.
+ *
+ * Dosya server-only kalmıştır: yalnızca server tarafı (app/arama/page.js)
+ * import eder; "use client" bileşenler import etmez.
+ */
 
-const normalize = (text) =>
-  text
+import { buildSearchIndex } from "../../lib/data/index.js";
+
+/**
+ * @param {string} text
+ * @returns {string}
+ */
+export const normalize = (text) =>
+  String(text ?? "")
     .replace(/<[^>]+>/g, " ")
     .replace(/&/g, "&")
     .replace(/</g, "<")
@@ -17,55 +49,52 @@ const normalize = (text) =>
     .trim()
     .toLowerCase();
 
-const buildText = (item) => {
-  const parts = [item.title, item.desc];
-  if (item.content) parts.push(item.content);
-  if (item.about) parts.push(item.about);
-  if (item.description) parts.push(item.description);
-  if (item.link) parts.push(item.link);
-  if (Array.isArray(item.focusAreas))
-    parts.push(item.focusAreas.map((x) => `${x.title} ${x.desc}`).join(" "));
-  if (Array.isArray(item.activities)) parts.push(item.activities);
-  if (Array.isArray(item.projects))
-    parts.push(item.projects.map((x) => `${x.title} ${x.desc}`).join(" "));
-  if (Array.isArray(item.goals))
-    parts.push(item.goals.map((x) => `${x.title} ${x.desc}`).join(" "));
-  return normalize(parts.join(" "));
+/**
+ * SlugKind (buildSearchIndex) -> kullanıcıya gösterilen Türkçe etiket.
+ * @type {Record<string, string>}
+ */
+export const KIND_LABELS = {
+  haberler: "Haber",
+  etkinlikler: "Etkinlik",
+  calisma_gruplari: "Çalışma Grubu",
+  meclisler: "Meclis",
 };
 
-const buildItems = (records, type, hrefBuilder) =>
-  records.map((r) => {
-    const href = hrefBuilder(r);
-    return {
-      type,
-      title: r.title,
-      href,
-      text: buildText(r),
-      raw: r,
-    };
-  });
-
-export const searchItems = [
-  ...buildItems(haberler, "Haber", (r) => `/haberler/${r.slug}`),
-  ...buildItems(etkinlikler, "Etkinlik", (r) => `/etkinlikler/${r.slug}`),
-  ...buildItems(calismaGruplari, "Çalışma Grubu", (r) => `/calisma-gruplari/${r.slug}`),
-  ...buildItems(meclisler, "Meclis", (r) => `/meclisler/${r.slug}`),
-];
-
-export const search = (query) => {
+/**
+ * Hazır SearchIndex üzerinde skorlamalı arama: her token, başlıkta
+ * eşleşirse +3, genel metinde eşleşirse +1 puan verir.
+ * @param {import("../../lib/data/shapes.js").SearchIndex} index
+ * @param {string} query
+ * @returns {Array<import("../../lib/data/shapes.js").SearchIndexEntry & { type: string, score: number }>}
+ */
+export const runSearch = (index, query) => {
   const q = normalize(query);
   if (!q) return [];
   const tokens = q.split(" ").filter(Boolean);
-  return searchItems
-    .map((item) => {
+  return (Array.isArray(index) ? index : [])
+    .map((entry) => {
       let score = 0;
-      const text = item.text;
+      const text = normalize(entry.text ?? "");
       tokens.forEach((token) => {
         if (text.includes(token)) score += 1;
-        if (item.title.toLowerCase().includes(token)) score += 3;
+        if (normalize(entry.title ?? "").includes(token)) score += 3;
       });
-      return { ...item, score };
+      return {
+        ...entry,
+        type: KIND_LABELS[entry.kind] ?? entry.kind,
+        score,
+      };
     })
     .filter((item) => item.score > 0)
     .sort((a, b) => b.score - a.score);
 };
+
+/**
+ * Birleşik server-side arama: indeksi kurup skorlar.
+ * @param {string} query
+ * @returns {Promise<Array<import("../../lib/data/shapes.js").SearchIndexEntry & { type: string, score: number }>>}
+ */
+export async function search(query) {
+  const index = await buildSearchIndex();
+  return runSearch(index, query);
+}

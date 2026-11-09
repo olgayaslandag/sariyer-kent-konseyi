@@ -1,18 +1,24 @@
 import Navbar from "../components/Navbar";
+import { getCouncils, getWorkingGroups } from "../../lib/data/index.js";
+import { getSiteUrl } from "../../lib/data/config.js";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
 
 export const metadata = {
   title: 'KVKK Aydınlatma Metni | Sarıyer Kent Konseyi',
   description: '6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında aydınlatma metnimiz. Verileriniz nasıl işleniyor?',
-  alternates: { canonical: 'https://sariyerkentkonseyi.org/kvkk' },
+  alternates: { canonical: `${getSiteUrl()}/kvkk` },
 };
 
-export default function Kvkk() {
+export default async function Kvkk() {
+  const [navGroups, navCouncils] = await Promise.all([
+    getWorkingGroups(),
+    getCouncils(),
+  ]);
 
   return (
     <>
-      <Navbar />
+      <Navbar navGroups={navGroups} navCouncils={navCouncils} />
       <main>
         <PageHeader
           eyebrow="YASAL"

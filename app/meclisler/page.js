@@ -1,20 +1,25 @@
 import Link from "next/link";
 import Navbar from "../components/Navbar";
+import { getCouncils, getWorkingGroups } from "../../lib/data/index.js";
+import { getSiteUrl } from "../../lib/data/config.js";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
-import councilsData from "../data/meclisler.json";
 
 export const metadata = {
   title: 'Meclislerimiz | Sarıyer Kent Konseyi',
   description: 'Sarıyer\'in farklı kesimlerini temsil eden meclislerimiz. Gençlik, kadın, engelli meclisleri ve daha fazlası.',
-  alternates: { canonical: 'https://sariyerkentkonseyi.org/meclisler' },
+  alternates: { canonical: `${getSiteUrl()}/meclisler` },
 };
 
-export default function Meclisler() {
+export default async function Meclisler() {
+  const [councils, navGroups] = await Promise.all([
+    getCouncils(),
+    getWorkingGroups(),
+  ]);
 
   return (
     <>
-      <Navbar />
+      <Navbar navGroups={navGroups} navCouncils={councils} />
       <main>
         <PageHeader
           eyebrow="MECLİSLERİMİZ"
@@ -29,7 +34,7 @@ export default function Meclisler() {
               kendi alanında uzmanlaşmış çalışmalar yürütür.
             </small>
             <div className="council-grid">
-              {councilsData.map((c) => (
+              {councils.map((c) => (
                 <Link className="council-card" href={c.link} key={c.id}>
                   <img src={c.img} alt={c.title} />
                   <div>

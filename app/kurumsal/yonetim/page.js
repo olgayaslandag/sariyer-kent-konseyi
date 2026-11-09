@@ -1,11 +1,13 @@
 import Navbar from "../../components/Navbar";
+import { getCouncils, getWorkingGroups } from "../../../lib/data/index.js";
+import { getSiteUrl } from "../../../lib/data/config.js";
 import Footer from "../../components/Footer";
 import PageHeader from "../../components/PageHeader";
 
 export const metadata = {
   title: 'Yönetim Kurulu | Sarıyer Kent Konseyi',
   description: 'Sarıyer Kent Konseyi yönetim kurulu üyeleri, asil ve yedek liste.',
-  alternates: { canonical: 'https://sariyerkentkonseyi.org/kurumsal/yonetim' },
+  alternates: { canonical: `${getSiteUrl()}/kurumsal/yonetim` },
 };
 
 const asilListe = [
@@ -43,11 +45,15 @@ const yedekListe = [
 
 const engelliTemsilcisi = "Mahmut Kement";
 
-export default function Yonetim() {
+export default async function Yonetim() {
+  const [navGroups, navCouncils] = await Promise.all([
+    getWorkingGroups(),
+    getCouncils(),
+  ]);
 
   return (
     <>
-      <Navbar />
+      <Navbar navGroups={navGroups} navCouncils={navCouncils} />
       <main>
         <PageHeader
           eyebrow="KURUMSAL"

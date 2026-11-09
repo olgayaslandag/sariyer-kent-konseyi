@@ -1,15 +1,18 @@
-"use client";
-
 import Link from "next/link";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PageHeader from "./components/PageHeader";
+import { getCouncils, getWorkingGroups } from "../lib/data/index.js";
 
-export default function NotFound() {
+export default async function NotFound() {
+  const [navGroups, navCouncils] = await Promise.all([
+    getWorkingGroups(),
+    getCouncils(),
+  ]);
 
   return (
     <>
-      <Navbar />
+      <Navbar navGroups={navGroups} navCouncils={navCouncils} />
       <main>
         <PageHeader
           eyebrow="HATA"

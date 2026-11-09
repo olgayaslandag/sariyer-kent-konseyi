@@ -1,11 +1,13 @@
 import Navbar from "../components/Navbar";
+import { getCouncils, getWorkingGroups } from "../../lib/data/index.js";
+import { getSiteUrl } from "../../lib/data/config.js";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
 
 export const metadata = {
   title: 'Raporlar & Yayınlar | Sarıyer Kent Konseyi',
   description: 'Sarıyer Kent Konseyi faaliyet raporları, stratejik planlar ve çalışma grubu raporları.',
-  alternates: { canonical: 'https://sariyerkentkonseyi.org/raporlar' },
+  alternates: { canonical: `${getSiteUrl()}/raporlar` },
 };
 
 const reports = [
@@ -17,11 +19,15 @@ const reports = [
   "Sarıyer Kent Konseyi Stratejik Plan 2025-2030"
 ];
 
-export default function Raporlar() {
+export default async function Raporlar() {
+  const [navGroups, navCouncils] = await Promise.all([
+    getWorkingGroups(),
+    getCouncils(),
+  ]);
 
   return (
     <>
-      <Navbar />
+      <Navbar navGroups={navGroups} navCouncils={navCouncils} />
       <main>
         <PageHeader
           eyebrow="BİLGİ"

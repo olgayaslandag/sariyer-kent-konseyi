@@ -1,14 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import eventsData from "../data/etkinlikler.json";
-import newsData from "../data/haberler.json";
 
-export default function NewsEvents() {
-  const featuredEvent = eventsData[0];
-  const eventRows = eventsData.slice(1, 5);
-  const featuredNews = newsData[0];
-  const newsRows = newsData.slice(1, 5);
+/**
+ * NewsEvents (client) — haber/etkinlik verisi props ile server'dan gelir (faz-4).
+ * @param {{ news?: import("../../lib/data/shapes.js").News[], events?: import("../../lib/data/shapes.js").Event[] }} props
+ */
+export default function NewsEvents({ news = [], events = [] }) {
+  const featuredEvent = events[0];
+  const eventRows = events.slice(1, 5);
+  const featuredNews = news[0];
+  const newsRows = news.slice(1, 5);
 
   return (
     <section className="section" style={{ paddingTop: 0 }} id="haberler">

@@ -1,11 +1,13 @@
 import Navbar from "../components/Navbar";
+import { getCouncils, getWorkingGroups } from "../../lib/data/index.js";
+import { getSiteUrl } from "../../lib/data/config.js";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
 
 export const metadata = {
   title: 'Fotoğraf Galerisi | Sarıyer Kent Konseyi',
   description: 'Sarıyer\'den kareler. Kent konseyimizin çalışmaları ve etkinliklerinden fotoğraflar.',
-  alternates: { canonical: 'https://sariyerkentkonseyi.org/galeri' },
+  alternates: { canonical: `${getSiteUrl()}/galeri` },
 };
 
 const images = [
@@ -17,11 +19,15 @@ const images = [
   "/img/sariyer-kare-6.jpg"
 ];
 
-export default function Galeri() {
+export default async function Galeri() {
+  const [navGroups, navCouncils] = await Promise.all([
+    getWorkingGroups(),
+    getCouncils(),
+  ]);
 
   return (
     <>
-      <Navbar />
+      <Navbar navGroups={navGroups} navCouncils={navCouncils} />
       <main>
         <PageHeader
           eyebrow="BİLGİ"

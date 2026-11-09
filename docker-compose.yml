@@ -1,6 +1,12 @@
 services:
   web:
-    build: .
+    build:
+      context: .
+      args:
+        # Build-time SITE_URL passthrough (Dockerfile ARG SITE_URL).
+        # Örn: SITE_URL=https://ornek.com docker compose up --build
+        # Boşsa config.js varsayılan prod URL fallback'i kullanılır.
+        SITE_URL: ${SITE_URL:-}
     ports:
       - "3001:3001"
     environment:

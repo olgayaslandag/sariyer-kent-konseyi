@@ -1,4 +1,12 @@
-const BASE_URL = 'https://sariyerkentkonseyi.org';
+/**
+ * app/sitemap.js — faz-4: eski modül yükleme kaldırıldı; dinamik URL'ler
+ * lib/data async API'sinden (getNews/getEvents/getCouncils/
+ * getWorkingGroups) üretilir. DATA_SOURCE=http iken de çalışır.
+ */
+import { getNews, getEvents, getCouncils, getWorkingGroups } from "../lib/data/index.js";
+import { getSiteUrl } from "../lib/data/config.js";
+
+const BASE_URL = getSiteUrl();
 
 const staticRoutes = [
   '/',
@@ -21,28 +29,30 @@ const staticRoutes = [
   '/kurumsal/yonetmelik',
 ];
 
-const meclisler = require('./data/meclisler.json');
-const etkinlikler = require('./data/etkinlikler.json');
-const calismaGruplari = require('./data/calisma-gruplari.json');
-const haberler = require('./data/haberler.json');
-
 export default async function sitemap() {
   const now = new Date();
 
+  const [news, events, councils, workingGroups] = await Promise.all([
+    getNews(),
+    getEvents(),
+    getCouncils(),
+    getWorkingGroups(),
+  ]);
+
   const dynamicRoutes = [
-    ...meclisler.map((item) => ({
+    ...councils.map((item) => ({
       url: `${BASE_URL}/meclisler/${item.slug}`,
       lastModified: now,
     })),
-    ...etkinlikler.map((item) => ({
+    ...events.map((item) => ({
       url: `${BASE_URL}/etkinlikler/${item.slug}`,
       lastModified: now,
     })),
-    ...calismaGruplari.map((item) => ({
+    ...workingGroups.map((item) => ({
       url: `${BASE_URL}/calisma-gruplari/${item.slug}`,
       lastModified: now,
     })),
-    ...haberler.map((item) => ({
+    ...news.map((item) => ({
       url: `${BASE_URL}/haberler/${item.slug}`,
       lastModified: now,
     })),

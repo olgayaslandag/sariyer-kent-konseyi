@@ -1,4 +1,6 @@
-const BASE_URL = 'https://sariyerkentkonseyi.org';
+import { getSiteUrl } from "../lib/data/config.js";
+
+const BASE_URL = getSiteUrl();
 
 export default function robots() {
   return {

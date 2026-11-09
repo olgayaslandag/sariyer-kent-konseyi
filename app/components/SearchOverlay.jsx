@@ -2,18 +2,16 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
-import { search } from "../data/searchData";
+import { useRouter } from "next/navigation";
 
-const BADGE_LABELS = {
-  Haber: "Haber",
-  Etkinlik: "Etkinlik",
-  "Çalışma Grubu": "Çalışma Grubu",
-  Meclis: "Meclis",
-};
-
+/**
+ * SearchOverlay (client) — faz-4: tam arama dizini client bundle'ında
+ * tutulmuyor; bu bileşen yalnızca yönlendirme input'udur. Gönderimde
+ * server-side arama sayfasına (/arama?q=...) router.push yapılır.
+ */
 export default function SearchOverlay({ open, onClose }) {
+  const router = useRouter();
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
   const [mounted, setMounted] = useState(false);
   const [isRendered, setIsRendered] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +25,6 @@ export default function SearchOverlay({ open, onClose }) {
     if (open) {
       setIsRendered(true);
       setQuery("");
-      setResults([]);
       requestAnimationFrame(() => {
         requestAnimationFrame(() => setIsOpen(true));
       });
@@ -35,15 +32,6 @@ export default function SearchOverlay({ open, onClose }) {
       setIsOpen(false);
     }
   }, [open, mounted]);
-
-  const performSearch = useCallback((value) => {
-    const q = value.trim();
-    if (!q) {
-      setResults([]);
-      return;
-    }
-    setResults(search(q));
-  }, []);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -76,7 +64,8 @@ export default function SearchOverlay({ open, onClose }) {
     e.preventDefault();
     const trimmed = query.trim();
     if (!trimmed) return;
-    window.location.href = `/arama?q=${encodeURIComponent(trimmed)}`;
+    handleClose();
+    router.push(`/arama?q=${encodeURIComponent(trimmed)}`);
   };
 
   if (!isRendered || !mounted) return null;
@@ -107,10 +96,7 @@ export default function SearchOverlay({ open, onClose }) {
               type="text"
               placeholder="Ara..."
               value={query}
-              onChange={(e) => {
-                setQuery(e.target.value);
-                performSearch(e.target.value);
-              }}
+              onChange={(e) => setQuery(e.target.value)}
               autoFocus
             />
             <button className="search-btn" type="submit" aria-label="Ara">
@@ -118,21 +104,6 @@ export default function SearchOverlay({ open, onClose }) {
             </button>
           </div>
         </form>
-
-        {results.length > 0 && (
-          <ul className="search-results">
-            {results.map((item) => (
-              <li key={item.href} className="search-result-item">
-                <a href={item.href} className="search-result-title" onClick={handleClose}>
-                  {item.title}
-                </a>
-                <span className="search-result-badge">
-                  {BADGE_LABELS[item.type] || item.type}
-                </span>
-              </li>
-            ))}
-          </ul>
-        )}
       </div>
     </div>,
     document.body

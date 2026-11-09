@@ -1,18 +1,24 @@
 import Navbar from "../../components/Navbar";
+import { getCouncils, getWorkingGroups } from "../../../lib/data/index.js";
+import { getSiteUrl } from "../../../lib/data/config.js";
 import Footer from "../../components/Footer";
 import PageHeader from "../../components/PageHeader";
 
 export const metadata = {
   title: 'İç Yönerge | Sarıyer Kent Konseyi',
   description: 'Sarıyer Kent Konseyi iç yönergesi. Amaç, kapsam, organlar ve çalışma ilkeleri.',
-  alternates: { canonical: 'https://sariyerkentkonseyi.org/kurumsal/ic-yonerge' },
+  alternates: { canonical: `${getSiteUrl()}/kurumsal/ic-yonerge` },
 };
 
-export default function IcYonerge() {
+export default async function IcYonerge() {
+  const [navGroups, navCouncils] = await Promise.all([
+    getWorkingGroups(),
+    getCouncils(),
+  ]);
 
   return (
     <>
-      <Navbar />
+      <Navbar navGroups={navGroups} navCouncils={navCouncils} />
       <main>
         <PageHeader
           eyebrow="KURUMSAL"
