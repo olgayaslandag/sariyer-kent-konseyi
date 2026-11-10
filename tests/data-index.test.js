@@ -238,3 +238,15 @@ describe("JSON import izolasyonu (tek okuma noktası)", () => {
     expect(configSrc.includes("app/data")).toBe(false);
   });
 });
+
+describe("ISR cache tag (faz-9 Option A)", () => {
+  it("lib/data/index.js unstable_cacheTag referansı içermez", () => {
+    const indexSrc = readFileSync(fileURLToPath(new URL("../lib/data/index.js", import.meta.url)), "utf8");
+    expect(indexSrc.includes("unstable_cacheTag")).toBe(false);
+  });
+
+  it("lib/data/index.js cacheTag importunu kullanır", () => {
+    const indexSrc = readFileSync(fileURLToPath(new URL("../lib/data/index.js", import.meta.url)), "utf8");
+    expect(indexSrc.includes("cacheTag")).toBe(true);
+  });
+});

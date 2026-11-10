@@ -7,6 +7,11 @@
  *
  * all=true ise tüm TAGS değerleri revalidate edilir. Her tag için
  * revalidateTag(tag) (next/cache) çağrılır.
+ *
+ * Not (faz-9 Option A): per-slug dinamik tag'ler (slugTag, ör.
+ * "haberler:slug") artık üretilmiyor; slug-level purge koleksiyon
+ * tag'i (TAGS.*) üzerinden çalışır. slugTag değerleri "reserved"
+ * olarak belgelenmiştir (lib/data/tags.js, docs/api-contract.md §8).
  */
 
 import { revalidateTag } from "next/cache";

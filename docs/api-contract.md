@@ -284,7 +284,7 @@ curl -X POST http://localhost:3000/api/revalidate \
   -d '{"all": true}'
 
 # seçili tag'ler:
-# -d '{"tags": ["haberler", "haberler:ornek-slug"]}'
+# -d '{"tags": ["haberler"]}'  # per-slug tag'ler ("haberler:slug") reserved — şu an etkisiz
 ```
 
 - Her tag için `revalidateTag(tag)` (`next/cache`) çağrılır.
@@ -302,12 +302,17 @@ curl -X POST http://localhost:3000/api/revalidate \
 | `TAGS.WORKING_GROUPS` | `calisma-gruplari` | çalışma grubu listesi |
 | `TAGS.SEARCH` | `arama` | arama indeksi |
 
-- Tekil kayıt tag'i: `slugTag(kind, slug)` → `` `${kind}:${slug}` ``
-  (ör. `haberler:sariyerde-yesil-alanlar-artiyor`).
-- Liste uçları `[TAGS.X]` ile, tekil uçlar `[TAGS.X, slugTag(kind, slug)]`
-  ile etiketlenir (`lib/data/index.js`).
-- Revalidate isteğinde hem koleksiyon tag'leri (`haberler`) hem slug tag'leri
-  (`haberler:slug`) kullanılabilir.
+- Tekil kayıt tag'i (reserved): `slugTag(kind, slug)` → `` `${kind}:${slug}` ``
+  (ör. `haberler:sariyerde-yesil-alanlar-artiyor`). Faz-9 Option A ile
+  per-slug dinamik tag'ler ISR katmanında üretilmiyor; slug-level purge
+  koleksiyon tag'i (`haberler`) üzerinden çalışır.
+- Liste ve tekil uçlar `[TAGS.X]` (koleksiyon tag'i) ile etiketlenir
+  (`lib/data/index.js`). Tekil kayıtlar da ilgili koleksiyon tag'i altında
+  tutulur.
+- Revalidate isteğinde koleksiyon tag'leri (`haberler`, `etkinlikler`,
+  `meclisler`, `calisma-gruplari`, `arama`) kullanılabilir; per-slug
+  tag'ler (`haberler:slug`) "reserved" olarak belgelenmiştir ve şu an
+  etkisizdir.
 
 ---
 

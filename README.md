@@ -127,7 +127,10 @@ Gelecekte bağlanacak gerçek (headless) API'nin uyması gereken sözleşme
 Veri katmanı (`lib/data/index.js`) `unstable_cache` (next/cache) ile
 sarılır: `revalidate: 3600` (1 saat) ISR, tag'ler `lib/data/tags.js`'te
 tanımlıdır (`haberler`, `etkinlikler`, `meclisler`, `calisma-gruplari`,
-`arama` + `slugTag(kind, slug)`).
+`arama`). Tekil (slug) kayıtlar da ilgili koleksiyon tag'i altında
+tutulur; slug-level purge koleksiyon tag'i üzerinden çalışır. Per-slug
+tag'ler (`slugTag`, ör. `haberler:slug`) "reserved" olarak saklıdır
+(faz-9 Option A).
 
 On-demand purge için:
 
@@ -136,8 +139,9 @@ curl -X POST http://localhost:3000/api/revalidate \
   -H "x-revalidate-secret: $REVALIDATE_SECRET" \
   -H "Content-Type: application/json" \
   -d '{"all": true}'
-# veya seçili tag'ler:
-# -d '{"tags": ["haberler", "haberler:ornek-slug"]}'
+# veya seçili koleksiyon tag'leri:
+# -d '{"tags": ["haberler", "etkinlikler"]}'
+# (per-slug tag'ler "haberler:slug" şu an etkisizdir)
 ```
 
 - Secret eksik/yanlışsa 401/500; başarılı 200 + `{ revalidated, now }`.
