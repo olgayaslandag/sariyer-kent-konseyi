@@ -14,7 +14,7 @@
 import { getCouncils } from "../../../lib/data/sources/mock.js";
 
 /** Thin mock verisi build'de statikleşir; runtime'da DB/enrichment yok. */
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 /** GET /api/meclisler → Council[] */
 export async function GET() {

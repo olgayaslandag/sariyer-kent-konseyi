@@ -18,7 +18,7 @@
 import { getNews } from "../../../lib/data/sources/mock.js";
 
 /** Thin mock verisi build'de statikleşir; runtime'da DB/enrichment yok. */
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 /** GET /api/haberler → News[] */
 export async function GET() {

@@ -160,6 +160,40 @@
         "DATA_SOURCE=http + API_BASE_URL ile uygulama çalışır",
         "MSW testleri yeşil"
       ]
+    },
+    {
+      "id": "phase-9",
+      "phase": 9,
+      "title": "ISR + on-demand revalidate (mock FS read + unstable_cache + /api/revalidate)",
+      "description": "lib/data/index.js public API'si unstable_cache (next/cache) ile sarıldı (revalidate:3600); cache tag'leri lib/data/tags.js. mocks/data/*.json çağrı anında fs/promises ile okunur (mtime Map cache, clearMockCache, readMockJson). On-demand purge için POST /api/revalidate (x-revalidate-secret) eklendi. Agentlar: backend-api-agent (ISR/cache/revalidate + mock FS read) + frontend-coder-agent (ISR export'ları) + qa-tester-agent (90/90 test, build exit 0) — tek kayıt (agent: backend-api-agent).",
+      "agent": "backend-api-agent",
+      "status": "done",
+      "dependsOn": [
+        "phase-8"
+      ],
+      "acceptance": [
+        "lib/data/index.js unstable_cache ile sarıldı (revalidate:3600)",
+        "mock source fs/promises ile okur, mtime cache + clearMockCache",
+        "POST /api/revalidate secret/tags/all ile 200/400/401/500",
+        "tests 90/90 yeşil, build exit 0 (ISR export'ları)",
+        "D1–D4 beklenen farklar korundu"
+      ]
+    },
+    {
+      "id": "phase-10",
+      "phase": 10,
+      "title": "(Opsiyonel) API sözleşme dokümantasyonu (docs/api-contract.md + README)",
+      "description": "docs/api-contract.md ile gelecekte bağlanacak headless API'nin sözleşmesi (5 uç, tipler, açık kararlar: tarih ISO, görsel absolute URL, içerik HTML) ve README API Sözleşmesi bölümü. Opsiyonel dokümantasyon fazı; kod değişikliği yok.",
+      "agent": "general",
+      "status": "done",
+      "dependsOn": [
+        "phase-9"
+      ],
+      "acceptance": [
+        "docs/api-contract.md oluşturuldu (5 uç, tipler, açık kararlar)",
+        "README'de API Sözleşmesi bölümü eklendi",
+        "Açık kararlar: tarih ISO, görsel absolute, içerik HTML (§6)"
+      ]
     }
   ]
 }

@@ -107,6 +107,44 @@ Doğrulama: `DATA_SOURCE=http` üretim sunucusunda dinamik `/arama?q=çevre`
 `http.js -> /api/* -> route handler` zinciri üzerinden 200 döner;
 route'lar http modunda bile mock (döngü yok).
 
+## API Sözleşmesi
+
+Gelecekte bağlanacak gerçek (headless) API'nin uyması gereken sözleşme
+`docs/api-contract.md` dosyasında belgelenmiştir. Kısa özet:
+
+- **5 uç:** `GET /haberler`, `GET /haberler/:slug`, `GET /etkinlikler`,
+  `GET /meclisler`, `GET /calisma-gruplari`.
+- **Tipler:** `News`, `Event`, `Council`, `WorkingGroup` — zorunlu alanlar
+  `lib/data/shapes.js` ile birebir.
+- **Ayrım:** Meclis `detail.goals`, çalışma grubu `detail.focusAreas`;
+  `id` string, `activities` string, `DetailItem {title, desc}`.
+- **Açık kararlar:** tarih ISO, görsel absolute URL, içerik HTML (bkz.
+  doküman §6).
+- **Revalidate:** `POST /api/revalidate`, header `x-revalidate-secret`,
+  gövde `{tags|all}`; tag sözlüğü §8.
+### ISR + on-demand revalidate (faz-9)
+
+Veri katmanı (`lib/data/index.js`) `unstable_cache` (next/cache) ile
+sarılır: `revalidate: 3600` (1 saat) ISR, tag'ler `lib/data/tags.js`'te
+tanımlıdır (`haberler`, `etkinlikler`, `meclisler`, `calisma-gruplari`,
+`arama` + `slugTag(kind, slug)`).
+
+On-demand purge için:
+
+```bash
+curl -X POST http://localhost:3000/api/revalidate \
+  -H "x-revalidate-secret: $REVALIDATE_SECRET" \
+  -H "Content-Type: application/json" \
+  -d '{"all": true}'
+# veya seçili tag'ler:
+# -d '{"tags": ["haberler", "haberler:ornek-slug"]}'
+```
+
+- Secret eksik/yanlışsa 401/500; başarılı 200 + `{ revalidated, now }`.
+- `mocks/data/*.json` değişikliği mtime üzerinden algılanır
+  (`sources/mock.js` Map cache); `clearMockCache()` (index.js re-export)
+  ile temizlenebilir.
+
 ### Path alias
 
 `jsconfig.json` `@/*` aliası (`"baseUrl": "."`, `"paths": { "@/*": ["./*"] }`):
@@ -135,6 +173,7 @@ route'lar http modunda bile mock (döngü yok).
 | `DATA_SOURCE`  | `mock` (`mock` \| `http`)                    | build-time / runtime                                | Veri kaynağı seçimi. Geçersiz/boş değer `mock` fallback'idir. |
 | `API_BASE_URL` | _(boş)_ e.g. `https://api.example.com` veya `/api` | build-time (yalnızca `http` modda gerekir)     | Headless API kök URL'i. Boşsa http kaynağı hata fırlatır. Sondaki `/` temizlenir. |
 | `SITE_URL`     | `https://sariyerkentkonseyi.org`             | **build-time ARG/ENV**                              | Canonical/sitemap/robots/metadata/OG için tek kaynak. SSG'de gömülür; değiştirmek için rebuild gerekir. Geçersiz/boşsa varsayılan fallback'tir. |
+| `REVALIDATE_SECRET` | `dev-secret-change-in-prod` | runtime | On-demand ISR revalidate için `POST /api/revalidate` `x-revalidate-secret` header değeri. Ayarlanmazsa endpoint 500 döner. |
 
 ### Docker ile SITE_URL
 
